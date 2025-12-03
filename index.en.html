@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Title & Description (English Optimized) -->
+    <title>【Official】DAISEN UMIHOTARU | Private Villa for up to 14 Guests | Daisen, Tottori</title>
+    <meta name="description" content="[Daisen, Tottori] An oceanfront private villa located 0 minutes from the sea. Accommodates up to 14 guests, perfect for multi-generational families and large groups. Features a spacious living room, ping pong table, and BBQ facilities. Enjoy a completely private stay with the sound of the waves. Reserve now.">
+    
+    <!-- OGP (SNS Sharing) -->
+    <meta property="og:title" content="DAISEN UMIHOTARU | Private Villa for up to 14 Guests">
+    <meta property="og:description" content="Stay as if you live here, listening to the sound of the waves. An oceanfront private villa perfect for families and groups.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.d-umihotaru.com/en/">
+    <meta property="og:image" content="https://www.d-umihotaru.com/assets/images/fv.webp">
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VacationRental",
+      "name": "DAISEN UMIHOTARU",
+      "url": "https://www.d-umihotaru.com/en/",
+      "description": "An oceanfront private villa in Daisen, Tottori, accommodating up to 14 guests. Ideal for families and group travel.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "824 Mikuriya",
+        "addressLocality": "Daisen-cho, Saihaku-gun",
+        "addressRegion": "Tottori",
+        "postalCode": "689-3200",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "35.5246", 
+        "longitude": "133.4867"
+      },
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "minValue": 2,
+        "maxValue": 14
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Ocean View", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "BBQ Facilities", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ping Pong Table", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Suitable for Families", "value": true }
+      ],
+      "priceRange": "$$$"
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Zen+Old+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.45/lenis.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#155e75',       /* Cyan 800 */
+                        charcoal: '#cffafe',  /* Cyan 100 */
+                        sand: '#f2fdff',      /* Custom */
+                        stone: '#67e8f9',     /* Cyan 300 */
+                        accent: '#06b6d4',    /* Cyan 500 */
+                        ocean: '#0891b2',     /* Cyan 600 */
+                        white: '#ffffff',
+                    },
+                    fontFamily: {
+                        // Prioritize English fonts for the English page
+                        sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        mincho: ['"Cormorant Garamond"', '"Zen Old Mincho"', 'serif'], 
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f2fdff;
+            color: #155e75;
+            font-feature-settings: "palt";
+        }
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.15em;
+        }
+        .reveal-img-container {
+            overflow: hidden;
+            position: relative;
+            border-radius: 2px;
+        }
+        .reveal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+        }
+        .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="noise-overlay"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="#story" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Story</a>
+            <a href="#Room" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Room</a>
+            <a href="#facilities" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Facilities</a>
+            <a href="#experience" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Experience</a>
+            <a href="#reviews" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Reviews</a>
+            <a href="#info" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Info</a>
+            <!-- Language Switcher in Mobile Menu -->
+            <div class="flex gap-4 text-xl font-serif mt-4">
+                <span class="text-ink opacity-50 border-b border-ink">EN</span>
+                <span class="text-ink opacity-30">/</span>
+                <a href="index_kr.html" class="text-ink hover:text-accent transition-colors">KR</a>
+                <span class="text-ink opacity-30">/</span>
+                <a href="index.html" class="text-ink hover:text-accent transition-colors">JP</a>
+            </div>
+            <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+                RESERVE
+            </a>
+        </nav>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-start text-ink/80 bg-sand/80 backdrop-blur-sm border-b border-white/50">
+        <a href="#" class="group block">
+            <h1 class="font-serif text-xl tracking-widest leading-none text-accent">DAISEN<br><span class="text-ink">UMIHOTARU</span></h1>
+            <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            <nav class="flex gap-8">
+                <a href="#story" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Story</a>
+                <a href="#Room" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Room</a>
+                <a href="#facilities" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Facilities</a>
+                <a href="#experience" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Experience</a>
+                <a href="#reviews" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Reviews</a>
+                <a href="#info" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Info</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="flex gap-2 text-xs font-serif tracking-widest">
+                <span class="text-ink border-b border-ink">EN</span>
+                <span class="text-ink/30">/</span>
+                <a href="index_kr.html" class="text-ink/50 hover:text-accent transition-colors">KR</a>
+                <span class="text-ink/30">/</span>
+                <a href="index.html" class="text-ink/50 hover:text-accent transition-colors">JP</a>
+            </div>
+
+            <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+                RESERVE
+            </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-ink p-1">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
+            <div class="absolute inset-0 w-full h-full">
+                <img src="assets/images/fv.webp" alt="Exterior of DAISEN UMIHOTARU, an oceanfront private villa in Daisen, Tottori" class="w-full h-full object-cover opacity-90" id="hero-img">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 text-center text-ink px-4">
+                <div class="overflow-hidden mb-4">
+                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10" id="hero-sub">Private Villa for Families & Groups</p>
+                </div>
+                <h2 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10" id="hero-title">
+                    Living with the<br>Sound of Waves
+                </h2>
+            </div>
+
+            <div class="absolute bottom-12 left-6 md:left-12 text-ink/60 font-sans text-[10px] tracking-widest writing-vertical h-32 border-l border-ink/30 pl-4">
+                SCROLL TO EXPLORE
+            </div>
+        </section>
+
+        <!-- Story -->
+        <section id="story" class="py-32 md:py-48 px-6 md:px-24 max-w-screen-2xl mx-auto relative">
+            <div class="absolute top-20 left-10 text-[10rem] font-serif text-stone/20 select-none -z-10 opacity-40">01</div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start gap-20">
+                <div class="md:w-1/3 sticky top-32">
+                    <h3 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h3>
+                    <div class="w-16 h-[1px] bg-stone mb-8"></div>
+                    <p class="font-mincho text-lg leading-loose text-ink text-anim">
+                        A timeless sanctuary<br>
+                        by the sea.
+                    </p>
+                </div>
+
+                <div class="md:w-1/2 space-y-24">
+                    <div>
+                        <p class="font-mincho text-base leading-loose text-ink/80 text-justify text-anim">
+                            In Mikuriya, Daisen Town, Tottori Prefecture.<br>
+                            A single house stands quietly in this port town.<br>
+                            This is a private villa, exclusive to one group per day.<br>
+                            Open the door, and the sea breeze and the sound of waves will wash away the hustle and bustle of daily life.
+                        </p>
+                    </div>
+                    
+                    <div class="reveal-img-container aspect-[3/2] shadow-xl shadow-stone/20">
+                        <img src="assets/images/view.webp" alt="Panoramic view of the Sea of Japan from the living room" loading="lazy" class="reveal-img">
+                    </div>
+
+                    <div>
+                        <p class="font-mincho text-base leading-loose text-ink/80 text-justify text-anim">
+                            A trip where family and friends gather, a gentle time with loved ones.<br>
+                            In this spacious house that can accommodate up to 14 people, you don't have to worry about anyone else, even if the children's laughter echoes.<br>
+                            Two staircases, maze-like rooms, and the sea filling the windows.<br>
+                            Don't just "stay", but "live" in this town with your precious people.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Room -->
+        <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
+            <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
+                <div>
+                    <h3 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h3>
+                    <p class="font-mincho text-lg leading-loose text-ink mt-4">Spacious comfort for up to 14 guests</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-y-24 md:gap-x-8 max-w-screen-2xl mx-auto">
+                
+                <!-- Living -->
+                <div class="col-span-12 md:col-span-7 relative">
+                    <div class="reveal-img-container aspect-[16/10] shadow-lg shadow-stone/30">
+                        <img src="assets/images/living.webp" alt="Spacious living room and play area" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="md:absolute -bottom-12 -right-12 bg-white/90 p-6 md:p-8 max-w-sm border-l-4 border-stone backdrop-blur-md shadow-sm">
+                        <h4 class="font-serif text-2xl mb-2 text-ocean">Living & Play</h4>
+                        <p class="font-mincho text-base text-ink/80 leading-loose">
+                            The open living room overlooking the sea is the center where everyone gathers.
+                            Heat up with a game of ping pong or play some music.
+                            A space filled with smiles where you won't get bored even on rainy days.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hidden md:block col-span-5"></div>
+
+                <!-- Kitchen -->
+                <div class="hidden md:block col-span-4"></div>
+                <div class="col-span-12 md:col-span-8 relative mt-12 md:mt-0">
+                    <div class="reveal-img-container aspect-[16/9] shadow-lg shadow-stone/30">
+                        <img src="assets/images/kitchen.webp" alt="Full kitchen and dining area" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="md:absolute -top-12 -left-12 bg-white/90 p-6 md:p-8 max-w-sm border-r-4 border-stone z-10 backdrop-blur-md shadow-sm">
+                        <h4 class="font-serif text-2xl mb-2 text-ocean">Kitchen & Patio</h4>
+                        <p class="font-mincho text-base text-ink/80 leading-loose">
+                            A full kitchen where you can freely cook with fresh local ingredients from Daisen.
+                            The courtyard is equipped with a BBQ grill.
+                            Spend irreplaceable time cooking and eating together.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bath & Bedroom -->
+                <div class="col-span-12 md:col-span-6 mt-12 md:mt-0">
+                    <div class="reveal-img-container aspect-square shadow-md">
+                        <img src="assets/images/bath.webp" alt="Ocean view bath overlooking the sunset" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="mt-6 pl-4 border-l-2 border-stone">
+                        <h4 class="font-serif text-xl mb-2 text-ocean">Ocean Bath</h4>
+                        <p class="font-mincho text-base text-ink/70">Bath time bathed in the sunset. Spacious enough to enjoy with children.</p>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 mt-12 md:mt-24">
+                    <div class="reveal-img-container aspect-[4/5] shadow-md">
+                        <img src="assets/images/bedroom.webp" alt="Quiet bedroom with the sound of waves" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="mt-6 pl-4 border-l-2 border-stone">
+                        <h4 class="font-serif text-xl mb-2 text-ocean">Bedrooms</h4>
+                        <p class="font-mincho text-base text-ink/70">Multiple bedrooms to ensure privacy. Safe layout even for large groups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floor Plan -->
+        <section id="floorplan" class="py-24 bg-white/50">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                 <h3 class="font-mincho text-3xl text-ink mb-4">Floor Plan</h3>
+                 <p class="font-sans text-sm text-ink/60 tracking-widest mb-12">Floor Plan (Max 14 Guests)</p>
+                 <div class="reveal-img-container shadow-lg bg-white p-4 md:p-8">
+                     <img src="assets/images/floor-plan.webp" alt="Floor plan of DAISEN UMIHOTARU" loading="lazy" class="w-full h-auto">
+                 </div>
+            </div>
+        </section>
+
+        <!-- Facilities & Amenities -->
+        <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="font-serif text-stone text-lg italic">Amenities & Services</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Amenities</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Kitchen -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Kitchen</h4>
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        Rice cooker, IH stove, Refrigerator, Microwave, Coffee machine, Cookware set, Tableware (for large groups), IH tabletop stove, Earthenware pot<br>
+                        <span class="text-xs text-ink/60">*Seasonings provided: Salt, Pepper, Salad oil only.</span>
+                    </p>
+                </div>
+
+                <!-- Amenities -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="bath" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Bath Amenities</h4>
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        Bath towels, Face towels, Toothbrushes, Shampoo, Conditioner, Body soap, Hair dryer<br>
+                        <span class="text-xs text-ink/60">*Please bring your own pajamas, razors, etc. for environmental reasons.</span>
+                    </p>
+                </div>
+
+                <!-- BBQ -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="flame" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ</h4>
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        Up to 3 charcoal BBQ grills available for free (Reservation required). Tongs, gloves, and charcoal extinguishing buckets are provided.<br>
+                        <span class="text-xs text-ink/60">*Please bring your own charcoal, fire starters, and ingredients.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
+            <div class="text-center mb-24">
+                <span class="font-serif text-stone text-lg italic">Curated Experiences</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Experiences</h3>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Exp 1 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">01</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">Boat Fishing at Mikuriya Port</h4>
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            A special option in collaboration with local fishing boats. The view of Mt. Daisen from the sea is breathtaking. Enjoy BBQ with the fish you caught at night.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/local-food.webp" alt="Fishing experience at Mikuriya Port" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">02</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">Dinner at "Mikuri"</h4>
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            If you prefer not to cook, we recommend a special dinner at the nearby partnered facility "Mikuri". Enjoy dishes using seasonal ingredients from Daisen.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/mikuri-dinner.webp" alt="Dinner at Mikuri" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Exp 3 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">03</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">Play Inside</h4>
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            Ping pong, board games, Electone. We have prepared entertainment so you won't get bored even on rainy days. Children can also spend time without getting tired.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/ping-pong.webp" alt="Enjoying ping pong" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
+            <div class="text-center mb-20">
+                <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Reviews</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"The view from the bath was spectacular!"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            It was my first time staying here. It was very clean, the rooms were spacious, and we had a very comfortable stay!
+                            The view of the sea from the bathroom was spectacular! I want to repeat next time to do some fishing in the sea!
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>Aug 2025 / Family with kids</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"We were able to enjoy indoors"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            Unfortunately, the weather was bad on the day and we couldn't do BBQ, but we were able to enjoy indoors with ping pong and games.
+                            There are many rooms and it is spacious, so I think it is okay for 2-3 families to come.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>Aug 2025 / 3 Families (10 guests)</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"Only 10m from the coast"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            I have never seen such a wonderful accommodation. The spacious space where 3 families can stay, the clean interior, the location only 10m from the coast, and the kindness of the host were all the best. Highly recommended.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>Sep 2025 / 3 Family Group</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"So big we almost got lost lol"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            Great location and the view was impressive. It was so big we almost got lost (lol). If I come next time, I want to spend two days. Also, I think it would be fun with a large number of people!
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>Aug 2025 / Family with kids</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Access -->
+        <section id="info" class="py-24 bg-charcoal text-ink">
+            <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div>
+                    <!-- Color changed from text-ocean to text-ink for consistency -->
+                    <h3 class="font-serif text-3xl mb-12 text-ink">Information</h3>
+                    <dl class="space-y-8 font-sans text-sm tracking-wide">
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Address</dt>
+                            <dd>
+                                824 Mikuriya, Daisen-cho, Saihaku-gun, Tottori 689-3203<br>
+                                <a href="https://maps.app.goo.gl/UsVmGbPwS9Zrr1ua6" target="_blank" class="inline-block mt-2 text-accent hover:text-ocean transition-colors text-xs border-b border-accent hover:border-ocean pb-0.5">
+                                    Google Maps &rarr;
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Access</dt>
+                            <dd>
+                                [Car] Approx. 5 min from San-in Expressway "Nawa IC" (Parking for 4 cars)<br>
+                                [Train] Approx. 10 min walk from JR San-in Main Line "Mikuriya Station"
+                            </dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Capacity</dt>
+                            <dd>Max 14 guests (1 group per day)</dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Check In/Out</dt>
+                            <dd>16:00 / 10:00</dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Contact</dt>
+                            <dd>
+                                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-ocean transition-colors">
+                                    umihotaru.daisen@gmail.com
+                                </a>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="flex flex-col justify-between">
+                    <div class="aspect-video w-full bg-white relative overflow-hidden shadow-lg rounded-sm">
+                        <!-- Map with specific query address -->
+                        <iframe 
+                            src="https://maps.google.com/maps?q=%E9%B8%9F%E5%8F%96%E7%9C%8C%E8%A5%BF%E4%BC%AF%E9%83%A1%E5%A4%A7%E5%B1%B1%E7%94%BA%E5%BE%A1%E6%9D%A5%E5%B1%8B824&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+                            title="DAISEN UMIHOTARU Google Maps"
+                        ></iframe>
+                    </div>
+                    <div class="mt-12">
+                        <p class="font-mincho text-lg mb-6 text-ink/80">
+                            Spend an irreplaceable holiday<br>
+                            together with everyone.
+                        </p>
+                        <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-charcoal text-ink py-12 px-6 border-t border-stone/30">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-60">
+            <p>&copy; 2025 DAISEN UMIHOTARU</p>
+            <div class="flex gap-8 mt-4 md:mt-0">
+                <a href="#" class="hover:text-accent transition-colors">PRIVACY POLICY</a>
+                <a href="#" class="hover:text-accent transition-colors">TERMS</a>
+                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-accent transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+        }
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline();
+            tl.to("#hero-img", {
+                scale: 1,
+                duration: 2,
+                ease: "power2.out"
+            }, "0.5")
+            .to(["#hero-logo-container", "#hero-title", "#hero-sub"], {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 1.2,
+                ease: "power3.out"
+            }, "-=1.5");
+
+            const revealContainers = document.querySelectorAll(".reveal-img-container");
+            revealContainers.forEach((container) => {
+                const img = container.querySelector("img");
+                if (img) {
+                    gsap.to(img, {
+                        scale: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    });
+                }
+            });
+
+            const textElements = document.querySelectorAll(".text-anim");
+            textElements.forEach(text => {
+                gsap.from(text, {
+                    y: 30,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: text,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        }
+        
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.remove('pointer-events-none');
+                gsap.to(mobileMenu, { opacity: 1, duration: 0.5, ease: "power2.out" });
+            } else {
+                gsap.to(mobileMenu, { opacity: 0, duration: 0.5, ease: "power2.in", onComplete: () => {
+                    mobileMenu.classList.add('pointer-events-none');
+                }});
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    </script>
+</body>
+</html>

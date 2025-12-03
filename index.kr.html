@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Title & Description (Korean Optimized) -->
+    <title>【공식】 DAISEN UMIHOTARU | 최대 14명 숙박 가능한 프라이빗 독채 빌라 | 돗토리현 다이센초</title>
+    <meta name="description" content="[돗토리현 다이센초] 바다까지 도보 0분, 오션뷰 프라이빗 독채 빌라. 최대 14명까지 숙박 가능하여 대가족 여행이나 단체 합숙에 최적입니다. 넓은 거실, 탁구대, BBQ 완비. 파도 소리와 함께하는 프라이빗한 시간을 즐겨보세요. 예약하기.">
+    
+    <!-- OGP (SNS Sharing) -->
+    <meta property="og:title" content="DAISEN UMIHOTARU | 최대 14명 숙박 가능한 프라이빗 독채 빌라">
+    <meta property="og:description" content="파도 소리를 들으며 다이센에서 살아보는 여행. 가족 및 단체 여행에 최적화된 바닷가 프라이빗 빌라.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.d-umihotaru.com/kr/">
+    <meta property="og:image" content="https://www.d-umihotaru.com/assets/images/fv.webp">
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VacationRental",
+      "name": "DAISEN UMIHOTARU",
+      "url": "https://www.d-umihotaru.com/kr/",
+      "description": "돗토리현 다이센초에 위치한 최대 14명까지 숙박 가능한 오션뷰 독채 빌라. 대가족 및 단체 여행에 최적화된 넓은 공간.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "824 Mikuriya",
+        "addressLocality": "Daisen-cho, Saihaku-gun",
+        "addressRegion": "Tottori",
+        "postalCode": "689-3200",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "35.5246", 
+        "longitude": "133.4867"
+      },
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "minValue": 2,
+        "maxValue": 14
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Ocean View", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "BBQ Facilities", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ping Pong Table", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Suitable for Families", "value": true }
+      ],
+      "priceRange": "$$$"
+    }
+    </script>
+    
+    <!-- Google Fonts (Added Noto Serif KR and Noto Sans KR for Korean support) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.45/lenis.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#155e75',       /* Cyan 800 */
+                        charcoal: '#cffafe',  /* Cyan 100 */
+                        sand: '#f2fdff',      /* Custom */
+                        stone: '#67e8f9',     /* Cyan 300 */
+                        accent: '#06b6d4',    /* Cyan 500 */
+                        ocean: '#0891b2',     /* Cyan 600 */
+                        white: '#ffffff',
+                    },
+                    fontFamily: {
+                        // Korean fonts prioritized
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        mincho: ['"Cormorant Garamond"', '"Noto Serif KR"', 'serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f2fdff;
+            color: #155e75;
+            font-feature-settings: "palt";
+            word-break: keep-all; /* Prevent awkward line breaks in Korean */
+        }
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.15em;
+        }
+        /* Adjust writing mode for Korean if needed, but keeping vertical for aesthetic consistency with JP site usually works well for short English/JP phrases. 
+           However, "SCROLL TO EXPLORE" is English, so it's fine. */
+        
+        .reveal-img-container {
+            overflow: hidden;
+            position: relative;
+            border-radius: 2px;
+        }
+        .reveal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+        }
+        .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="noise-overlay"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="#story" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Story</a>
+            <a href="#Room" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Room</a>
+            <a href="#facilities" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Facilities</a>
+            <a href="#experience" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Experience</a>
+            <a href="#reviews" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Reviews</a>
+            <a href="#info" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Info</a>
+            
+            <!-- Language Switcher in Mobile Menu -->
+            <div class="flex gap-4 text-xl font-serif mt-4">
+                <a href="index_en.html" class="text-ink hover:text-accent transition-colors">EN</a>
+                <span class="text-ink opacity-30">/</span>
+                <span class="text-ink opacity-50 border-b border-ink">KR</span>
+                <span class="text-ink opacity-30">/</span>
+                <a href="index.html" class="text-ink hover:text-accent transition-colors">JP</a>
+            </div>
+
+            <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+                RESERVE
+            </a>
+        </nav>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-start text-ink/80 bg-sand/80 backdrop-blur-sm border-b border-white/50">
+        <a href="#" class="group block">
+            <h1 class="font-serif text-xl tracking-widest leading-none text-accent">DAISEN<br><span class="text-ink">UMIHOTARU</span></h1>
+            <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            <nav class="flex gap-8">
+                <a href="#story" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Story</a>
+                <a href="#Room" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Room</a>
+                <a href="#facilities" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Facilities</a>
+                <a href="#experience" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Experience</a>
+                <a href="#reviews" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Reviews</a>
+                <a href="#info" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Info</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="flex gap-2 text-xs font-serif tracking-widest">
+                <a href="index_en.html" class="text-ink/50 hover:text-accent transition-colors">EN</a>
+                <span class="text-ink/30">/</span>
+                <span class="text-ink border-b border-ink">KR</span>
+                <span class="text-ink/30">/</span>
+                <a href="index.html" class="text-ink/50 hover:text-accent transition-colors">JP</a>
+            </div>
+
+            <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+                RESERVE
+            </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-ink p-1">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
+            <div class="absolute inset-0 w-full h-full">
+                <!-- All images changed to .webp -->
+                <img src="assets/images/fv.webp" alt="다이센 우미호타루의 외관. 돗토리현 다이센 바닷가에 위치한 독채 빌라" class="w-full h-full object-cover opacity-90" id="hero-img">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 text-center text-ink px-4">
+                <div class="overflow-hidden mb-4">
+                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10" id="hero-sub">Private Villa for Family & Group</p>
+                </div>
+                <h2 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10" id="hero-title">
+                    파도 소리와 함께하는<br>다이센에서의 휴식
+                </h2>
+            </div>
+
+            <div class="absolute bottom-12 left-6 md:left-12 text-ink/60 font-sans text-[10px] tracking-widest writing-vertical h-32 border-l border-ink/30 pl-4">
+                SCROLL TO EXPLORE
+            </div>
+        </section>
+
+        <!-- Story -->
+        <section id="story" class="py-32 md:py-48 px-6 md:px-24 max-w-screen-2xl mx-auto relative">
+            <div class="absolute top-20 left-10 text-[10rem] font-serif text-stone/20 select-none -z-10 opacity-40">01</div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start gap-20">
+                <div class="md:w-1/3 sticky top-32">
+                    <!-- Font size unified with Room section (text-4xl md:text-5xl) -->
+                    <!-- Color unified to text-ink -->
+                    <h3 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h3>
+                    <div class="w-16 h-[1px] bg-stone mb-8"></div>
+                    <!-- Unified font style: mincho, text-lg, text-ink -->
+                    <p class="font-mincho text-lg leading-loose text-ink text-anim">
+                        마음 편안한 시간,<br>
+                        기억에 남는 바닷가에서의 생활.
+                    </p>
+                </div>
+
+                <div class="md:w-1/2 space-y-24">
+                    <div>
+                        <p class="font-mincho text-base leading-loose text-ink/80 text-justify text-anim">
+                            돗토리현 다이센초, 미쿠리야(Mikuriya).<br>
+                            이 항구 마을에 조용히 자리 잡은 한 채의 집이 있습니다.<br>
+                            그곳은 하루 한 팀만을 위한 프라이빗 독채 빌라.<br>
+                            문을 열면 바닷바람과 파도 소리가 일상의 소란함을 씻어줍니다.
+                        </p>
+                    </div>
+                    
+                    <div class="reveal-img-container aspect-[3/2] shadow-xl shadow-stone/20">
+                        <img src="assets/images/view.webp" alt="거실에서 바라보는 일본해의 절경" loading="lazy" class="reveal-img">
+                    </div>
+
+                    <div>
+                        <p class="font-mincho text-base leading-loose text-ink/80 text-justify text-anim">
+                            가족, 친구들과 함께하는 여행, 소중한 사람들과의 온화한 시간.<br>
+                            최대 14명까지 머물 수 있는 넓은 이 집이라면, 아이들의 웃음소리가 울려 퍼져도 주변의 시선을 신경 쓸 필요가 없습니다.<br>
+                            두 개의 계단, 미로 같은 방, 창밖 가득 펼쳐지는 바다.<br>
+                            단순히 '머무는' 것이 아니라, 소중한 사람들과 이 마을에서 '살아보는' 듯한 여행을 경험해 보세요.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Room -->
+        <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
+            <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
+                <div>
+                    <!-- Font size unified with Story section -->
+                    <!-- Color changed from text-ocean to text-ink for consistency -->
+                    <h3 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h3>
+                    <!-- Modified: Unified style with Story section (mincho, text-lg, text-ink, leading-loose) -->
+                    <p class="font-mincho text-lg leading-loose text-ink mt-4">최대 14명이 쉴 수 있는 넓은 공간</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-y-24 md:gap-x-8 max-w-screen-2xl mx-auto">
+                
+                <!-- Living -->
+                <div class="col-span-12 md:col-span-7 relative">
+                    <div class="reveal-img-container aspect-[16/10] shadow-lg shadow-stone/30">
+                        <img src="assets/images/living.webp" alt="넓은 거실과 놀이 공간" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="md:absolute -bottom-12 -right-12 bg-white/90 p-6 md:p-8 max-w-sm border-l-4 border-stone backdrop-blur-md shadow-sm">
+                        <h4 class="font-serif text-2xl mb-2 text-ocean">Living & Play</h4>
+                        <!-- Text size increased to text-base and leading-loose for consistency -->
+                        <p class="font-mincho text-base text-ink/80 leading-loose">
+                            바다를 바라보는 개방적인 거실은 모두가 모이는 중심 공간입니다.
+                            탁구대를 둘러싸고 시합을 하거나, 악기를 연주해 보세요.
+                            비가 오는 날에도 지루할 틈 없이, 웃음이 끊이지 않는 공간입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hidden md:block col-span-5"></div>
+
+                <!-- Kitchen -->
+                <div class="hidden md:block col-span-4"></div>
+                <div class="col-span-12 md:col-span-8 relative mt-12 md:mt-0">
+                    <div class="reveal-img-container aspect-[16/9] shadow-lg shadow-stone/30">
+                        <img src="assets/images/kitchen.webp" alt="풀 키친과 다이닝" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="md:absolute -top-12 -left-12 bg-white/90 p-6 md:p-8 max-w-sm border-r-4 border-stone z-10 backdrop-blur-md shadow-sm">
+                        <h4 class="font-serif text-2xl mb-2 text-ocean">Kitchen & Patio</h4>
+                        <!-- Text size increased to text-base and leading-loose -->
+                        <p class="font-mincho text-base text-ink/80 leading-loose">
+                            다이센의 신선한 식재료로 자유롭게 요리할 수 있는 풀 키친.
+                            중정에는 BBQ 그릴도 완비되어 있습니다.
+                            함께 만들고 먹으며, 무엇과도 바꿀 수 없는 소중한 시간을 보내세요.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bath & Bedroom -->
+                <div class="col-span-12 md:col-span-6 mt-12 md:mt-0">
+                    <div class="reveal-img-container aspect-square shadow-md">
+                        <img src="assets/images/bath.webp" alt="석양을 바라볼 수 있는 오션뷰 욕실" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="mt-6 pl-4 border-l-2 border-stone">
+                        <h4 class="font-serif text-xl mb-2 text-ocean">Ocean Bath</h4>
+                        <p class="font-mincho text-base text-ink/70">석양을 받으며 즐기는 목욕 시간. 아이들과 함께 들어가도 넉넉한 크기입니다.</p>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 mt-12 md:mt-24">
+                    <div class="reveal-img-container aspect-[4/5] shadow-md">
+                        <img src="assets/images/bedroom.webp" alt="파도 소리와 함께 잠드는 조용한 침실" loading="lazy" class="reveal-img">
+                    </div>
+                    <div class="mt-6 pl-4 border-l-2 border-stone">
+                        <h4 class="font-serif text-xl mb-2 text-ocean">Bedrooms</h4>
+                        <p class="font-mincho text-base text-ink/70">프라이버시를 확보할 수 있는 여러 개의 침실. 대가족 여행에도 안심할 수 있는 구조입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floor Plan -->
+        <section id="floorplan" class="py-24 bg-white/50">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                 <h3 class="font-mincho text-3xl text-ink mb-4">Floor Plan</h3>
+                 <p class="font-sans text-sm text-ink/60 tracking-widest mb-12">평면도 (최대 14명 숙박 가능)</p>
+                 <div class="reveal-img-container shadow-lg bg-white p-4 md:p-8">
+                     <img src="assets/images/floor-plan.webp" alt="다이센 우미호타루 평면도" loading="lazy" class="w-full h-auto">
+                 </div>
+            </div>
+        </section>
+
+        <!-- Facilities & Amenities -->
+        <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="font-serif text-stone text-lg italic">Amenities & Services</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">설비・어메니티</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Kitchen -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">주방 비품</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        전기밥솥, IH 콘로, 냉장고, 전자레인지, 커피 머신, 조리 도구 일체, 식기류(다인용 구비), IH 탁상용 콘로, 뚝배기<br>
+                        <span class="text-xs text-ink/60">※조미료는 소금, 후추, 식용유만 준비되어 있습니다.</span>
+                    </p>
+                </div>
+
+                <!-- Amenities -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="bath" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">욕실 어메니티</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        목욕 타월, 페이스 타월, 칫솔, 샴푸, 린스, 바디 워시, 헤어 드라이어<br>
+                        <span class="text-xs text-ink/60">※환경 보호를 위해 잠옷, 면도기 등은 지참해 주시기 바랍니다.</span>
+                    </p>
+                </div>
+
+                <!-- BBQ -->
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                        <i data-lucide="flame" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ 설비</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
+                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                        숯불 BBQ 그릴을 무료로 3대까지 대여(사전 예약 필수). 집게, 장갑, 숯 처리 양동이는 준비되어 있습니다.<br>
+                        <span class="text-xs text-ink/60">※숯, 착화제, 식재료는 직접 준비해 주시기 바랍니다.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
+            <div class="text-center mb-24">
+                <span class="font-serif text-stone text-lg italic">Curated Experiences</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">미쿠리야에서 보내는 시간</h3>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Exp 1 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">01</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">미쿠리야 항구 선상 낚시 체험</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            현지 낚싯배와 제휴한 특별 옵션입니다. 배 위에서 바라보는 다이센 산의 모습은 압권입니다. 직접 잡은 생선으로 저녁에는 BBQ도 즐겨보세요.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/local-food.webp" alt="다이센초 미쿠리야 낚시 체험" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">02</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">제휴 시설 '미쿠리(Mikuri)'에서의 저녁 식사</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            직접 요리하기 번거로운 날은 인근 제휴 시설 '미쿠리(Mikuri)'에서의 특별 디너를 안내해 드립니다. 다이센의 제철 식재료를 활용한 요리를 맛보세요.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/mikuri-dinner.webp" alt="미쿠리(Mikuri) 디너" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Exp 3 -->
+                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                    <div class="md:w-1/2">
+                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">03</span>
+                        <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">실내에서 즐기는 놀이</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
+                        <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
+                            탁구, 보드게임, 엘렉톤 등 비가 오는 날에도 지루하지 않도록 다양한 놀이 거리를 준비했습니다. 아이들도 지루해하지 않고 즐거운 시간을 보낼 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
+                        <img src="assets/images/ping-pong.webp" alt="탁구를 즐기는 모습" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
+            <div class="text-center mb-20">
+                <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">고객 후기</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"욕실에서 보이는 바다는 절경이었습니다!"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            처음 이용했습니다. 매우 깨끗하고 방도 넓어서 정말 쾌적하게 지냈습니다!
+                            욕실에서 보이는 바다는 정말 절경이었어요! 다음에는 바다낚시도 즐기러 다시 오고 싶습니다!
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>2025년 8월 / 자녀 동반 가족</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"실내에서도 즐겁게 보낼 수 있었습니다"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            당일 날씨가 좋지 않아 BBQ는 못 했지만, 탁구와 게임 등 실내에서도 즐겁게 보낼 수 있었습니다.
+                            방도 많고 넓어서 2~3가족이 와도 괜찮을 것 같습니다.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>2025년 8월 / 3가족 10명</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"해안에서 불과 10m 거리"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            이렇게 훌륭한 숙소는 본 적이 없습니다. 3가족이 머물 수 있는 넓은 공간, 깨끗한 인테리어, 해안에서 불과 10m 떨어진 위치, 호스트의 친절함까지 모든 것이 최고였습니다. 강력 추천합니다.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>2025년 9월 / 3가족 그룹</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-mincho text-lg font-bold text-ink">"길을 잃을 정도로 넓었어요 (웃음)"</h4>
+                    </div>
+                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                        <p>
+                            훌륭한 위치와 감동적인 경치. 집 안에서 길을 잃을 정도로 넓었습니다(웃음). 다음에 온다면 이틀 정도 머물고 싶어요. 많은 인원이 함께 오면 더 즐거울 것 같습니다!
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                        <span>2025년 8월 / 자녀 동반 가족</span>
+                        <span class="text-accent font-bold">via Airbnb</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Access -->
+        <section id="info" class="py-24 bg-charcoal text-ink">
+            <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div>
+                    <!-- Color changed from text-ocean to text-ink for consistency -->
+                    <h3 class="font-serif text-3xl mb-12 text-ink">Information</h3>
+                    <dl class="space-y-8 font-sans text-sm tracking-wide">
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Address</dt>
+                            <dd>
+                                〒689-3203 돗토리현 사이하쿠군 다이센초 미쿠리야 824<br>
+                                <a href="https://maps.app.goo.gl/UsVmGbPwS9Zrr1ua6" target="_blank" class="inline-block mt-2 text-accent hover:text-ocean transition-colors text-xs border-b border-accent hover:border-ocean pb-0.5">
+                                    Google Maps &rarr;
+                                </a>
+                            </dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Access</dt>
+                            <dd>
+                                [차량] 산인도 '나와 IC'에서 약 5분 (주차 4대)<br>
+                                [전철] JR 산인 본선 '미쿠리야 역'에서 도보 약 10분
+                            </dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Capacity</dt>
+                            <dd>최대 14명 (1일 1팀 한정)</dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Check In/Out</dt>
+                            <dd>16:00 / 10:00</dd>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                            <dt class="w-24 opacity-60">Contact</dt>
+                            <dd>
+                                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-ocean transition-colors">
+                                    umihotaru.daisen@gmail.com
+                                </a>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="flex flex-col justify-between">
+                    <div class="aspect-video w-full bg-white relative overflow-hidden shadow-lg rounded-sm">
+                        <!-- Map with specific query address -->
+                        <iframe 
+                            src="https://maps.google.com/maps?q=%E9%B8%9F%E5%8F%96%E7%9C%8C%E8%A5%BF%E4%BC%AF%E9%83%A1%E5%A4%A7%E5%B1%B1%E7%94%BA%E5%BE%A1%E6%9D%A5%E5%B1%8B824&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+                            title="DAISEN UMIHOTARU Google Maps"
+                        ></iframe>
+                    </div>
+                    <div class="mt-12">
+                        <p class="font-mincho text-lg mb-6 text-ink/80">
+                            모두 함께 보내는,<br>
+                            무엇과도 바꿀 수 없는 휴일을.
+                        </p>
+                        <a href="https://www.booking.com/hotel/jp/daisen-umihotaru-entire-house.en.html" target="_blank" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                            CHECK AVAILABILITY
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-charcoal text-ink py-12 px-6 border-t border-stone/30">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-60">
+            <p>&copy; 2025 DAISEN UMIHOTARU</p>
+            <div class="flex gap-8 mt-4 md:mt-0">
+                <a href="#" class="hover:text-accent transition-colors">PRIVACY POLICY</a>
+                <a href="#" class="hover:text-accent transition-colors">TERMS</a>
+                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-accent transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+        }
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline();
+            tl.to("#hero-img", {
+                scale: 1,
+                duration: 2,
+                ease: "power2.out"
+            }, "0.5")
+            .to(["#hero-logo-container", "#hero-title", "#hero-sub"], {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 1.2,
+                ease: "power3.out"
+            }, "-=1.5");
+
+            const revealContainers = document.querySelectorAll(".reveal-img-container");
+            revealContainers.forEach((container) => {
+                const img = container.querySelector("img");
+                if (img) {
+                    gsap.to(img, {
+                        scale: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    });
+                }
+            });
+
+            const textElements = document.querySelectorAll(".text-anim");
+            textElements.forEach(text => {
+                gsap.from(text, {
+                    y: 30,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: text,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        }
+        
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.remove('pointer-events-none');
+                gsap.to(mobileMenu, { opacity: 1, duration: 0.5, ease: "power2.out" });
+            } else {
+                gsap.to(mobileMenu, { opacity: 0, duration: 0.5, ease: "power2.in", onComplete: () => {
+                    mobileMenu.classList.add('pointer-events-none');
+                }});
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    </script>
+</body>
+</html>
