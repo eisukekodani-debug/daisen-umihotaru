@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 日本語版 (メイン) -->
+  <url>
+    <loc>https://www.d-umihotaru.com/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- 言語の代替ページ指定 -->
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
+  </url>
+
+  <!-- 英語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/index.en.html</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <!-- 言語の代替ページ指定 -->
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
+  </url>
+
+  <!-- 韓国語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/index.kr.html</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <!-- 言語の代替ページ指定 -->
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
+  </url>
+
+</urlset>
