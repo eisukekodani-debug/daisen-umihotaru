@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO: Title & Description -->
+    <!-- SEO: Title & Description (Strategy: Prioritize practical keywords for groups/families) -->
     <title>【公式】DAISEN UMIHOTARU | 最大14名の貸別荘・一棟貸し | 鳥取県大山町</title>
     <meta name="description" content="【鳥取県大山町】海まで徒歩0分の海辺の貸別荘。最大14名宿泊可能で、家族旅行やグループ合宿に最適。広いリビング、卓球台、BBQ完備。周囲を気にせず、波音と共に過ごす完全プライベートな時間を。ご予約はこちら。">
     
-    <!-- OGP -->
+    <!-- OGP (SNS Sharing) -->
     <meta property="og:title" content="DAISEN UMIHOTARU | 最大14名の貸別荘・一棟貸し">
     <meta property="og:description" content="波の音を聴きながら、暮らすように泊まる。家族・グループ旅行に最適な海辺のプライベートヴィラ。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.d-umihotaru.com/">
+    <!-- OGP画像もWebPに変更 -->
     <meta property="og:image" content="https://www.d-umihotaru.com/assets/images/fv.webp">
     
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,12 +74,12 @@
             theme: {
                 extend: {
                     colors: {
-                        ink: '#155e75',
-                        charcoal: '#cffafe',
-                        sand: '#f2fdff',
-                        stone: '#67e8f9',
-                        accent: '#06b6d4',
-                        ocean: '#0891b2',
+                        ink: '#155e75',       /* Cyan 800 */
+                        charcoal: '#cffafe',  /* Cyan 100 */
+                        sand: '#f2fdff',      /* Custom */
+                        stone: '#67e8f9',     /* Cyan 300 */
+                        accent: '#06b6d4',    /* Cyan 500 */
+                        ocean: '#0891b2',     /* Cyan 600 */
                         white: '#ffffff',
                     },
                     fontFamily: {
@@ -137,17 +138,15 @@
             mix-blend-mode: multiply;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
-        #mobile-menu {
-            opacity: 0;
-            pointer-events: none;
-        }
+        /* Removed conflicting #mobile-menu CSS to allow JS/Tailwind classes to control pointer-events correctly */
     </style>
 </head>
 <body class="antialiased">
     <div class="noise-overlay"></div>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center">
+    <!-- Added opacity-0 and pointer-events-none classes for initial state -->
+    <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none">
         <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
@@ -159,7 +158,7 @@
             <a href="#reviews" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Reviews</a>
             <a href="#info" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Info</a>
             
-            <!-- Language Switcher in Mobile Menu (Fixed links) -->
+            <!-- Language Switcher in Mobile Menu (Dot notation) -->
             <div class="flex gap-4 text-xl font-serif mt-4">
                 <a href="index.en.html" class="text-ink hover:text-accent transition-colors">EN</a>
                 <span class="text-ink opacity-30">/</span>
@@ -190,7 +189,7 @@
                 <a href="#info" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Info</a>
             </nav>
 
-            <!-- Language Switcher (Fixed links) -->
+            <!-- Language Switcher (Dot notation) -->
             <div class="flex gap-2 text-xs font-serif tracking-widest">
                 <a href="index.en.html" class="text-ink/50 hover:text-accent transition-colors">EN</a>
                 <span class="text-ink/30">/</span>
@@ -213,20 +212,21 @@
         <!-- Hero Section -->
         <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
             <div class="absolute inset-0 w-full h-full">
+                <!-- All images changed to .webp -->
                 <img src="assets/images/fv.webp" alt="DAISEN UMIHOTARUの外観。鳥取県大山の海辺に佇む一棟貸しヴィラ" class="w-full h-full object-cover opacity-90" id="hero-img">
                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
             </div>
             
-            <div class="relative z-10 text-center text-ink px-4">
+            <div class="relative z-10 text-center text-white px-4">
                 <div class="overflow-hidden mb-4">
-                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10" id="hero-sub">Private Villa for Family & Group</p>
+                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10 drop-shadow-md" id="hero-sub">Private Villa for Family & Group</p>
                 </div>
-                <h2 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10" id="hero-title">
+                <h2 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10 drop-shadow-md" id="hero-title">
                     波の音を聴きながら<br>大山で暮らす旅
                 </h2>
             </div>
 
-            <div class="absolute bottom-12 left-6 md:left-12 text-ink/60 font-sans text-[10px] tracking-widest writing-vertical h-32 border-l border-ink/30 pl-4">
+            <div class="absolute bottom-12 left-6 md:left-12 text-white/80 font-sans text-[10px] tracking-widest writing-vertical h-32 border-l border-white/50 pl-4 drop-shadow-sm">
                 SCROLL TO EXPLORE
             </div>
         </section>
@@ -236,9 +236,13 @@
             <div class="absolute top-20 left-10 text-[10rem] font-serif text-stone/20 select-none -z-10 opacity-40">01</div>
 
             <div class="flex flex-col md:flex-row justify-between items-start gap-20">
-                <div class="md:w-1/3 sticky top-32">
+                <!-- 修正箇所：stickyクラスにmd:プレフィックスを追加し、モバイルでの固定を解除 -->
+                <div class="md:w-1/3 md:sticky md:top-32">
+                    <!-- Font size unified with Room section (text-4xl md:text-5xl) -->
+                    <!-- Color unified to text-ink -->
                     <h3 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h3>
                     <div class="w-16 h-[1px] bg-stone mb-8"></div>
+                    <!-- Unified font style: mincho, text-lg, text-ink -->
                     <p class="font-mincho text-lg leading-loose text-ink text-anim">
                         気兼ねない時間と、<br>
                         記憶に残る海のそばの暮らし。
@@ -275,7 +279,10 @@
         <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
             <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
                 <div>
+                    <!-- Font size unified with Story section -->
+                    <!-- Color changed from text-ocean to text-ink for consistency -->
                     <h3 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h3>
+                    <!-- Modified: Unified style with Story section (mincho, text-lg, text-ink, leading-loose) -->
                     <p class="font-mincho text-lg leading-loose text-ink mt-4">最大14名が寛げる広々とした空間</p>
                 </div>
             </div>
@@ -289,6 +296,7 @@
                     </div>
                     <div class="md:absolute -bottom-12 -right-12 bg-white/90 p-6 md:p-8 max-w-sm border-l-4 border-stone backdrop-blur-md shadow-sm">
                         <h4 class="font-serif text-2xl mb-2 text-ocean">Living & Play</h4>
+                        <!-- Text size increased to text-base and leading-loose for consistency -->
                         <p class="font-mincho text-base text-ink/80 leading-loose">
                             海を望む開放的なリビングは、みんなが集まる中心の場所。
                             卓球台を囲んで白熱したり、楽器を奏でたり。
@@ -307,6 +315,7 @@
                     </div>
                     <div class="md:absolute -top-12 -left-12 bg-white/90 p-6 md:p-8 max-w-sm border-r-4 border-stone z-10 backdrop-blur-md shadow-sm">
                         <h4 class="font-serif text-2xl mb-2 text-ocean">Kitchen & Patio</h4>
+                        <!-- Text size increased to text-base and leading-loose -->
                         <p class="font-mincho text-base text-ink/80 leading-loose">
                             大山の新鮮な食材を自由に彩るフルキッチン。
                             中庭にはBBQコンロも完備。
@@ -362,6 +371,7 @@
                         <i data-lucide="utensils" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">キッチン備品</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
                     <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
                         炊飯器、IHコンロ、冷蔵庫、電子レンジ、コーヒーマシン、調理器具一式、食器類（大人数分あり）、IH卓上コンロ、土鍋<br>
                         <span class="text-xs text-ink/60">※調味料は塩・コショウ・サラダ油のみご用意しています。</span>
@@ -374,6 +384,7 @@
                         <i data-lucide="bath" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">バスアメニティ</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
                     <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
                         バスタオル、フェイスタオル、歯ブラシ、シャンプー、コンディショナー、ボディソープ、ヘアドライヤー<br>
                         <span class="text-xs text-ink/60">※環境配慮のためパジャマ・カミソリ等はご持参ください。</span>
@@ -386,6 +397,7 @@
                         <i data-lucide="flame" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ設備</h4>
+                    <!-- Modified alignment: Text-left with max-width and centered -->
                     <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
                         炭火式BBQコンロを無料で3台まで貸し出し（要事前予約）。トング、軍手、炭消しバケツはご用意があります。<br>
                         <span class="text-xs text-ink/60">※炭・着火剤・食材はお客様ご自身でご用意ください。</span>
@@ -407,6 +419,7 @@
                     <div class="md:w-1/2">
                         <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">01</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">御来屋漁港で舟釣り体験</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
                             地元の遊漁船と連携した特別なオプション。船の上から眺める大山の雄姿は圧巻です。釣った魚で夜はBBQも。
                         </p>
@@ -421,6 +434,7 @@
                     <div class="md:w-1/2">
                         <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">02</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">提携施設「御厨 Mikuri」での夕食</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
                             自炊が面倒な日は、近隣の提携施設「御厨 Mikuri」での特別ディナーをご案内。大山の旬を活かした料理を。
                         </p>
@@ -435,6 +449,7 @@
                     <div class="md:w-1/2">
                         <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">03</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">館内で遊び尽くす</h4>
+                        <!-- Changed to font-mincho and text-ink/80 for consistency -->
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
                             卓球、ボードゲーム、エレクトーン。雨の日でも退屈しない遊びをご用意しています。子供たちも飽きずに過ごせます。
                         </p>

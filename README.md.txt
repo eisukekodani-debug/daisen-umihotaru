@@ -1,84 +1,89 @@
-readme_content = r'''# DAISEN UMIHOTARU Official Website
+﻿DAISEN UMIHOTARU Official Website
 
 鳥取県大山町御来屋にある一棟貸し宿「DAISEN UMIHOTARU」の公式ウェブサイト。
 「波の音を聴きながら、大山で暮らす旅」をコンセプトに、静謐で心地よい滞在体験をWeb上で表現しています。
+日本語・英語・韓国語の3ヶ国語に対応しています。
 
-## 技術スタック
+技術スタック
 
-* **HTML5**: セマンティックなマークアップ
-* **Tailwind CSS (CDN)**: スタイリングおよびレスポンシブデザイン
-* **GSAP (ScrollTrigger)**: スクロール連動アニメーション
-* **Lenis**: スムーズスクロール制御
-* **Lucide Icons**: アイコンセット
+HTML5: セマンティックなマークアップ
 
-## ディレクトリ構造
+Tailwind CSS (CDN): スタイリングおよびレスポンシブデザイン
 
-デプロイ時は以下の構造を維持してください。画像パスが正しく機能するために必須です。
+GSAP (ScrollTrigger): スクロール連動アニメーション
 
-```text
+Lenis: スムーズスクロール制御
+
+Lucide Icons: アイコンセット
+
+Google Fonts:
+
+日本語: Zen Old Mincho, Zen Kaku Gothic New
+
+英語: Cormorant Garamond
+
+韓国語: Noto Serif KR, Noto Sans KR
+
+ディレクトリ構造
+
+デプロイ時は以下の構造を維持してください。各言語ファイル間のリンクや画像パスが正しく機能するために必須です。
+
 .
-├── index.html          # メインファイル
+├── index.html          # 日本語版（メイン・ランディングページ）
+├── index.en.html       # 英語版
+├── index.kr.html       # 韓国語版
 ├── README.md           # 本ファイル
 └── assets/
-    └── images/         # 画像フォルダ
-        ├── fv.jpg      # ファーストビュー（海景など）
-        ├── view.jpg    # 窓からの景色
-        ├── living.jpg  # リビング
-        ├── kitchen.jpg # キッチン
-        ├── bath.jpg    # バスルーム
-        ├── bedroom.jpg # 寝室
-        ├── local-food.jpg  # 釣り体験イメージ
-        ├── mikuri-dinner.jpg # mikuri夕食イメージ
-        └── ping-pong.jpg # 卓球・遊びイメージ
-```
+    └── images/         # 画像フォルダ (すべて .webp 形式)
+        ├── fv.webp           # ファーストビュー
+        ├── view.webp         # 窓からの景色
+        ├── living.webp       # リビング
+        ├── kitchen.webp      # キッチン
+        ├── bath.webp         # バスルーム
+        ├── bedroom.webp      # 寝室
+        ├── floor-plan.webp   # 間取り図
+        ├── local-food.webp   # 釣り体験イメージ
+        ├── mikuri-dinner.webp # mikuri夕食イメージ
+        └── ping-pong.webp    # 卓球・遊びイメージ
 
-## ローカルでの確認方法
 
-1.  このリポジトリをクローンまたはダウンロードします。
-2.  `index.html` をブラウザ（Chrome, Safari, Edge等）で開くだけで動作します。
-    * ※ 外部CDNを利用しているため、インターネット接続が必要です。
+ファイル名の規則について（重要）
 
-## デプロイ（GitHub Pages）
+GitHub Pagesの仕様上、ファイル名の大文字・小文字は厳密に区別されます。また、言語切り替えリンクを正しく機能させるため、ファイル名は以下の通り統一してください。
 
-1.  GitHubリポジトリの **Settings** タブを開きます。
-2.  サイドバーの **Pages** を選択します。
-3.  **Build and deployment** > **Source** で `Deploy from a branch` を選択します。
-4.  **Branch** で `main` (または `master`) を選択し、`/ (root)` のまま **Save** をクリックします。
-5.  数分後、表示されるURL（例: `https://username.github.io/repo-name/`）にて公開されます。
+推奨: index.en.html (ドット区切り)
 
-## ライセンス
+非推奨: index_en.html (アンダーバー区切り)
+
+ローカルでの確認方法
+
+このリポジトリをクローンまたはダウンロードします。
+
+index.html をブラウザ（Chrome, Safari, Edge等）で開くだけで動作します。
+
+※ 外部CDN（Tailwind, GSAP等）を利用しているため、インターネット接続が必要です。
+
+デプロイ（GitHub Pages）
+
+GitHubリポジトリの Settings タブを開きます。
+
+サイドバーの Pages を選択します。
+
+Build and deployment > Source で Deploy from a branch を選択します。
+
+Branch で main (または master) を選択し、/ (root) のまま Save をクリックします。
+
+数分後、表示されるURL（例: https://username.github.io/repo-name/）にて公開されます。
+
+更新手順
+
+画像やテキストを修正した際は、以下のコマンド等でGitHubへプッシュしてください。
+
+git add .
+git commit -m "Update content"
+git push origin main
+
+
+ライセンス
 
 Copyright © 2025 DAISEN UMIHOTARU. All Rights Reserved.
-'''
-
-    # 1. ルートディレクトリの作成
-    if not os.path.exists(root_dir):
-        os.makedirs(root_dir)
-        print(f"ディレクトリを作成しました: {root_dir}")
-
-    # 2. index.htmlの作成
-    with open(os.path.join(root_dir, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"ファイルを作成しました: {os.path.join(root_dir, 'index.html')}")
-
-    # 3. README.mdの作成
-    with open(os.path.join(root_dir, "README.md"), "w", encoding="utf-8") as f:
-        f.write(readme_content)
-    print(f"ファイルを作成しました: {os.path.join(root_dir, 'README.md')}")
-
-    # 4. 画像用フォルダの作成
-    images_dir = os.path.join(root_dir, "assets", "images")
-    if not os.path.exists(images_dir):
-        os.makedirs(images_dir)
-        print(f"ディレクトリを作成しました: {images_dir}")
-
-    # 5. 画像配置の案内用ファイル作成
-    with open(os.path.join(images_dir, "PUT_IMAGES_HERE.txt"), "w", encoding="utf-8") as f:
-        f.write("このフォルダに fv.jpg, view.jpg, mikuri-dinner.jpg, ping-pong.jpg などの画像ファイルを配置してください。")
-    print(f"ファイルを作成しました: {os.path.join(images_dir, 'PUT_IMAGES_HERE.txt')}")
-
-    print("\nプロジェクトの準備が完了しました！")
-    print(f"'{root_dir}' フォルダをGitHubにアップロードしてください。")
-
-if __name__ == "__main__":
-    create_project()
