@@ -567,6 +567,56 @@
             </div>
         </section>
 
+        <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto border-t border-stone/30">
+            <div class="text-center mb-16">
+                <span class="font-serif text-stone text-lg italic">Q&A</span>
+                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">よくあるご質問</h3>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-mincho text-lg text-ink font-medium">大山（だいせん）スキー場へのアクセスは？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
+                        <p>
+                            DAISEN UMIHOTARUから大山のスキー場「だいせんホワイトリゾート」までは、車で約20〜25分です。地元の大山町民も同じルートでスキー場へ向かっています。<br>
+                            <span class="text-accent text-xs">※冬季（12月〜3月頃）は積雪や路面凍結の恐れがありますので、必ずスタッドレスタイヤの装着またはチェーンを携帯してお越しください。</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-mincho text-lg text-ink font-medium">スキー・スノーボードのレンタルはありますか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
+                        <p>
+                            宿での直接の貸し出しはございませんが、スキー場の駐車場周辺（大山寺エリア）にいくつかのレンタルショップがございます。<br>
+                            最新モデルを取り扱う店舗もあり、手ぶらでお越しいただいてもウェアやギア一式を揃えることが可能です。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-mincho text-lg text-ink font-medium">近くに買い物ができる場所はありますか？</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
+                        <p>
+                            はい、車で約3分の場所にスーパーマーケット「エムマート 名和店」やコンビニ（ローソン）、ホームセンター（コメリ）があります。<br>
+                            また、すぐ近くの「御来屋漁港」にある直売所では、水揚げされたばかりの新鮮な地魚を購入できます。（不定休）<br>
+                            宿内には、冷蔵庫とフルキッチンを完備しておりますので、地元の食材を使ったお料理を存分にお楽しみください。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <section id="info" class="py-24 bg-charcoal text-ink">
             <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
                 <div>
@@ -746,6 +796,31 @@
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // FAQ Accordion Logic
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                // Toggle hidden class
+                content.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (content.classList.contains('hidden')) {
+                    gsap.to(icon, { rotation: 0, duration: 0.3 });
+                    gsap.to(content, { height: 0, opacity: 0, duration: 0.3 });
+                } else {
+                    gsap.to(icon, { rotation: 180, duration: 0.3 });
+                    gsap.fromTo(content, 
+                        { height: 0, opacity: 0 }, 
+                        { height: "auto", opacity: 1, duration: 0.3 }
+                    );
+                }
+            });
         });
     </script>
 </body>
