@@ -167,6 +167,77 @@
             mix-blend-mode: multiply;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+
+        /* --- FAQ / Accordion Styles --- */
+        .faq-card {
+            background-color: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            border: 1px solid rgba(103, 232, 249, 0.1); /* stone color light */
+        }
+        .faq-question {
+            width: 100%;
+            padding: 24px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: "Zen Old Mincho", serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #155e75; /* ink color */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+            line-height: 1.5;
+            transition: background-color 0.3s;
+        }
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+        .faq-arrow {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #06b6d4; /* accent color */
+            border-bottom: 2px solid #06b6d4;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        .faq-question.active .faq-arrow {
+            transform: rotate(225deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-top: 1px solid transparent;
+        }
+        .faq-content {
+            padding: 10px 24px 30px 24px;
+            font-family: "Zen Kaku Gothic New", sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #155e75; /* ink color */
+            opacity: 0.9;
+        }
+        .faq-content p {
+            margin-bottom: 1em;
+            margin-top: 0;
+        }
+        .faq-content p:last-child {
+            margin-bottom: 0;
+        }
+        .faq-note {
+            color: #06b6d4; /* accent color */
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -182,6 +253,7 @@
             <a href="#facilities" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Facilities</a>
             <a href="#experience" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Experience</a>
             <a href="#reviews" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Reviews</a>
+            <a href="#faq" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Q&A</a>
             <a href="#info" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Info</a>
             
             <div class="flex gap-4 text-xl font-serif mt-4">
@@ -211,6 +283,7 @@
                 <a href="#facilities" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Facilities</a>
                 <a href="#experience" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Experience</a>
                 <a href="#reviews" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Reviews</a>
+                <a href="#faq" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Q&A</a>
                 <a href="#info" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Info</a>
             </nav>
 
@@ -567,117 +640,119 @@
             </div>
         </section>
 
-        <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto border-t border-stone/30">
-            <div class="text-center mb-16">
+        <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
+             <div class="text-center mb-16">
                 <span class="font-serif text-stone text-lg italic">Q&A</span>
                 <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">よくあるご質問</h3>
             </div>
-
-            <div class="max-w-3xl mx-auto space-y-4">
-                
-                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
-                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-mincho text-lg text-ink font-medium">大山（だいせん）スキー場へのアクセスは？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+            
+            <div class="faq-section max-w-3xl mx-auto">
+                <div class="faq-card">
+                    <button class="faq-question">
+                        大山（だいせん）スキー場へのアクセスは？
+                        <span class="faq-arrow"></span>
                     </button>
-                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
-                        <p>
-                            DAISEN UMIHOTARUから大山のスキー場「だいせんホワイトリゾート」までは、車で約20〜25分です。地元の大山町民も同じルートでスキー場へ向かっています。<br>
-                            <span class="text-accent text-xs">※冬季（12月〜3月頃）は積雪や路面凍結の恐れがありますので、必ずスタッドレスタイヤの装着またはチェーンを携帯してお越しください。</span>
-                        </p>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>DAISEN UMIHOTARUから大山のスキー場「だいせんホワイトリゾート」までは、車で約20〜25分です。</p>
+                            <p>具体的なルートとしては、名和ICから山陰道に乗り、大山口ICで降ります。そこからは大山寺方面へ向かって、県道158号線をひたすら一直線に進んでください。地元の人も同じルートでスキー場へ向かっています。</p>
+                            <p class="faq-note">※冬季（12月〜3月頃）は積雪や路面凍結の恐れがありますので、必ずスタッドレスタイヤの装着またはチェーンを携帯してお越しください。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
-                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-mincho text-lg text-ink font-medium">スキー・スノーボードのレンタルはありますか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+                <div class="faq-card">
+                    <button class="faq-question">
+                        スキー・スノーボードのレンタルはありますか？
+                        <span class="faq-arrow"></span>
                     </button>
-                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
-                        <p>
-                            宿での直接の貸し出しはございませんが、スキー場の駐車場周辺（大山寺エリア）にいくつかのレンタルショップがございます。<br>
-                            最新モデルを取り扱う店舗もあり、手ぶらでお越しいただいてもウェアやギア一式を揃えることが可能です。
-                        </p>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>宿での直接の貸し出しはございませんが、スキー場の駐車場周辺（大山寺エリア）にいくつかのレンタルショップがございます。</p>
+                            <p>最新モデルを取り扱う店舗もあり、手ぶらでお越しいただいてもウェアやギア一式を揃えることが可能です。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="border border-stone/30 rounded-sm bg-white hover:shadow-md transition-shadow duration-300">
-                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-mincho text-lg text-ink font-medium">近くに買い物ができる場所はありますか？</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-accent transition-transform duration-300 transform"></i>
+                <div class="faq-card">
+                    <button class="faq-question">
+                        近くに買い物ができる場所はありますか？
+                        <span class="faq-arrow"></span>
                     </button>
-                    <div class="faq-content hidden px-6 pb-6 text-ink/80 text-sm leading-loose font-mincho">
-                        <p>
-                            はい、車で約3分の場所にスーパーマーケット「エムマート 名和店」やコンビニ（ローソン）、ホームセンター（コメリ）があります。<br>
-                            また、すぐ近くの「御来屋漁港」にある直売所では、水揚げされたばかりの新鮮な地魚を購入できます。（不定休）<br>
-                            宿内には、冷蔵庫とフルキッチンを完備しておりますので、地元の食材を使ったお料理を存分にお楽しみください。
-                        </p>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>はい、車で約3分の場所にスーパーマーケット「エムマート 名和店」やコンビニ（ローソン）、ホームセンター（コメリ）があります。</p>
+                            <p>また、すぐ近くの「御来屋漁港」にある直売所では、水揚げされたばかりの新鮮な地魚を購入できます。（不定休）</p>
+                            <p>宿内には、冷蔵庫とフルキッチンを完備しておりますので、地元の食材を使ったお料理を存分にお楽しみください。</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
-        <section id="info" class="py-24 bg-charcoal text-ink">
-            <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
-                <div>
-                    <h3 class="font-serif text-3xl mb-12 text-ink">Information</h3>
-                    <dl class="space-y-8 font-sans text-sm tracking-wide">
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
-                            <dt class="w-24 opacity-60">Address</dt>
-                            <dd>
-                                〒689-3211 鳥取県西伯郡大山町御来屋824<br>
-                                <a href="https://maps.app.goo.gl/UsVmGbPwS9Zrr1ua6" target="_blank" class="inline-block mt-2 text-accent hover:text-ocean transition-colors text-xs border-b border-accent hover:border-ocean pb-0.5">
-                                    Google Maps →
-                                </a>
-                            </dd>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
-                            <dt class="w-24 opacity-60">Access</dt>
-                            <dd>
-                                [車] 山陰道「名和IC」より約5分 (駐車場4台)<br>
-                                [電車] JR山陰本線「名和駅」より徒歩約3分
-                            </dd>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
-                            <dt class="w-24 opacity-60">Capacity</dt>
-                            <dd>最大14名様 (1日1組限定)</dd>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
-                            <dt class="w-24 opacity-60">Check In/Out</dt>
-                            <dd>16:00 / 10:00</dd>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
-                            <dt class="w-24 opacity-60">Contact</dt>
-                            <dd>
-                                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-ocean transition-colors">
-                                    umihotaru.daisen@gmail.com
-                                </a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
 
-                <div class="flex flex-col justify-between">
-                    <div class="aspect-video w-full bg-white relative overflow-hidden shadow-lg rounded-sm">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=%E9%B8%9F%E5%8F%96%E7%9C%8C%E8%A5%BF%E4%BC%AF%E9%83%A1%E5%A4%A7%E5%B1%B1%E7%94%BA%E5%BE%A1%E6%9D%A5%E5%B1%8B824&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
-                            title="DAISEN UMIHOTARU Google Maps"
-                        ></iframe>
+        <section id="info" class="py-24 bg-charcoal text-ink">
+            <div class="max-w-screen-xl mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                    <div>
+                        <h3 class="font-serif text-3xl mb-12 text-ink">Information</h3>
+                        <dl class="space-y-8 font-sans text-sm tracking-wide">
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                                <dt class="w-24 opacity-60">Address</dt>
+                                <dd>
+                                    〒689-3211 鳥取県西伯郡大山町御来屋824<br>
+                                    <a href="https://maps.app.goo.gl/UsVmGbPwS9Zrr1ua6" target="_blank" class="inline-block mt-2 text-accent hover:text-ocean transition-colors text-xs border-b border-accent hover:border-ocean pb-0.5">
+                                        Google Maps →
+                                    </a>
+                                </dd>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                                <dt class="w-24 opacity-60">Access</dt>
+                                <dd>
+                                    [車] 山陰道「名和IC」より約5分 (駐車場4台)<br>
+                                    [電車] JR山陰本線「名和駅」より徒歩約3分
+                                </dd>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                                <dt class="w-24 opacity-60">Capacity</dt>
+                                <dd>最大14名様 (1日1組限定)</dd>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                                <dt class="w-24 opacity-60">Check In/Out</dt>
+                                <dd>16:00 / 10:00</dd>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
+                                <dt class="w-24 opacity-60">Contact</dt>
+                                <dd>
+                                    <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-ocean transition-colors">
+                                        umihotaru.daisen@gmail.com
+                                    </a>
+                                </dd>
+                            </div>
+                        </dl>
                     </div>
-                    <div class="mt-12">
-                        <p class="font-mincho text-lg mb-6 text-ink/80">
-                            みんなで過ごす、<br>
-                            かけがえのない休日を。
-                        </p>
-                        <a href="https://www.jalan.net/yad397953/plan/" target="_blank" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
-                            CHECK AVAILABILITY
-                        </a>
+
+                    <div class="flex flex-col justify-between">
+                        <div class="aspect-video w-full bg-white relative overflow-hidden shadow-lg rounded-sm">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=%E9%B8%9F%E5%8F%96%E7%9C%8C%E8%A5%BF%E4%BC%AF%E9%83%A1%E5%A4%A7%E5%B1%B1%E7%94%BA%E5%BE%A1%E6%9D%A5%E5%B1%8B824&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+                                title="DAISEN UMIHOTARU Google Maps"
+                            ></iframe>
+                        </div>
+                        <div class="mt-12">
+                            <p class="font-mincho text-lg mb-6 text-ink/80">
+                                みんなで過ごす、<br>
+                                かけがえのない休日を。
+                            </p>
+                            <a href="https://www.jalan.net/yad397953/plan/" target="_blank" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                                CHECK AVAILABILITY
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -799,27 +874,26 @@
         });
 
         // FAQ Accordion Logic
-        const faqToggles = document.querySelectorAll('.faq-toggle');
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.faq-question');
 
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const content = toggle.nextElementSibling;
-                const icon = toggle.querySelector('i');
-
-                // Toggle hidden class
-                content.classList.toggle('hidden');
-                
-                // Rotate icon
-                if (content.classList.contains('hidden')) {
-                    gsap.to(icon, { rotation: 0, duration: 0.3 });
-                    gsap.to(content, { height: 0, opacity: 0, duration: 0.3 });
-                } else {
-                    gsap.to(icon, { rotation: 180, duration: 0.3 });
-                    gsap.fromTo(content, 
-                        { height: 0, opacity: 0 }, 
-                        { height: "auto", opacity: 1, duration: 0.3 }
-                    );
-                }
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    // クラスの切り替え（activeをつける/外す）
+                    question.classList.toggle('active');
+                    
+                    // 次の要素（回答エリア）を取得
+                    const answer = question.nextElementSibling;
+                    
+                    // 開閉アニメーションの制御
+                    if (question.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.borderTop = "1px solid #f0f0f0"; // 開いたときにうっすら線を入れる
+                    } else {
+                        answer.style.maxHeight = null;
+                        answer.style.borderTop = "1px solid transparent";
+                    }
+                });
             });
         });
     </script>
