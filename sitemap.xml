@@ -5,7 +5,7 @@
   <!-- 日本語版 (メイン) -->
   <url>
     <loc>https://www.d-umihotaru.com/</loc>
-    <lastmod>2025-10-27</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <!-- 言語の代替ページ指定 -->
@@ -18,7 +18,7 @@
   <!-- 英語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/index.en.html</loc>
-    <lastmod>2025-10-27</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <!-- 言語の代替ページ指定 -->
@@ -31,7 +31,7 @@
   <!-- 韓国語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/index.kr.html</loc>
-    <lastmod>2025-10-27</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <!-- 言語の代替ページ指定 -->
