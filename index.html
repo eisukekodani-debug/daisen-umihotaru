@@ -209,13 +209,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Zen+Old+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/lucide@0.460.0"></script>
-    
+    <script src="https://unpkg.com/lucide@0.460.0" defer></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.45/lenis.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.45/lenis.min.js" defer></script>
 
     <script>
         tailwind.config = {
@@ -493,7 +493,7 @@
                     <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10 drop-shadow-md" id="hero-sub">Private Villa for Family & Group</p>
                 </div>
                 <h1 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10 drop-shadow-md" id="hero-title">
-                    波の音を聴きながら<br>大山で暮らす旅
+                    鳥取 大山の貸別荘<br>波の音を聴きながら暮らす旅
                 </h1>
             </div>
 
@@ -507,7 +507,7 @@
 
             <div class="flex flex-col md:flex-row justify-between items-start gap-20">
                 <div class="md:w-1/3 md:sticky md:top-32">
-                    <h3 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h3>
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h2>
                     <div class="w-16 h-[1px] bg-stone mb-8"></div>
                     <p class="font-mincho text-lg leading-loose text-ink text-anim">
                         気兼ねない時間と、<br>
@@ -526,7 +526,7 @@
                     </div>
                     
                     <div class="reveal-img-container aspect-[3/2] shadow-xl shadow-stone/20">
-                        <img src="assets/images/view.webp" alt="DAISEN UMIHOTARUのリビングから望む日本海の絶景" loading="lazy" class="reveal-img">
+                        <img src="assets/images/view.webp" alt="DAISEN UMIHOTARUのリビングから望む日本海の絶景" loading="lazy" width="1200" height="800" class="reveal-img">
                     </div>
 
                     <div>
@@ -544,7 +544,7 @@
         <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
             <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
                 <div>
-                    <h3 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h3>
+                    <h2 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h2>
                     <p class="font-mincho text-lg leading-loose text-ink mt-4">最大14名が寛げる広々とした空間</p>
                 </div>
             </div>
@@ -553,7 +553,7 @@
                 
                 <div class="col-span-12 md:col-span-7 relative">
                     <div class="reveal-img-container aspect-[16/10] shadow-lg shadow-stone/30">
-                        <img src="assets/images/living.webp" alt="大人数でも広々と過ごせるリビングとプレイルーム" loading="lazy" class="reveal-img">
+                        <img src="assets/images/living.webp" alt="大人数でも広々と過ごせるリビングとプレイルーム" loading="lazy" width="1200" height="750" class="reveal-img">
                     </div>
                     <div class="md:absolute -bottom-12 -right-12 bg-white/90 p-6 md:p-8 max-w-sm border-l-4 border-stone backdrop-blur-md shadow-sm">
                         <h4 class="font-serif text-2xl mb-2 text-ocean">Living & Play</h4>
@@ -570,7 +570,7 @@
                 <div class="hidden md:block col-span-4"></div>
                 <div class="col-span-12 md:col-span-8 relative mt-12 md:mt-0">
                     <div class="reveal-img-container aspect-[16/9] shadow-lg shadow-stone/30">
-                        <img src="assets/images/kitchen.webp" alt="地元の食材を調理できるフルキッチンとダイニング" loading="lazy" class="reveal-img">
+                        <img src="assets/images/kitchen.webp" alt="地元の食材を調理できるフルキッチンとダイニング" loading="lazy" width="1200" height="675" class="reveal-img">
                     </div>
                     <div class="md:absolute -top-12 -left-12 bg-white/90 p-6 md:p-8 max-w-sm border-r-4 border-stone z-10 backdrop-blur-md shadow-sm">
                         <h4 class="font-serif text-2xl mb-2 text-ocean">Kitchen & Patio</h4>
@@ -584,7 +584,7 @@
 
                 <div class="col-span-12 md:col-span-6 mt-12 md:mt-0">
                     <div class="reveal-img-container aspect-square shadow-md">
-                        <img src="assets/images/bath.webp" alt="日本海の夕日を一望できるオーシャンビューバス" loading="lazy" class="reveal-img">
+                        <img src="assets/images/bath.webp" alt="日本海の夕日を一望できるオーシャンビューバス" loading="lazy" width="800" height="800" class="reveal-img">
                     </div>
                     <div class="mt-6 pl-4 border-l-2 border-stone">
                         <h4 class="font-serif text-xl mb-2 text-ocean">Ocean Bath</h4>
@@ -593,7 +593,7 @@
                 </div>
                 <div class="col-span-12 md:col-span-6 mt-12 md:mt-24">
                     <div class="reveal-img-container aspect-[4/5] shadow-md">
-                        <img src="assets/images/bedroom.webp" alt="波音と共に眠る静かなベッドルーム" loading="lazy" class="reveal-img">
+                        <img src="assets/images/bedroom.webp" alt="波音と共に眠る静かなベッドルーム" loading="lazy" width="800" height="1000" class="reveal-img">
                     </div>
                     <div class="mt-6 pl-4 border-l-2 border-stone">
                         <h4 class="font-serif text-xl mb-2 text-ocean">Bedrooms</h4>
@@ -605,10 +605,10 @@
 
         <section id="floorplan" class="py-24 bg-white/50">
             <div class="max-w-4xl mx-auto px-6 text-center">
-                 <h3 class="font-mincho text-3xl text-ink mb-4">Floor Plan</h3>
+                 <h2 class="font-mincho text-3xl text-ink mb-4">Floor Plan</h2>
                  <p class="font-sans text-sm text-ink/60 tracking-widest mb-12">間取り図 (最大14名宿泊可能)</p>
                  <div class="reveal-img-container shadow-lg bg-white p-4 md:p-8">
-                     <img src="assets/images/floor-plan.webp" alt="DAISEN UMIHOTARUの間取り図。寝室やリビングの配置" loading="lazy" class="w-full h-auto">
+                     <img src="assets/images/floor-plan.webp" alt="DAISEN UMIHOTARUの間取り図。寝室やリビングの配置" loading="lazy" width="1200" height="800" class="w-full h-auto">
                  </div>
             </div>
         </section>
@@ -616,7 +616,7 @@
         <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Amenities & Services</span>
-                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">設備・アメニティ</h3>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">設備・アメニティ</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -658,7 +658,7 @@
         <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
             <div class="text-center mb-24">
                 <span class="font-serif text-stone text-lg italic">Curated Experiences</span>
-                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">御来屋で紡ぐ時間</h3>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">御来屋で紡ぐ時間</h2>
             </div>
 
             <div class="space-y-12">
@@ -671,7 +671,7 @@
                         </p>
                     </div>
                     <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/local-food.webp" alt="大山町御来屋での釣り体験" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/local-food.webp" alt="大山町御来屋での釣り体験" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
 
@@ -684,7 +684,7 @@
                         </p>
                     </div>
                     <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/mikuri-dinner.webp" alt="御厨 Mikuriのディナー" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/mikuri-dinner.webp" alt="御厨 Mikuriのディナー" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
 
@@ -697,7 +697,7 @@
                         </p>
                     </div>
                     <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/ping-pong.webp" alt="卓球を楽しむ様子" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/ping-pong.webp" alt="卓球を楽しむ様子" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
             </div>
@@ -706,7 +706,7 @@
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
-                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">お客様の声</h3>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">お客様の声</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -819,7 +819,7 @@
         <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
              <div class="text-center mb-16">
                 <span class="font-serif text-stone text-lg italic">Q&A</span>
-                <h3 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">よくあるご質問</h3>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">よくあるご質問</h2>
             </div>
             
             <div class="faq-section max-w-3xl mx-auto">
@@ -830,7 +830,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-content">
-                            <p>はい。宿から車で約5分の<a href="http://furusato.sanin.jp/p/area/daisen/41/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-ocean underline">木料海岸</a>で海水浴をお楽しみいただけます。お店などはない素朴な砂浜のビーチで、地元の方にも親しまれています。時間帯によってはプライベートビーチのような雰囲気を味わえます。</p>
+                            <p>はい。宿から車で約5分の<a href="https://furusato.sanin.jp/p/area/daisen/41/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-ocean underline">木料海岸</a>で海水浴をお楽しみいただけます。お店などはない素朴な砂浜のビーチで、地元の方にも親しまれています。時間帯によってはプライベートビーチのような雰囲気を味わえます。</p>
                             <p>ビーチ近くには木料展望所があり、浜遊びの休憩にも便利です。夕暮れには山陰の風物詩、イカ釣り漁船の「漁り火」も楽しめます。</p>
                             <p>ビーチにはシャワーが設置されているほか、宿に戻ってからシャワーをご利用いただくことも可能です。</p>
                         </div>
@@ -911,7 +911,7 @@
             <div class="max-w-screen-xl mx-auto px-6 md:px-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
                     <div>
-                        <h3 class="font-serif text-3xl mb-12 text-ink">Information</h3>
+                        <h2 class="font-serif text-3xl mb-12 text-ink">Information</h2>
                         <dl class="space-y-8 font-sans text-sm tracking-wide">
                             <div class="flex flex-col md:flex-row gap-4 md:gap-12 border-b border-stone/50 pb-8">
                                 <dt class="w-24 opacity-60">Address</dt>
