@@ -1035,11 +1035,11 @@
                                     Airbnb で予約
                                 </a>
                                 <div class="grid grid-cols-2 gap-3">
-                                    <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                    <a href="https://www.jalan.net/yad397953/" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
                                         じゃらん
                                     </a>
-                                    <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
-                                        楽天トラベル
+                                    <a href="https://vacation-stay.jp/listings/1428999" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        楽天お宿
                                     </a>
                                 </div>
                             </div>
@@ -1054,10 +1054,10 @@
         <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="flex-1 bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
             予約する
         </a>
-        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+        <a href="https://www.jalan.net/yad397953/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
             じゃらん
         </a>
-        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+        <a href="https://vacation-stay.jp/listings/1428999" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
             楽天
         </a>
     </div>
@@ -1084,22 +1084,16 @@
                     <nav class="flex flex-col gap-2 text-xs font-sans">
                         <a href="#story" class="hover:text-white transition-colors">The Story</a>
                         <a href="#Room" class="hover:text-white transition-colors">The Room</a>
-                        <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
-                        <a href="#seasons" class="hover:text-white transition-colors">四季の楽しみ方</a>
+                        <a href="#facilities" class="hover:text-white transition-colors">設備・アメニティ</a>
                         <a href="#faq" class="hover:text-white transition-colors">よくあるご質問</a>
                     </nav>
                 </div>
                 <div>
-                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Follow & Book</h4>
-                    <div class="flex gap-4 mb-4">
-                        <a href="https://www.instagram.com/mica_graces" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Book</h4>
                     <div class="flex flex-col gap-2 text-xs font-sans">
                         <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Airbnb</a>
-                        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">じゃらんnet</a>
-                        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">楽天トラベル</a>
+                        <a href="https://www.jalan.net/yad397953/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">じゃらんnet</a>
+                        <a href="https://vacation-stay.jp/listings/1428999" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Rakuten Oyado</a>
                     </div>
                 </div>
             </div>
@@ -1180,9 +1174,12 @@
             });
         }
         
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+        // Lucide is loaded with defer, so wait for DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
