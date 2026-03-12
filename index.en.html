@@ -33,12 +33,21 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "VacationRental",
+      "@type": ["VacationRental", "LodgingBusiness"],
       "@id": "https://www.d-umihotaru.com/#villa",
       "identifier": "DAISEN-UMIHOTARU-001",
       "name": "DAISEN UMIHOTARU",
+      "alternateName": "Daisen Umihotaru",
       "url": "https://www.d-umihotaru.com/index.en.html",
-      "description": "Private beachfront villa in Daisen, Tottori, Japan. Accommodates up to 14 guests with ocean views, BBQ, and full kitchen.",
+      "description": "Private villa in Daisen, Tottori, Japan. Accommodates up to 14 guests with ocean views, BBQ, and full kitchen. 5 min drive to Kiryo Beach.",
+      "telephone": "",
+      "checkinTime": "16:00",
+      "checkoutTime": "10:00",
+      "numberOfRooms": 5,
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
       "image": [
         "https://www.d-umihotaru.com/assets/images/fv.webp",
         "https://www.d-umihotaru.com/assets/images/view.webp",
@@ -176,6 +185,8 @@
       }
     ]
     </script>
+
+    <link rel="preload" as="image" href="./assets/images/fv.webp" type="image/webp" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -380,6 +391,25 @@
             .char { opacity: 1; transform: none; }
             .reveal-img { transform: none; }
         }
+        /* --- Season Cards --- */
+        .season-card { position: relative; overflow: hidden; border-radius: 4px; min-height: 280px; display: flex; align-items: flex-end; }
+        .season-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%); z-index: 1; }
+        .season-card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
+        .season-card:hover .season-card-bg { transform: scale(1.08); }
+        .season-card-content { position: relative; z-index: 2; padding: 24px; color: #fff; }
+        /* --- Review Carousel --- */
+        .review-carousel { position: relative; overflow: hidden; }
+        .review-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .review-slide { min-width: 100%; padding: 0 4px; box-sizing: border-box; }
+        @media (min-width: 768px) { .review-slide { min-width: 50%; } }
+        .review-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.2s; color: #1a1a1a; }
+        .review-nav:hover { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-50%) scale(1.08); }
+        .review-nav.prev { left: -8px; }
+        .review-nav.next { right: -8px; }
+        @media (min-width: 768px) { .review-nav.prev { left: -22px; } .review-nav.next { right: -22px; } }
+        .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+        .review-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+        .review-dot.active { background: #b8860b; width: 24px; border-radius: 4px; }
     </style>
 </head>
 <body class="antialiased">
@@ -451,7 +481,10 @@
     <main id="main-content">
         <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
             <div class="absolute inset-0 w-full h-full">
-                <img src="assets/images/fv.webp" alt="Exterior of DAISEN UMIHOTARU, a beachfront private villa in Tottori, Japan" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                <picture>
+                    <source srcset="assets/images/fv.webp" type="image/webp">
+                    <img src="assets/images/fv.webp" alt="Exterior of DAISEN UMIHOTARU, a beachfront private villa in Tottori, Japan" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                </picture>
                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
             </div>
             
@@ -588,7 +621,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="utensils" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Kitchen</h4>
@@ -599,7 +632,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="bath" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Bath & Toiletries</h4>
@@ -610,7 +643,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="flame" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ</h4>
@@ -670,112 +703,128 @@
             </div>
         </section>
 
+        <section class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="font-serif text-stone text-lg italic">Four Seasons</span>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Each Season, a New Story</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/view.webp" alt="Summer swimming and BBQ" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Summer</span>
+                        <h3 class="font-mincho text-xl mt-1">Beach &amp; BBQ</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">The beach is just 10m away. Enjoy swimming, kayaking and BBQ on the terrace under the sunset.</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/entrance.webp" alt="Winter skiing and snow scenery" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Winter</span>
+                        <h3 class="font-mincho text-xl mt-1">Skiing &amp; Snow Views</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">Just 20 min to Daisen White Resort. Enjoy skiing by day and ocean snow views from the bath at night.</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/bbq.webp" alt="Spring and autumn nature" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Spring &amp; Autumn</span>
+                        <h3 class="font-mincho text-xl mt-1">Nature of Mt. Daisen</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">Cherry blossoms in spring, stunning autumn foliage. Ideal for hiking and exploring the Daisen area.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Reviews</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">What Our Guests Say</h2>
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <div class="flex text-yellow-400">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <span class="text-ink/60 text-sm font-sans tracking-wider ml-1">5.0 / 5 (4 reviews)</span>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <div class="review-carousel max-w-6xl mx-auto">
+                <button class="review-nav prev" aria-label="Previous review"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                <button class="review-nav next" aria-label="Next review"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                <div class="review-track">
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"The ocean view from the bath was stunning!"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>First time staying here. Very clean, spacious rooms, and an extremely comfortable stay! The ocean view from the bathroom was absolutely breathtaking! We'll definitely come back for fishing next time!</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>Aug 2025 / Family with children</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
                         </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"The view from the bath was spectacular!"</h4>
                     </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            It was very clean, the rooms were spacious, and we had a very comfortable stay! The view of the sea from the bathroom was spectacular! I want to repeat next time to do some fishing in the sea!
-                        </p>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"We had fun even indoors"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>The weather wasn't great so we couldn't BBQ, but there's table tennis and games inside. Plenty of rooms and very spacious — great for 2-3 families together.</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>Aug 2025 / 3 families, 10 guests</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>Aug 2025 / Family Trip</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"Just 10m from the beach"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>One of the best accommodations I've ever seen. Spacious enough for 3 families, clean interior, just 10m from the beach, and the host was wonderful. Highly recommended.</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>Sep 2025 / Group of 3 families</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"So huge we almost got lost!"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>Amazing location with breathtaking views. The place was so spacious we almost got lost! Next time we'd love to stay two nights. Perfect for large groups!</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>Aug 2025 / Family with children</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"Enjoyed even indoors"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            The weather was unfortunate, so we couldn't BBQ, but we were able to enjoy ping-pong and games indoors. There are many rooms and it is spacious, so I think it's okay for 2-3 families.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>Aug 2025 / 3 Families (10 guests)</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"Just 10m from the coast"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            I have never seen such a wonderful place to stay. Spacious space for 3 families, clean interior, location just 10m from the coast, and the kindness of the host were all the best. Highly recommended.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>Sep 2025 / Group Trip</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"So big I got lost (lol)"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            Great location and the view was impressive. It was so big I got lost (lol). If I come next time, I want to spend two days. I think it's fun for large groups!
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>Aug 2025 / Family Trip</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
+                <div class="review-dots" role="tablist" aria-label="Review navigation"></div>
             </div>
         </section>
 
@@ -929,9 +978,19 @@
                                 Spend an irreplaceable holiday<br>
                                 with everyone.
                             </p>
-                            <a href="https://www.airbnb.com/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
-                                CHECK AVAILABILITY
-                            </a>
+                            <div class="space-y-3">
+                                <a href="https://www.airbnb.com/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                                    Book on Airbnb
+                                </a>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        Jalan
+                                    </a>
+                                    <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        Rakuten Travel
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -939,20 +998,58 @@
         </section>
     </main>
 
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 flex gap-2 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="Booking bar">
+        <a href="https://www.airbnb.com/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="flex-1 bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+            Book Now
+        </a>
+        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            Jalan
+        </a>
+        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            Rakuten
+        </a>
+    </div>
+
     <button id="back-to-top" aria-label="Back to top">
         <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
-    <footer class="bg-charcoal text-ink py-12 px-6 border-t border-stone/30">
-        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-60">
-            <p>© 2025 DAISEN UMIHOTARU</p>
-            <div class="flex gap-8 mt-4 md:mt-0">
-                <a href="#" class="hover:text-accent transition-colors">PRIVACY POLICY</a>
-                <a href="#" class="hover:text-accent transition-colors">TERMS</a>
-                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-accent transition-colors">CONTACT</a>
+        <footer class="bg-ink text-white/70 py-16 px-6 md:px-24">
+            <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="font-serif text-white text-lg tracking-[0.15em] mb-4">DAISEN UMIHOTARU</h3>
+                    <p class="text-sm leading-relaxed">479-4 Toyofusa, Daisen-cho, Saihaku-gun,<br>Tottori 689-3324, Japan</p>
+                    <p class="text-sm mt-3"><a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-white transition-colors">umihotaru.daisen@gmail.com</a></p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-white text-sm tracking-[0.15em] uppercase mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#experience" class="hover:text-white transition-colors">Experience</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#info" class="hover:text-white transition-colors">Info &amp; Booking</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-white text-sm tracking-[0.15em] uppercase mb-4">Follow &amp; Book</h4>
+                    <div class="flex gap-4 mb-6">
+                        <a href="https://www.instagram.com/mica_graces" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Airbnb</a>
+                        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Jalan</a>
+                        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Rakuten Travel</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+            <div class="max-w-screen-xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2025–2026 DAISEN UMIHOTARU. All rights reserved.</p>
+                <p>Operated by Eisuke Kodani</p>
+            </div>
+        </footer>
 
     <script>
         // Copy existing JS logic for lenis, gsap, mobile menu, and accordion here
@@ -1016,29 +1113,106 @@
         if (mobileMenuClose) { mobileMenuClose.addEventListener('click', () => toggleMenu(false)); }
         mobileLinks.forEach(link => { link.addEventListener('click', () => toggleMenu(false)); });
 
-        // Back to Top
+        // Back to Top & Mobile CTA
         const backToTop = document.getElementById('back-to-top');
-        if (backToTop) {
-            window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 600); });
-            backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        const mobileCta = document.getElementById('mobile-cta');
+        if (backToTop || mobileCta) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY > 600;
+                if (backToTop) backToTop.classList.toggle('visible', scrolled);
+                if (mobileCta) {
+                    if (scrolled) {
+                        mobileCta.style.opacity = '1';
+                        mobileCta.style.transform = 'translateY(0)';
+                    } else {
+                        mobileCta.style.opacity = '0';
+                        mobileCta.style.transform = 'translateY(100%)';
+                    }
+                }
+            });
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const questions = document.querySelectorAll('.faq-question');
-            questions.forEach(question => {
+            questions.forEach((question, i) => {
+                const answer = question.nextElementSibling;
+                const answerId = 'faq-answer-' + i;
+                answer.id = answerId;
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('aria-controls', answerId);
+                answer.setAttribute('role', 'region');
                 question.addEventListener('click', () => {
                     question.classList.toggle('active');
-                    const answer = question.nextElementSibling;
                     if (question.classList.contains('active')) {
+                        question.setAttribute('aria-expanded', 'true');
                         answer.style.maxHeight = answer.scrollHeight + "px";
                         answer.style.borderTop = "1px solid #f0f0f0";
                     } else {
+                        question.setAttribute('aria-expanded', 'false');
                         answer.style.maxHeight = null;
                         answer.style.borderTop = "1px solid transparent";
                     }
                 });
             });
         });
+        // Season cards GSAP animation
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.utils.toArray('.season-card').forEach((card, i) => {
+                gsap.from(card, {
+                    y: 60, opacity: 0, duration: 0.8,
+                    delay: i * 0.15, ease: "power3.out",
+                    scrollTrigger: { trigger: card, start: "top 85%" }
+                });
+            });
+        }
+
+        // Review Carousel
+        (() => {
+            const track = document.querySelector('.review-track');
+            const slides = document.querySelectorAll('.review-slide');
+            const dotsContainer = document.querySelector('.review-dots');
+            const prevBtn = document.querySelector('.review-nav.prev');
+            const nextBtn = document.querySelector('.review-nav.next');
+            if (!track || slides.length === 0) return;
+            let current = 0;
+            let perView = window.innerWidth >= 768 ? 2 : 1;
+            const total = slides.length;
+            let pageCount = Math.ceil(total / perView);
+            let autoTimer;
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < pageCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Review ' + (i + 1));
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            function goTo(index) {
+                current = Math.max(0, Math.min(index, pageCount - 1));
+                const pct = (current * (100 / perView)) * perView;
+                track.style.transform = 'translateX(-' + pct + '%)';
+                dotsContainer.querySelectorAll('.review-dot').forEach((d, i) => { d.classList.toggle('active', i === current); });
+                resetAuto();
+            }
+            function next() { goTo(current >= pageCount - 1 ? 0 : current + 1); }
+            function prev() { goTo(current <= 0 ? pageCount - 1 : current - 1); }
+            function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(next, 5000); }
+            prevBtn.addEventListener('click', prev);
+            nextBtn.addEventListener('click', next);
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+            track.addEventListener('touchend', e => { if (!isDragging) return; const diff = e.changedTouches[0].clientX - startX; if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); } isDragging = false; }, { passive: true });
+            window.addEventListener('resize', () => { const nv = window.innerWidth >= 768 ? 2 : 1; if (nv !== perView) { perView = nv; pageCount = Math.ceil(total / perView); if (current >= pageCount) current = pageCount - 1; buildDots(); goTo(current); } });
+            buildDots();
+            resetAuto();
+        })();
     </script>
 </body>
 </html>

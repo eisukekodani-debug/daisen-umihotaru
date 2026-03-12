@@ -33,12 +33,21 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "VacationRental",
+      "@type": ["VacationRental", "LodgingBusiness"],
       "@id": "https://www.d-umihotaru.com/#villa",
       "identifier": "DAISEN-UMIHOTARU-001",
       "name": "DAISEN UMIHOTARU",
+      "alternateName": "다이센 우미호타루",
       "url": "https://www.d-umihotaru.com/index.kr.html",
-      "description": "돗토리현 다이센초에 위치한 바닷가 독채 펜션. 최대 14명 숙박 가능, 오션뷰, BBQ, 풀 키친 완비.",
+      "description": "돗토리현 다이센초에 위치한 바닷가 독채 펜션. 최대 14명 숙박 가능, 오션뷰, BBQ, 풀 키친 완비. 기료 해안까지 차로 5분.",
+      "telephone": "",
+      "checkinTime": "16:00",
+      "checkoutTime": "10:00",
+      "numberOfRooms": 5,
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
       "image": [
         "https://www.d-umihotaru.com/assets/images/fv.webp",
         "https://www.d-umihotaru.com/assets/images/view.webp",
@@ -175,6 +184,8 @@
       }
     ]
     </script>
+
+    <link rel="preload" as="image" href="./assets/images/fv.webp" type="image/webp" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -378,6 +389,25 @@
             .char { opacity: 1; transform: none; }
             .reveal-img { transform: none; }
         }
+        /* --- Season Cards --- */
+        .season-card { position: relative; overflow: hidden; border-radius: 4px; min-height: 280px; display: flex; align-items: flex-end; }
+        .season-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%); z-index: 1; }
+        .season-card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
+        .season-card:hover .season-card-bg { transform: scale(1.08); }
+        .season-card-content { position: relative; z-index: 2; padding: 24px; color: #fff; }
+        /* --- Review Carousel --- */
+        .review-carousel { position: relative; overflow: hidden; }
+        .review-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .review-slide { min-width: 100%; padding: 0 4px; box-sizing: border-box; }
+        @media (min-width: 768px) { .review-slide { min-width: 50%; } }
+        .review-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.2s; color: #1a1a1a; }
+        .review-nav:hover { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-50%) scale(1.08); }
+        .review-nav.prev { left: -8px; }
+        .review-nav.next { right: -8px; }
+        @media (min-width: 768px) { .review-nav.prev { left: -22px; } .review-nav.next { right: -22px; } }
+        .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+        .review-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+        .review-dot.active { background: #b8860b; width: 24px; border-radius: 4px; }
     </style>
 </head>
 <body class="antialiased">
@@ -449,7 +479,10 @@
     <main id="main-content">
         <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
             <div class="absolute inset-0 w-full h-full">
-                <img src="assets/images/fv.webp" alt="돗토리현 다이센 바닷가에 위치한 독채 펜션 DAISEN UMIHOTARU 외관" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                <picture>
+                    <source srcset="assets/images/fv.webp" type="image/webp">
+                    <img src="assets/images/fv.webp" alt="돗토리현 다이센 바닷가에 위치한 독채 펜션 DAISEN UMIHOTARU 외관" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                </picture>
                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
             </div>
             
@@ -586,7 +619,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="utensils" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">주방 용품</h4>
@@ -597,7 +630,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="bath" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">욕실 용품</h4>
@@ -608,7 +641,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="flame" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">바베큐 설비</h4>
@@ -668,112 +701,128 @@
             </div>
         </section>
 
+        <section class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="font-serif text-stone text-lg italic">Four Seasons</span>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">계절마다 새로운 이야기</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/view.webp" alt="여름 해수욕과 BBQ" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Summer</span>
+                        <h3 class="font-mincho text-xl mt-1">해수욕 &amp; BBQ</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">해변까지 단 10m. 수영, 카약, 석양 아래 테라스 BBQ를 즐기세요.</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/entrance.webp" alt="겨울 스키와 설경" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Winter</span>
+                        <h3 class="font-mincho text-xl mt-1">스키 &amp; 설경</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">다이센 화이트 리조트까지 차로 20분. 낮에는 스키, 밤에는 욕실에서 바다 설경을.</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/bbq.webp" alt="봄과 가을의 자연" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.2em] uppercase opacity-70">Spring &amp; Autumn</span>
+                        <h3 class="font-mincho text-xl mt-1">다이센의 자연</h3>
+                        <p class="text-sm mt-2 opacity-85 leading-relaxed">봄의 벚꽃, 가을의 단풍. 하이킹과 다이센 지역 탐험에 최적입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">고객 후기</h2>
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <div class="flex text-yellow-400">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <span class="text-ink/60 text-sm font-sans tracking-wider ml-1">5.0 / 5 (리뷰 4건)</span>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <div class="review-carousel max-w-6xl mx-auto">
+                <button class="review-nav prev" aria-label="이전 리뷰"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                <button class="review-nav next" aria-label="다음 리뷰"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                <div class="review-track">
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"욕실에서 보이는 바다가 절경이었어요!"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>처음 이용했는데, 매우 깨끗하고 방도 넓어서 정말 편안하게 보냈습니다! 욕실에서 보이는 바다는 절경이었어요! 다음에는 낚시도 하고 싶어서 꼭 다시 올게요!</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025년 8월 / 자녀 동반 가족</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
                         </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"욕실에서 보이는 바다는 절경이었습니다!"</h4>
                     </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            처음 이용했는데 정말 깨끗하고 방도 넓어서 아주 쾌적하게 보냈습니다! 욕실에서 보이는 바다 풍경이 정말 절경이었어요! 다음에는 바다 낚시도 하러 다시 방문하고 싶습니다!
-                        </p>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"실내에서도 즐길 수 있었어요"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>날씨가 좋지 않아 BBQ는 못 했지만, 탁구와 게임 등 실내에서도 즐길 수 있었어요. 방이 많고 넓어서 2~3가족이 함께 와도 충분합니다.</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025년 8월 / 3가족 10명</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025년 8월 / 가족 여행</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"해변에서 불과 10m 거리"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>이렇게 훌륭한 숙소는 처음이에요. 3가족이 머물 수 있는 넓은 공간, 깨끗한 인테리어, 해변에서 불과 10m, 호스트의 친절함까지 모든 것이 최고였습니다.</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025년 9월 / 3가족 그룹</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">"길을 잃을 정도로 넓었어요(웃음)"</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>훌륭한 위치에 감동적인 경치. 길을 잃을 정도로 넓었어요! 다음에 온다면 이틀은 머물고 싶어요. 대인원에게 완벽합니다!</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025년 8월 / 자녀 동반 가족</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"실내에서도 즐겁게 보냈습니다"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            당일 날씨가 좋지 않아 바베큐는 못 했지만, 실내에 탁구와 게임 등이 있어 즐겁게 보낼 수 있었습니다. 방도 많고 넓어서 2~3가족이 와도 충분할 것 같습니다.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025년 8월 / 3가족 (10명)</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"해안에서 불과 10m 거리"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            이렇게 멋진 숙소는 본 적이 없습니다. 3가족이 묵을 수 있는 넓은 공간, 깨끗한 인테리어, 해안에서 불과 10m 떨어진 위치, 호스트의 친절함까지 모두 최고였습니다. 강력 추천합니다.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025년 9월 / 단체 여행</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">"길을 잃을 정도로 넓었어요(웃음)"</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            훌륭한 위치와 감동적인 풍경이었습니다. 길을 잃을 정도로 넓었어요(웃음). 다음에 온다면 이틀은 묵고 싶습니다. 인원이 많아도 즐거울 것 같아요!
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025년 8월 / 가족 여행</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
+                <div class="review-dots" role="tablist" aria-label="리뷰 전환"></div>
             </div>
         </section>
 
@@ -927,9 +976,19 @@
                                 모두와 함께 보내는,<br>
                                 둘도 없는 휴일.
                             </p>
-                            <a href="https://www.airbnb.co.kr/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
-                                CHECK AVAILABILITY
-                            </a>
+                            <div class="space-y-3">
+                                <a href="https://www.airbnb.co.kr/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                                    Airbnb 예약
+                                </a>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        Jalan
+                                    </a>
+                                    <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        Rakuten Travel
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -937,20 +996,58 @@
         </section>
     </main>
 
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 flex gap-2 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="예약 바">
+        <a href="https://www.airbnb.co.kr/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="flex-1 bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+            예약하기
+        </a>
+        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            Jalan
+        </a>
+        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            Rakuten
+        </a>
+    </div>
+
     <button id="back-to-top" aria-label="페이지 상단으로">
         <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
-    <footer class="bg-charcoal text-ink py-12 px-6 border-t border-stone/30">
-        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-60">
-            <p>© 2025 DAISEN UMIHOTARU</p>
-            <div class="flex gap-8 mt-4 md:mt-0">
-                <a href="#" class="hover:text-accent transition-colors">PRIVACY POLICY</a>
-                <a href="#" class="hover:text-accent transition-colors">TERMS</a>
-                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-accent transition-colors">CONTACT</a>
+        <footer class="bg-ink text-white/70 py-16 px-6 md:px-24">
+            <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="font-serif text-white text-lg tracking-[0.15em] mb-4">DAISEN UMIHOTARU</h3>
+                    <p class="text-sm leading-relaxed">〒689-3324 돗토리현 사이하쿠군<br>다이센초 도요후사 479-4</p>
+                    <p class="text-sm mt-3"><a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-white transition-colors">umihotaru.daisen@gmail.com</a></p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-white text-sm tracking-[0.15em] uppercase mb-4">네비게이션</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition-colors">소개</a></li>
+                        <li><a href="#experience" class="hover:text-white transition-colors">체험</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition-colors">후기</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#info" class="hover:text-white transition-colors">정보 &amp; 예약</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-white text-sm tracking-[0.15em] uppercase mb-4">팔로우 &amp; 예약</h4>
+                    <div class="flex gap-4 mb-6">
+                        <a href="https://www.instagram.com/mica_graces" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Airbnb</a>
+                        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Jalan</a>
+                        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block hover:text-white transition-colors">Rakuten Travel</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+            <div class="max-w-screen-xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2025–2026 DAISEN UMIHOTARU. All rights reserved.</p>
+                <p>운영: 코다니 에이스케 (Eisuke Kodani)</p>
+            </div>
+        </footer>
 
     <script>
         if (typeof Lenis !== 'undefined') {
@@ -1013,29 +1110,106 @@
         if (mobileMenuClose) { mobileMenuClose.addEventListener('click', () => toggleMenu(false)); }
         mobileLinks.forEach(link => { link.addEventListener('click', () => toggleMenu(false)); });
 
-        // Back to Top
+        // Back to Top & Mobile CTA
         const backToTop = document.getElementById('back-to-top');
-        if (backToTop) {
-            window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 600); });
-            backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        const mobileCta = document.getElementById('mobile-cta');
+        if (backToTop || mobileCta) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY > 600;
+                if (backToTop) backToTop.classList.toggle('visible', scrolled);
+                if (mobileCta) {
+                    if (scrolled) {
+                        mobileCta.style.opacity = '1';
+                        mobileCta.style.transform = 'translateY(0)';
+                    } else {
+                        mobileCta.style.opacity = '0';
+                        mobileCta.style.transform = 'translateY(100%)';
+                    }
+                }
+            });
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const questions = document.querySelectorAll('.faq-question');
-            questions.forEach(question => {
+            questions.forEach((question, i) => {
+                const answer = question.nextElementSibling;
+                const answerId = 'faq-answer-' + i;
+                answer.id = answerId;
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('aria-controls', answerId);
+                answer.setAttribute('role', 'region');
                 question.addEventListener('click', () => {
                     question.classList.toggle('active');
-                    const answer = question.nextElementSibling;
                     if (question.classList.contains('active')) {
                         answer.style.maxHeight = answer.scrollHeight + "px";
                         answer.style.borderTop = "1px solid #f0f0f0";
+                        question.setAttribute('aria-expanded', 'true');
                     } else {
                         answer.style.maxHeight = null;
                         answer.style.borderTop = "1px solid transparent";
+                        question.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
         });
+        // Season cards GSAP animation
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.utils.toArray('.season-card').forEach((card, i) => {
+                gsap.from(card, {
+                    y: 60, opacity: 0, duration: 0.8,
+                    delay: i * 0.15, ease: "power3.out",
+                    scrollTrigger: { trigger: card, start: "top 85%" }
+                });
+            });
+        }
+
+        // Review Carousel
+        (() => {
+            const track = document.querySelector('.review-track');
+            const slides = document.querySelectorAll('.review-slide');
+            const dotsContainer = document.querySelector('.review-dots');
+            const prevBtn = document.querySelector('.review-nav.prev');
+            const nextBtn = document.querySelector('.review-nav.next');
+            if (!track || slides.length === 0) return;
+            let current = 0;
+            let perView = window.innerWidth >= 768 ? 2 : 1;
+            const total = slides.length;
+            let pageCount = Math.ceil(total / perView);
+            let autoTimer;
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < pageCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', '리뷰 ' + (i + 1));
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            function goTo(index) {
+                current = Math.max(0, Math.min(index, pageCount - 1));
+                const pct = (current * (100 / perView)) * perView;
+                track.style.transform = 'translateX(-' + pct + '%)';
+                dotsContainer.querySelectorAll('.review-dot').forEach((d, i) => { d.classList.toggle('active', i === current); });
+                resetAuto();
+            }
+            function next() { goTo(current >= pageCount - 1 ? 0 : current + 1); }
+            function prev() { goTo(current <= 0 ? pageCount - 1 : current - 1); }
+            function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(next, 5000); }
+            prevBtn.addEventListener('click', prev);
+            nextBtn.addEventListener('click', next);
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+            track.addEventListener('touchend', e => { if (!isDragging) return; const diff = e.changedTouches[0].clientX - startX; if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); } isDragging = false; }, { passive: true });
+            window.addEventListener('resize', () => { const nv = window.innerWidth >= 768 ? 2 : 1; if (nv !== perView) { perView = nv; pageCount = Math.ceil(total / perView); if (current >= pageCount) current = pageCount - 1; buildDots(); goTo(current); } });
+            buildDots();
+            resetAuto();
+        })();
     </script>
 </body>
 </html>

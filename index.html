@@ -33,12 +33,21 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "VacationRental",
+      "@type": ["VacationRental", "LodgingBusiness"],
       "@id": "https://www.d-umihotaru.com/#villa",
       "identifier": "DAISEN-UMIHOTARU-001",
       "name": "DAISEN UMIHOTARU",
+      "alternateName": "大山うみほたる",
       "url": "https://www.d-umihotaru.com/",
       "description": "鳥取県大山町にある、最大14名まで宿泊可能な一棟貸し切りヴィラ。家族やグループ旅行に最適な広々とした空間。",
+      "telephone": "",
+      "checkinTime": "16:00",
+      "checkoutTime": "10:00",
+      "numberOfRooms": 5,
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
       "image": [
         "https://www.d-umihotaru.com/assets/images/fv.webp",
         "https://www.d-umihotaru.com/assets/images/view.webp",
@@ -203,6 +212,7 @@
     ]
     </script>
 
+    <link rel="preload" as="image" href="./assets/images/fv.webp" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
@@ -286,6 +296,38 @@
             mix-blend-mode: multiply;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+
+
+        /* --- Season Cards --- */
+        .season-card {
+            position: relative; overflow: hidden; border-radius: 4px;
+            min-height: 280px; display: flex; align-items: flex-end;
+        }
+        .season-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%);
+            z-index: 1;
+        }
+        .season-card-bg {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; transition: transform 0.7s;
+        }
+        .season-card:hover .season-card-bg { transform: scale(1.08); }
+        .season-card-content { position: relative; z-index: 2; padding: 24px; color: #fff; }
+
+        /* --- Review Carousel --- */
+        .review-carousel { position: relative; overflow: hidden; }
+        .review-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .review-slide { min-width: 100%; padding: 0 4px; box-sizing: border-box; }
+        @media (min-width: 768px) { .review-slide { min-width: 50%; } }
+        .review-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.2s; color: #1a1a1a; }
+        .review-nav:hover { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-50%) scale(1.08); }
+        .review-nav.prev { left: -8px; }
+        .review-nav.next { right: -8px; }
+        @media (min-width: 768px) { .review-nav.prev { left: -22px; } .review-nav.next { right: -22px; } }
+        .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+        .review-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+        .review-dot.active { background: #b8860b; width: 24px; border-radius: 4px; }
 
         /* --- FAQ / Accordion Styles --- */
         .faq-card {
@@ -484,7 +526,10 @@
     <main id="main-content">
         <section class="relative w-full h-screen overflow-hidden flex items-center justify-center bg-charcoal">
             <div class="absolute inset-0 w-full h-full">
-                <img src="assets/images/fv.webp" alt="DAISEN UMIHOTARUの外観。鳥取県大山の海辺に佇む一棟貸しヴィラ" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                <picture>
+                    <source srcset="assets/images/fv.webp" type="image/webp">
+                    <img src="assets/images/fv.webp" alt="DAISEN UMIHOTARUの外観。鳥取県大山の海辺に佇む一棟貸しヴィラ" class="w-full h-full object-cover object-[30%_0%] md:object-[50%_0%] opacity-90" id="hero-img" width="1920" height="1080" fetchpriority="high">
+                </picture>
                 <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30 mix-blend-overlay"></div>
             </div>
             
@@ -613,6 +658,7 @@
             </div>
         </section>
 
+
         <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Amenities & Services</span>
@@ -621,7 +667,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="utensils" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">キッチン備品</h4>
@@ -632,7 +678,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="bath" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">バスアメニティ</h4>
@@ -643,7 +689,7 @@
                 </div>
 
                 <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md text-accent group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
                         <i data-lucide="flame" class="w-8 h-8"></i>
                     </div>
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ設備</h4>
@@ -703,116 +749,134 @@
             </div>
         </section>
 
+        <section id="seasons" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="font-serif text-stone text-lg italic">Four Seasons</span>
+                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">四季の楽しみ方</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/view.webp" alt="夏の海水浴とBBQ" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.3em] uppercase opacity-70">Summer — 6月〜9月</span>
+                        <h3 class="font-mincho text-2xl font-bold mt-2 mb-3">海水浴とBBQの夏</h3>
+                        <p class="text-sm leading-relaxed opacity-90">木料海岸まで車5分。プライベート感のある砂浜で海水浴を楽しんだ後は、中庭でBBQ。夕暮れの漁り火を眺めながら、至福の時間を。</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/bath.webp" alt="冬のスキーと鍋料理" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.3em] uppercase opacity-70">Winter — 12月〜3月</span>
+                        <h3 class="font-mincho text-2xl font-bold mt-2 mb-3">スキーと雪見の冬</h3>
+                        <p class="text-sm leading-relaxed opacity-90">大山スキー場まで車25分。パウダースノーで滑った後は、地元のカニや地魚で鍋を囲む。海を見ながらの雪見バスも格別です。</p>
+                    </div>
+                </div>
+                <div class="season-card shadow-lg">
+                    <img src="assets/images/local-food.webp" alt="春秋のハイキングと紅葉" loading="lazy" class="season-card-bg">
+                    <div class="season-card-content">
+                        <span class="text-xs tracking-[0.3em] uppercase opacity-70">Spring & Autumn — 4月〜5月・10月〜11月</span>
+                        <h3 class="font-mincho text-2xl font-bold mt-2 mb-3">大山の自然を満喫</h3>
+                        <p class="text-sm leading-relaxed opacity-90">春は新緑のブナ林ハイキング、秋は大山の紅葉が圧巻。御来屋漁港の旬の魚介を調達して、フルキッチンで料理を楽しめます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
                 <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">お客様の声</h2>
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <div class="flex text-yellow-400">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <span class="text-ink/60 text-sm font-sans tracking-wider ml-1">5.0 / 5（4件のレビュー）</span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <div class="review-carousel max-w-6xl mx-auto">
+                <button class="review-nav prev" aria-label="前のレビュー"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                <button class="review-nav next" aria-label="次のレビュー"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+
+                <div class="review-track">
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">「浴室から見える海は絶景でした！」</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>初めて利用させて頂きました。とても綺麗で、部屋も広く、とても快適に過ごせました！浴室から見える海は、絶景でした！次回は、海で釣りなどもしたいので、リピート致します！</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025年8月 / お子様連れのお客様</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
                         </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">「浴室から見える海は絶景でした！」</h4>
                     </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            初めて利用させて頂きました。とても綺麗で、部屋も広く、とても快適に過ごせました！
-                            浴室から見える海は、絶景でした！次回は、海で釣りなどもしたいので、リピート致します！
-                        </p>
+
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">「室内でも楽しむことができました」</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>当日はあいにくの天候で、BBQはできませんでしたが、こちらの中には卓球やゲームなど室内でも楽しむことができました。部屋数も多く、広いので2〜3家族で来ても大丈夫だと思います。</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025年8月 / 3家族10名様</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025年8月 / お子様連れのお客様</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
+
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">「海岸からわずか10mの場所」</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>こんなに素晴らしい宿泊先は見たことがありません。3家族が泊まれる広々としたスペース、清潔な内装、海岸からわずか10mの場所、ホストの親切さはすべて最高でした。強くおすすめします。</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025年9月 / 3家族グループのお客様</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-slide">
+                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
+                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
+                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div class="mb-4 mt-2">
+                                <h4 class="font-mincho text-lg font-bold text-ink">「迷子になるくらい広かった（笑）」</h4>
+                            </div>
+                            <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
+                                <p>素晴らしい立地で、景色も感動的でした。迷子になるくらい広かった（笑）。次もし来ることがあれば二日間は過ごしたいです。また大人数だと楽しいと思います！</p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
+                                <span>2025年8月 / お子様連れのお客様</span>
+                                <span class="text-accent font-bold">via Airbnb</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">「室内でも楽しむことができました」</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            当日はあいにくの天候で、BBQはできませんでしたが、こちらの中には卓球やゲームなど室内でも楽しむことができました。
-                            部屋数も多く、広いので2〜3家族で来ても大丈夫だと思います。
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025年8月 / 3家族10名様</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">「海岸からわずか10mの場所」</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            こんなに素晴らしい宿泊先は見たことがありません。3家族が泊まれる広々としたスペース、清潔な内装、海岸からわずか10mの場所、ホストの親切さはすべて最高でした。強くおすすめします。
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025年9月 / 3家族グループのお客様</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
-                    <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                        <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <div class="flex text-yellow-400 mb-2">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <h4 class="font-mincho text-lg font-bold text-ink">「迷子になるくらい広かった（笑）」</h4>
-                    </div>
-                    <div class="space-y-4 text-ink/80 text-sm leading-loose font-mincho flex-grow">
-                        <p>
-                            素晴らしい立地で、景色も感動的でした。迷子になるくらい広かった（笑）。次もし来ることがあれば二日間は過ごしたいです。また大人数だと楽しいと思います！
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
-                        <span>2025年8月 / お子様連れのお客様</span>
-                        <span class="text-accent font-bold">via Airbnb</span>
-                    </div>
-                </div>
-
+                <div class="review-dots" role="tablist" aria-label="レビュー切り替え"></div>
             </div>
         </section>
 
@@ -966,9 +1030,19 @@
                                 みんなで過ごす、<br>
                                 かけがえのない休日を。
                             </p>
-                            <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
-                                CHECK AVAILABILITY
-                            </a>
+                            <div class="space-y-3">
+                                <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                                    Airbnb で予約
+                                </a>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        じゃらん
+                                    </a>
+                                    <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-ink text-center py-3 text-sm font-sans tracking-wider border border-stone/50 hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+                                        楽天トラベル
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -976,17 +1050,62 @@
         </section>
     </main>
 
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 flex gap-2 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
+        <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="flex-1 bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+            予約する
+        </a>
+        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            じゃらん
+        </a>
+        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+            楽天
+        </a>
+    </div>
+
     <button id="back-to-top" aria-label="ページトップへ戻る">
         <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
-    <footer class="bg-charcoal text-ink py-12 px-6 border-t border-stone/30">
-        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-60">
-            <p>© 2025 DAISEN UMIHOTARU</p>
-            <div class="flex gap-8 mt-4 md:mt-0">
-                <a href="#" class="hover:text-accent transition-colors">PRIVACY POLICY</a>
-                <a href="#" class="hover:text-accent transition-colors">TERMS</a>
-                <a href="mailto:umihotaru.daisen@gmail.com" class="hover:text-accent transition-colors">CONTACT</a>
+    <footer class="bg-ink text-white/70 py-16 px-6 border-t border-stone/20">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <span class="font-serif text-xl tracking-widest text-white block mb-4">DAISEN<br>UMIHOTARU</span>
+                    <p class="text-xs leading-relaxed opacity-70 font-sans">
+                        鳥取県西伯郡大山町御来屋824<br>
+                        〒689-3211
+                    </p>
+                    <a href="mailto:umihotaru.daisen@gmail.com" class="text-xs text-stone hover:text-white transition-colors mt-2 inline-block">
+                        umihotaru.daisen@gmail.com
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Navigate</h4>
+                    <nav class="flex flex-col gap-2 text-xs font-sans">
+                        <a href="#story" class="hover:text-white transition-colors">The Story</a>
+                        <a href="#Room" class="hover:text-white transition-colors">The Room</a>
+                        <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                        <a href="#seasons" class="hover:text-white transition-colors">四季の楽しみ方</a>
+                        <a href="#faq" class="hover:text-white transition-colors">よくあるご質問</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Follow & Book</h4>
+                    <div class="flex gap-4 mb-4">
+                        <a href="https://www.instagram.com/mica_graces" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="flex flex-col gap-2 text-xs font-sans">
+                        <a href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Airbnb</a>
+                        <a href="https://www.jalan.net/kankou/spt_guide000000228498/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">じゃらんnet</a>
+                        <a href="https://travel.rakuten.co.jp/HOTEL/206498/206498.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">楽天トラベル</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-sans tracking-widest opacity-50">
+                <p>© 2025–2026 DAISEN UMIHOTARU</p>
+                <p class="mt-2 md:mt-0">運営: 小谷英佑 / Eisuke Kodani</p>
             </div>
         </div>
     </footer>
@@ -1094,33 +1213,47 @@
             link.addEventListener('click', () => toggleMenu(false));
         });
 
-        // Back to Top
+        // Back to Top & Mobile CTA
         const backToTop = document.getElementById('back-to-top');
-        if (backToTop) {
+        const mobileCta = document.getElementById('mobile-cta');
+        if (backToTop || mobileCta) {
             window.addEventListener('scroll', () => {
-                backToTop.classList.toggle('visible', window.scrollY > 600);
+                const scrolled = window.scrollY > 600;
+                if (backToTop) backToTop.classList.toggle('visible', scrolled);
+                if (mobileCta) {
+                    if (scrolled) {
+                        mobileCta.style.opacity = '1';
+                        mobileCta.style.transform = 'translateY(0)';
+                    } else {
+                        mobileCta.style.opacity = '0';
+                        mobileCta.style.transform = 'translateY(100%)';
+                    }
+                }
             });
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         }
 
-        // FAQ Accordion Logic
+        // FAQ Accordion Logic with aria-expanded
         document.addEventListener('DOMContentLoaded', function() {
             const questions = document.querySelectorAll('.faq-question');
+            questions.forEach((question, i) => {
+                const answer = question.nextElementSibling;
+                const answerId = 'faq-answer-' + i;
+                answer.id = answerId;
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('aria-controls', answerId);
+                answer.setAttribute('role', 'region');
 
-            questions.forEach(question => {
                 question.addEventListener('click', () => {
-                    // クラスの切り替え（activeをつける/外す）
-                    question.classList.toggle('active');
-                    
-                    // 次の要素（回答エリア）を取得
-                    const answer = question.nextElementSibling;
-                    
-                    // 開閉アニメーションの制御
-                    if (question.classList.contains('active')) {
+                    const isOpen = question.classList.toggle('active');
+                    question.setAttribute('aria-expanded', isOpen);
+                    if (isOpen) {
                         answer.style.maxHeight = answer.scrollHeight + "px";
-                        answer.style.borderTop = "1px solid #f0f0f0"; // 開いたときにうっすら線を入れる
+                        answer.style.borderTop = "1px solid #f0f0f0";
                     } else {
                         answer.style.maxHeight = null;
                         answer.style.borderTop = "1px solid transparent";
@@ -1128,6 +1261,90 @@
                 });
             });
         });
+
+        // Season cards GSAP animation
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.utils.toArray('.season-card').forEach((card, i) => {
+                gsap.from(card, {
+                    y: 60, opacity: 0, duration: 0.8,
+                    delay: i * 0.15, ease: "power3.out",
+                    scrollTrigger: { trigger: card, start: "top 85%" }
+                });
+            });
+        }
+
+        // Review Carousel
+        (() => {
+            const track = document.querySelector('.review-track');
+            const slides = document.querySelectorAll('.review-slide');
+            const dotsContainer = document.querySelector('.review-dots');
+            const prevBtn = document.querySelector('.review-nav.prev');
+            const nextBtn = document.querySelector('.review-nav.next');
+            if (!track || slides.length === 0) return;
+
+            let current = 0;
+            let perView = window.innerWidth >= 768 ? 2 : 1;
+            const total = slides.length;
+            const pageCount = Math.ceil(total / perView);
+            let autoTimer;
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < pageCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'レビュー ' + (i + 1));
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function goTo(index) {
+                current = Math.max(0, Math.min(index, pageCount - 1));
+                const pct = (current * (100 / perView)) * perView;
+                track.style.transform = 'translateX(-' + pct + '%)';
+                dotsContainer.querySelectorAll('.review-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === current);
+                });
+                resetAuto();
+            }
+
+            function next() { goTo(current >= pageCount - 1 ? 0 : current + 1); }
+            function prev() { goTo(current <= 0 ? pageCount - 1 : current - 1); }
+
+            function resetAuto() {
+                clearInterval(autoTimer);
+                autoTimer = setInterval(next, 5000);
+            }
+
+            prevBtn.addEventListener('click', prev);
+            nextBtn.addEventListener('click', next);
+
+            // Touch/swipe support
+            let startX = 0, isDragging = false;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+            track.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                const diff = e.changedTouches[0].clientX - startX;
+                if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); }
+                isDragging = false;
+            }, { passive: true });
+
+            // Recalculate on resize
+            window.addEventListener('resize', () => {
+                const newPerView = window.innerWidth >= 768 ? 2 : 1;
+                if (newPerView !== perView) {
+                    perView = newPerView;
+                    const newPageCount = Math.ceil(total / perView);
+                    if (current >= newPageCount) current = newPageCount - 1;
+                    buildDots();
+                    goTo(current);
+                }
+            });
+
+            buildDots();
+            resetAuto();
+        })();
     </script>
 </body>
 </html>
