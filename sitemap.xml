@@ -5,10 +5,9 @@
   <!-- 日本語版 (メイン) -->
   <url>
     <loc>https://www.d-umihotaru.com/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <!-- 言語の代替ページ指定 -->
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
@@ -21,7 +20,6 @@
     <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <!-- 言語の代替ページ指定 -->
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
@@ -34,11 +32,34 @@
     <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <!-- 言語の代替ページ指定 -->
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/index.en.html" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/index.kr.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
+  </url>
+
+  <!-- アクセスページ -->
+  <url>
+    <loc>https://www.d-umihotaru.com/access.html</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 周辺観光ガイドページ -->
+  <url>
+    <loc>https://www.d-umihotaru.com/area-guide.html</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 料金・宿泊プランページ -->
+  <url>
+    <loc>https://www.d-umihotaru.com/plan.html</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
