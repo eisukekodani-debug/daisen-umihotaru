@@ -212,7 +212,7 @@
           "name": "周辺の観光スポットは？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "木料海岸（車5分）での海水浴、御来屋漁港（徒歩5分）での地魚購入や釣り体験、大山寺・大神山神社（車30分）での歴史散策、だいせんホワイトリゾート（車25分）でのスキー、皆生温泉（車25分）での日帰り入浴など、四季を通じて多彩なアクティビティをお楽しみいただけます。大山まきばみるくの里では牧場体験も。"
+            "text": "木料海岸（車5分）での海水浴、御来屋漁港（徒歩5分）での地魚購入、大山寺・大神山神社（車30分）での歴史散策、だいせんホワイトリゾート（車25分）でのスキー、皆生温泉（車25分）での日帰り入浴など、四季を通じて多彩なアクティビティをお楽しみいただけます。大山まきばみるくの里では牧場体験も。"
           }
         },
         {
@@ -235,7 +235,7 @@
         "itemReviewed": { "@type": "VacationRental", "@id": "https://www.d-umihotaru.com/#villa" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "お子様連れのお客様" },
-        "datePublished": "2025-08",
+        "datePublished": "2025-08-01",
         "reviewBody": "初めて利用させて頂きました。とても綺麗で、部屋も広く、とても快適に過ごせました！浴室から見える海は、絶景でした！"
       },
       {
@@ -244,7 +244,7 @@
         "itemReviewed": { "@type": "VacationRental", "@id": "https://www.d-umihotaru.com/#villa" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "3家族10名のお客様" },
-        "datePublished": "2025-08",
+        "datePublished": "2025-08-01",
         "reviewBody": "部屋数も多く、広いので2〜3家族で来ても大丈夫だと思います。室内でも卓球やゲームなど楽しむことができました。"
       },
       {
@@ -262,7 +262,7 @@
         "itemReviewed": { "@type": "VacationRental", "@id": "https://www.d-umihotaru.com/#villa" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "お子様連れのお客様" },
-        "datePublished": "2025-08",
+        "datePublished": "2025-08-01",
         "reviewBody": "素晴らしい立地で、景色も感動的でした。迷子になるくらい広かった。次もし来ることがあれば二日間は過ごしたいです。"
       }
     ]
@@ -382,7 +382,7 @@
         .review-nav.next { right: -8px; }
         @media (min-width: 768px) { .review-nav.prev { left: -22px; } .review-nav.next { right: -22px; } }
         .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
-        .review-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+        .review-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); border: none; cursor: pointer; transition: all 0.3s; padding: 10px; margin: -10px; box-sizing: content-box; }
         .review-dot.active { background: #b8860b; width: 24px; border-radius: 4px; }
 
         /* --- FAQ / Accordion Styles --- */
@@ -522,13 +522,14 @@
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
         <nav class="flex flex-col gap-8 text-center">
-            <a href="#story" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Story</a>
-            <a href="#Room" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Room</a>
-            <a href="#experience" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Experience</a>
-            <a href="#faq" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Q&A</a>
-            <a href="plan.html" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Plan</a>
-            <a href="access.html" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Access</a>
-            <a href="area-guide.html" class="mobile-link text-2xl font-serif tracking-[0.2em] text-ink hover:text-accent transition-colors uppercase">Guide</a>
+            <a href="#story" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">宿について</a>
+            <a href="#Room" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">お部屋・設備</a>
+            <a href="#experience" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">過ごし方</a>
+            <a href="#reviews" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">お客様の声</a>
+            <a href="#faq" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">Q&A</a>
+            <a href="plan.html" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">予約・料金</a>
+            <a href="access.html" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">アクセス</a>
+            <a href="area-guide.html" class="mobile-link text-2xl font-mincho tracking-[0.15em] text-ink hover:text-accent transition-colors">周辺ガイド</a>
             
             <div class="flex gap-4 text-xl font-serif mt-4">
                 <a href="index.en.html" class="text-ink hover:text-accent transition-colors">EN</a>
@@ -545,20 +546,21 @@
     </div>
 
     <header class="fixed top-0 left-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-start text-ink/80 bg-sand/80 backdrop-blur-sm border-b border-white/50">
-        <a href="#" class="group block">
+        <a href="index.html" class="group block">
             <span class="font-serif text-xl tracking-widest leading-none text-accent">DAISEN<br><span class="text-ink">UMIHOTARU</span></span>
             <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
         </a>
 
         <div class="hidden md:flex items-center gap-8">
-            <nav class="flex gap-8">
-                <a href="#story" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Story</a>
-                <a href="#Room" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Room</a>
-                <a href="#experience" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Experience</a>
-                <a href="#faq" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Q&A</a>
-                <a href="plan.html" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Plan</a>
-                <a href="access.html" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Access</a>
-                <a href="area-guide.html" class="text-xs font-serif tracking-[0.2em] hover:text-accent transition-colors uppercase">Guide</a>
+            <nav class="flex gap-6">
+                <a href="#story" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">宿について</a>
+                <a href="#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お部屋・設備</a>
+                <a href="#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">過ごし方</a>
+                <a href="#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お客様の声</a>
+                <a href="#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
+                <a href="plan.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">予約・料金</a>
+                <a href="access.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">アクセス</a>
+                <a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">周辺ガイド</a>
             </nav>
 
             <div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -637,6 +639,10 @@
                             2つの階段、迷路のような部屋、窓一面の海。<br>
                             「泊まる」のではなく、大切な人たちとこの町で「暮らす」ような旅を。
                         </p>
+                    </div>
+
+                    <div class="reveal-img-container aspect-[3/2] shadow-xl shadow-stone/20">
+                        <img src="assets/images/area/nearby-sea.webp" alt="施設のすぐそばに広がる穏やかな日本海" loading="lazy" width="1200" height="800" class="reveal-img">
                     </div>
                 </div>
             </div>
@@ -755,6 +761,36 @@
                     </p>
                 </div>
             </div>
+
+            <div class="mt-20">
+                <h3 class="font-serif text-xl text-ink/70 italic text-center mb-10">施設の様子</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/living-dining.webp" alt="広々としたリビング・ダイニングスペース" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/hammock.webp" alt="屋上テラスのハンモックと海の眺望" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/coffee-maker.webp" alt="コーヒーメーカーと電気ケトル" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/microwave-toaster.webp" alt="電子レンジとオーブントースター" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/rice-cooker.webp" alt="IH炊飯器" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/washer-dryer.webp" alt="ドラム式全自動洗濯乾燥機" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/electone.webp" alt="レトロなエレクトーン" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-square rounded-sm overflow-hidden">
+                        <img src="assets/images/area/manga-books.webp" alt="漫画コレクション" loading="lazy" width="400" height="400" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
@@ -773,7 +809,7 @@
                         </p>
                     </div>
                     <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/view.webp" alt="御来屋の海辺の風景" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/area/seaside-promenade.webp" alt="施設近くの海沿いの散歩道" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
 
@@ -782,7 +818,7 @@
                         <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">02</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">釣り道具レンタル＆舟釣り体験</h4>
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
-                            釣り道具一式を餌付きでレンタルしています。御来屋漁港（徒歩5分）で気軽に堤防釣りを楽しめます。遊漁船での舟釣り体験も手配可能。釣った魚で夜はBBQも。<br>
+                            釣り道具一式を餌付きでレンタルしています。遊漁船での舟釣り体験も手配可能。釣った魚で夜はBBQも。<br>
                             <span class="text-accent text-sm font-sans">※セッティングの都合上、事前にご連絡ください</span>
                         </p>
                     </div>
@@ -800,7 +836,7 @@
                         </p>
                     </div>
                     <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/mikuri-dinner.webp" alt="御厨 Mikuriのディナー" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/area/mikuri-course-1.webp" alt="御厨 Mikuriの夕食コース料理" loading="lazy" width="600" height="400" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
 
@@ -826,7 +862,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="season-card shadow-lg">
-                    <img src="assets/images/living.webp" alt="春の新緑と山菜" loading="lazy" class="season-card-bg">
+                    <img src="assets/images/area/nawa-park-cherry.webp" alt="名和公園の満開の桜と花見" loading="lazy" class="season-card-bg">
                     <div class="season-card-content">
                         <span class="text-xs tracking-[0.3em] uppercase opacity-70">Spring — 4月〜5月</span>
                         <h3 class="font-mincho text-2xl font-bold mt-2 mb-3">新緑と山菜の春</h3>
@@ -834,7 +870,7 @@
                     </div>
                 </div>
                 <div class="season-card shadow-lg">
-                    <img src="assets/images/view.webp" alt="夏の海水浴とBBQ" loading="lazy" class="season-card-bg">
+                    <img src="assets/images/area/sunset.webp" alt="日本海に沈む美しい夕日" loading="lazy" class="season-card-bg">
                     <div class="season-card-content">
                         <span class="text-xs tracking-[0.3em] uppercase opacity-70">Summer — 6月〜9月</span>
                         <h3 class="font-mincho text-2xl font-bold mt-2 mb-3">海水浴とBBQの夏</h3>
@@ -972,7 +1008,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-content">
-                            <p>はい。宿から車で約5分の<a href="https://furusato.sanin.jp/p/area/daisen/41/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-ocean underline">木料海岸</a>で海水浴をお楽しみいただけます。お店などはない素朴な砂浜のビーチで、地元の方にも親しまれています。時間帯によってはプライベートビーチのような雰囲気を味わえます。</p>
+                            <p>はい。宿から車で約5分の<a href="https://www.google.com/maps/search/%E6%9C%A8%E6%96%99%E6%B5%B7%E5%B2%B8+%E5%A4%A7%E5%B1%B1%E7%94%BA" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-ocean underline">木料海岸</a>で海水浴をお楽しみいただけます。お店などはない素朴な砂浜のビーチで、地元の方にも親しまれています。時間帯によってはプライベートビーチのような雰囲気を味わえます。</p>
                             <p>ビーチ近くには木料展望所があり、浜遊びの休憩にも便利です。夕暮れには山陰の風物詩、イカ釣り漁船の「漁り火」も楽しめます。</p>
                             <p>ビーチにはシャワーが設置されているほか、宿に戻ってからシャワーをご利用いただくことも可能です。</p>
                         </div>
@@ -1108,7 +1144,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-content">
-                            <p>木料海岸（車5分）での海水浴、御来屋漁港（徒歩5分）での地魚購入や釣り体験、大山寺・大神山神社（車30分）での歴史散策など、四季を通じて多彩なアクティビティをお楽しみいただけます。</p>
+                            <p>木料海岸（車5分）での海水浴、御来屋漁港（徒歩5分）での地魚購入、大山寺・大神山神社（車30分）での歴史散策など、四季を通じて多彩なアクティビティをお楽しみいただけます。</p>
                             <p>冬はだいせんホワイトリゾート（車25分）でスキー、皆生温泉（車25分）で日帰り入浴も。大山まきばみるくの里では牧場体験やソフトクリームが人気です。</p>
                             <p><a href="area-guide.html" class="text-accent hover:text-ocean underline">周辺観光ガイドはこちら →</a></p>
                         </div>
@@ -1212,10 +1248,10 @@
         <a onclick="gtag('event', 'reserve_button_click');" href="https://www.airbnb.jp/rooms/1449792755185469657" target="_blank" rel="noopener noreferrer" class="flex-1 bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
             予約する
         </a>
-        <a href="https://www.jalan.net/yad397953/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+        <a href="https://www.jalan.net/yad397953/" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm min-h-[44px] flex items-center justify-center">
             じゃらん
         </a>
-        <a href="https://vacation-stay.jp/listings/1428999" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm">
+        <a href="https://vacation-stay.jp/listings/1428999" target="_blank" rel="noopener noreferrer" class="flex-none bg-white text-ink text-center py-3 px-4 text-xs font-sans border border-stone/50 hover:border-accent hover:text-accent transition-all rounded-sm min-h-[44px] flex items-center justify-center">
             楽天
         </a>
     </div>
@@ -1238,15 +1274,16 @@
                     </a>
                 </div>
                 <div>
-                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Navigate</h4>
+                    <h4 class="font-sans text-xs tracking-[0.1em] text-white/90 mb-4">ページ案内</h4>
                     <nav class="flex flex-col gap-2 text-xs font-sans">
-                        <a href="#story" class="hover:text-white transition-colors">The Story</a>
-                        <a href="#Room" class="hover:text-white transition-colors">The Room</a>
-                        <a href="#facilities" class="hover:text-white transition-colors">設備・アメニティ</a>
-                        <a href="#faq" class="hover:text-white transition-colors">よくあるご質問</a>
-                        <a href="plan.html" class="hover:text-white transition-colors">料金・宿泊プラン</a>
+                        <a href="#story" class="hover:text-white transition-colors">宿について</a>
+                        <a href="#Room" class="hover:text-white transition-colors">お部屋・設備</a>
+                        <a href="#experience" class="hover:text-white transition-colors">過ごし方</a>
+                        <a href="#reviews" class="hover:text-white transition-colors">お客様の声</a>
+                        <a href="#faq" class="hover:text-white transition-colors">Q&A</a>
+                        <a href="plan.html" class="hover:text-white transition-colors">予約・料金</a>
                         <a href="access.html" class="hover:text-white transition-colors">アクセス</a>
-                        <a href="area-guide.html" class="hover:text-white transition-colors">周辺観光ガイド</a>
+                        <a href="area-guide.html" class="hover:text-white transition-colors">周辺ガイド</a>
                     </nav>
                 </div>
                 <div>
@@ -1285,7 +1322,9 @@
             requestAnimationFrame(raf);
         }
 
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !prefersReducedMotion) {
             gsap.registerPlugin(ScrollTrigger);
 
             const tl = gsap.timeline();
