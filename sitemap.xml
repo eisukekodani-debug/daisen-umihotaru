@@ -110,12 +110,40 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/area-guide.html" />
   </url>
 
-  <!-- 料金・宿泊プランページ (日本語のみ提供) -->
+  <!-- 料金・宿泊プランページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/plan.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/plan.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/plan.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/plan.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/plan.html" />
+  </url>
+
+  <!-- 料金・宿泊プランページ 英語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/plan.en.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/plan.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/plan.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/plan.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/plan.html" />
+  </url>
+
+  <!-- 料金・宿泊プランページ 韓国語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/plan.kr.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/plan.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/plan.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/plan.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/plan.html" />
   </url>
 
 </urlset>
