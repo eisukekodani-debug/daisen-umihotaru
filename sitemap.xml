@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- 日本語版 (メイン) -->
+  <!-- 日本語版トップ (メイン) -->
   <url>
     <loc>https://www.d-umihotaru.com/</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
@@ -14,10 +14,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
   </url>
 
-  <!-- 英語版 -->
+  <!-- 英語版トップ -->
   <url>
     <loc>https://www.d-umihotaru.com/index.en.html</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
@@ -26,10 +26,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
   </url>
 
-  <!-- 韓国語版 -->
+  <!-- 韓国語版トップ -->
   <url>
     <loc>https://www.d-umihotaru.com/index.kr.html</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
@@ -38,26 +38,82 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/" />
   </url>
 
-  <!-- アクセスページ -->
+  <!-- アクセスページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/access.html</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/access.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/access.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/access.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/access.html" />
   </url>
 
-  <!-- 周辺観光ガイドページ -->
+  <!-- アクセスページ 英語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/access.en.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/access.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/access.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/access.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/access.html" />
+  </url>
+
+  <!-- アクセスページ 韓国語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/access.kr.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/access.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/access.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/access.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/access.html" />
+  </url>
+
+  <!-- 周辺観光ガイドページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/area-guide.html</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/area-guide.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/area-guide.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/area-guide.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/area-guide.html" />
   </url>
 
-  <!-- 料金・宿泊プランページ -->
+  <!-- 周辺観光ガイドページ 英語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/area-guide.en.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/area-guide.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/area-guide.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/area-guide.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/area-guide.html" />
+  </url>
+
+  <!-- 周辺観光ガイドページ 韓国語版 -->
+  <url>
+    <loc>https://www.d-umihotaru.com/area-guide.kr.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/area-guide.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.d-umihotaru.com/area-guide.en.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.d-umihotaru.com/area-guide.kr.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.d-umihotaru.com/area-guide.html" />
+  </url>
+
+  <!-- 料金・宿泊プランページ (日本語のみ提供) -->
   <url>
     <loc>https://www.d-umihotaru.com/plan.html</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
