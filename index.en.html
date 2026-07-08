@@ -508,14 +508,14 @@
             
             <div class="relative z-10 text-center text-white px-4">
                 <div class="overflow-hidden mb-4">
-                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic opacity-0 translate-y-10 drop-shadow-md" id="hero-sub">Private Villa for Family & Group</p>
+                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic drop-shadow-md" id="hero-sub">Private Villa for Family & Group</p>
                 </div>
-                <h1 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight opacity-0 translate-y-10 drop-shadow-md" id="hero-title">
+                <h1 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight drop-shadow-md" id="hero-title">
                     Private Villa in Tottori Daisen<br>Stay Listening to the Waves
                 </h1>
             </div>
 
-            <div class="absolute bottom-12 left-6 md:left-12 text-white/80 font-sans text-[10px] tracking-widest writing-vertical h-32 border-l border-white/50 pl-4 drop-shadow-sm">
+            <div class="absolute bottom-12 left-6 md:left-12 text-white/80 font-sans text-[10px] tracking-widest writing-vertical border-l border-white/50 pl-4 drop-shadow-sm hidden md:block">
                 SCROLL TO EXPLORE
             </div>
         </section>
@@ -1115,6 +1115,7 @@
 
     <script>
         // Copy existing JS logic for lenis, gsap, mobile menu, and accordion here
+        document.addEventListener('DOMContentLoaded', function () {
         if (typeof Lenis !== 'undefined') {
             const lenis = new Lenis({
                 duration: 1.2,
@@ -1135,6 +1136,7 @@
 
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
+            gsap.set(["#hero-sub", "#hero-title"], { opacity: 0, y: 40 });
             const tl = gsap.timeline();
             tl.to("#hero-img", { scale: 1, duration: 2, ease: "power2.out" }, "0.5")
               .to(["#hero-logo-container", "#hero-title", "#hero-sub"], { y: 0, opacity: 1, stagger: 0.2, duration: 1.2, ease: "power3.out" }, "-=1.5");
@@ -1157,6 +1159,15 @@
             });
         }
         
+        // フォールバック: RAF/gsapが止まってもヒーロー文言を必ず表示する（P0-1安全ネット）
+        setTimeout(function () {
+            ['hero-sub', 'hero-title', 'hero-logo-container'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+            });
+        }, 2600);
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         });
