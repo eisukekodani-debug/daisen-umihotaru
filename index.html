@@ -296,7 +296,7 @@
             theme: {
                 extend: {
                     colors: {
-                        ink: '#155e75',       /* Cyan 800 */
+                        ink: '#123a4a',       /* Deep navy-teal */
                         charcoal: '#cffafe',  /* Cyan 100 */
                         sand: '#f2fdff',      /* Custom */
                         stone: '#67e8f9',     /* Cyan 300 */
@@ -600,18 +600,20 @@
             </div>
             
             <div class="relative z-10 text-center text-white px-4">
-                <div class="overflow-hidden mb-4">
-                    <p class="font-serif text-lg md:text-xl tracking-[0.3em] italic drop-shadow-md" id="hero-sub">Private Villa for Family & Group</p>
-                </div>
-                <h1 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight drop-shadow-md" id="hero-title">
-                    鳥取 大山の貸別荘<br><span class="text-3xl md:text-4xl lg:text-5xl">波の音を聴きながら泊まる</span>
+                <p class="hidden md:block font-sans text-[11px] tracking-[0.35em] uppercase mb-6 opacity-85 drop-shadow-md" id="hero-sub">Private Villa &middot; Mikuriya, Tottori</p>
+                <h1 class="drop-shadow-md" id="hero-title">
+                    <span class="block font-serif text-3xl md:text-6xl lg:text-7xl tracking-[0.1em] leading-none">DAISEN UMIHOTARU</span>
+                    <span class="block font-mincho font-normal mt-5 md:mt-7 tracking-wider text-base md:text-2xl opacity-95">
+                        <span class="md:hidden">波の音を聴きながら泊まる</span>
+                        <span class="hidden md:inline">鳥取 大山の貸別荘　波の音を聴きながら泊まる</span>
+                    </span>
                 </h1>
-                <div class="mt-8 flex flex-wrap justify-center items-center gap-2.5">
+                <div class="hidden md:flex mt-10 flex-wrap justify-center items-center gap-2.5">
                     <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">一日一組限定</span>
                     <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">最大14名</span>
                     <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">寝室・浴室からオーシャンビュー</span>
                 </div>
-                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
+                <div class="hidden md:flex mt-8 flex-col sm:flex-row justify-center items-center gap-3">
                     <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-accent text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm">空室を見る・予約</a>
                     <a href="plan.html" class="w-full sm:w-auto border border-white/70 text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-white/10 transition-all duration-300 rounded-sm">料金プランを見る</a>
                 </div>
@@ -627,7 +629,7 @@
 
             <div class="flex flex-col md:flex-row justify-between items-start gap-20">
                 <div class="md:w-1/3 md:sticky md:top-32">
-                    <h2 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">The Story</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">Concept</h2>
                     <div class="w-16 h-[1px] bg-stone mb-8"></div>
                     <p class="font-mincho text-lg leading-loose text-ink text-anim">
                         気兼ねない時間と、<br>
@@ -668,7 +670,7 @@
         <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
             <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl italic text-ink">The Room</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl italic text-ink">Rooms</h2>
                     <p class="font-mincho text-lg leading-loose text-ink mt-4">最大14名が寛げる広々とした空間</p>
                 </div>
             </div>
@@ -740,7 +742,7 @@
 
         <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
-                <span class="font-serif text-stone text-lg italic">Amenities & Services</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Amenities & Services</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">設備・アメニティ</h2>
             </div>
 
@@ -812,7 +814,7 @@
 
         <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
             <div class="text-center mb-24">
-                <span class="font-serif text-stone text-lg italic">Curated Experiences</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Curated Experiences</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">御来屋で紡ぐ時間</h2>
             </div>
 
@@ -888,39 +890,39 @@
 
         <section id="dining" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
-                <span class="font-serif text-stone text-lg italic">Dining</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Dining</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">食を楽しむ</h2>
                 <p class="font-mincho text-base text-ink/70 mt-6 max-w-2xl mx-auto leading-loose">大山の海と山の幸を、思い思いのスタイルで。自分たちで作るのも、職人に委ねるのも、名店へ足を運ぶのも自由です。</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-                <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                <div class="group">
+                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
                         <!-- 仮画像。BBQ写真を後日ここへ差し替え予定 -->
-                        <img src="assets/images/kitchen.webp" alt="中庭でのBBQと自炊" loading="lazy" width="800" height="600" class="reveal-img">
-                    </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">庭でBBQ・自炊</h3>
-                    <p class="font-mincho text-sm text-ink/75 leading-loose">中庭のBBQコンロを囲んで、みんなで炭火を。御来屋漁港や道の駅で旬の魚や野菜を仕入れれば、食卓はそのまま旅の思い出になります。フルキッチンで本格的な自炊も。</p>
-                </div>
-                <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
-                        <img src="assets/images/soba-experience.webp" alt="宿に職人が来るそば打ち出張プラン" loading="lazy" width="800" height="600" class="reveal-img">
-                    </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">そば打ち職人の出張プラン</h3>
-                    <p class="font-mincho text-sm text-ink/75 leading-loose">ご滞在中の宿へ職人がお伺いし、目の前でそばを打ちます。打ちたてを味わうお食事プランに、ご自身での体験も追加できます。<a href="plan.html#soba" class="text-accent hover:text-ocean underline underline-offset-2">料金・詳細はこちら →</a></p>
-                </div>
-                <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
-                        <img src="assets/images/mikuri-dinner.webp" alt="徒歩圏のレストラン MIKURI の料理" loading="lazy" width="800" height="600" class="reveal-img">
-                    </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">徒歩圏のレストラン「MIKURI」</h3>
-                    <p class="font-mincho text-sm text-ink/75 leading-loose">歩いて行ける距離に、地元の食材を丁寧に扱うレストラン「MIKURI」。連泊の夜や、自炊をひと休みしたい日に。落ち着いた空間で大山の恵みを味わえます。</p>
+                        <img src="assets/images/kitchen.webp" alt="中庭でのBBQと自炊" loading="lazy" width="800" height="600" class="reveal-img">
+                    </div>
+                    <h3 class="font-mincho text-xl text-ocean mb-3">庭でBBQ・自炊</h3>
+                    <p class="font-mincho text-sm text-ink/75 leading-loose">中庭のBBQコンロを囲んで、みんなで炭火を。御来屋漁港や道の駅で旬の魚や野菜を仕入れれば、食卓はそのまま旅の思い出になります。フルキッチンで本格的な自炊も。</p>
+                </div>
+                <div class="group">
+                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                        <img src="assets/images/soba-experience.webp" alt="宿に職人が来るそば打ち出張プラン" loading="lazy" width="800" height="600" class="reveal-img">
+                    </div>
+                    <h3 class="font-mincho text-xl text-ocean mb-3">そば打ち職人の出張プラン</h3>
+                    <p class="font-mincho text-sm text-ink/75 leading-loose">ご滞在中の宿へ職人がお伺いし、目の前でそばを打ちます。打ちたてを味わうお食事プランに、ご自身での体験も追加できます。<a href="plan.html#soba" class="text-accent hover:text-ocean underline underline-offset-2">料金・詳細はこちら →</a></p>
+                </div>
+                <div class="group">
+                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                        <img src="assets/images/mikuri-dinner.webp" alt="徒歩圏のレストラン MIKURI の料理" loading="lazy" width="800" height="600" class="reveal-img">
+                    </div>
+                    <h3 class="font-mincho text-xl text-ocean mb-3">徒歩圏のレストラン「MIKURI」</h3>
+                    <p class="font-mincho text-sm text-ink/75 leading-loose">歩いて行ける距離に、地元の食材を丁寧に扱うレストラン「MIKURI」。連泊の夜や、自炊をひと休みしたい日に。落ち着いた空間で大山の恵みを味わえます。</p>
                 </div>
             </div>
         </section>
 
         <section id="seasons" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
-                <span class="font-serif text-stone text-lg italic">Four Seasons</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Four Seasons</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">四季の楽しみ方</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -961,7 +963,7 @@
 
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
-                <span class="font-serif text-stone text-lg italic">Guest Reviews</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Guest Reviews</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">お客様の声</h2>
                 <div class="flex items-center justify-center gap-2 mt-4">
                     <div class="flex text-yellow-400">
@@ -1066,7 +1068,7 @@
 
         <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
              <div class="text-center mb-16">
-                <span class="font-serif text-stone text-lg italic">Q&A</span>
+                <span class="font-sans text-accent text-xs tracking-[0.3em] uppercase">Q&A</span>
                 <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">よくあるご質問</h2>
             </div>
             
