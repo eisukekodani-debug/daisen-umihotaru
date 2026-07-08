@@ -458,10 +458,10 @@
         </nav>
     </div>
 
-    <header class="fixed top-0 left-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-start text-ink/80 bg-sand/80 backdrop-blur-sm border-b border-white/50">
+    <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-6 md:px-12 flex justify-between items-start text-ink/80 bg-sand/80 backdrop-blur-sm border-b border-white/50">
         <a href="#" class="group block">
-            <span class="font-serif text-xl tracking-widest leading-none text-accent">DAISEN<br><span class="text-ink">UMIHOTARU</span></span>
-            <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
+            <span class="font-serif text-xl tracking-widest leading-none text-accent">DAISEN<br class="hidden md:block"><span class="text-ink"> UMIHOTARU</span></span>
+            <span class="text-[10px] font-sans tracking-widest mt-1 hidden md:block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
         </a>
 
         <div class="hidden md:flex items-center gap-8">
@@ -511,6 +511,15 @@
                 <h1 class="font-mincho text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight drop-shadow-md" id="hero-title">
                     돗토리 다이센 독채 펜션<br>파도 소리를 들으며 머무르다
                 </h1>
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-2.5">
+                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">1일 1팀 한정</span>
+                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">최대 14명</span>
+                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">침실·욕실 오션뷰</span>
+                </div>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ko'});" href="https://airhost124545.airhost.co/ko/houses/807014" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-accent text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm">예약 가능일 보기</a>
+                    <a href="plan.kr.html" class="w-full sm:w-auto border border-white/70 text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-white/10 transition-all duration-300 rounded-sm">요금·플랜 보기</a>
+                </div>
             </div>
 
             <div class="absolute bottom-12 left-6 md:left-12 text-white/80 font-sans text-[10px] tracking-widest writing-vertical border-l border-white/50 pl-4 drop-shadow-sm hidden md:block">
