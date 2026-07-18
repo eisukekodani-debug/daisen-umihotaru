@@ -5,7 +5,7 @@
   <!-- 日本語版トップ (メイン) -->
   <url>
     <loc>https://www.d-umihotaru.com/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/" />
@@ -41,7 +41,7 @@
   <!-- アクセスページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/access.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/access.html" />
@@ -77,7 +77,7 @@
   <!-- 周辺観光ガイドページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/area-guide.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/area-guide.html" />
@@ -113,7 +113,7 @@
   <!-- 料金・宿泊プランページ 日本語版 -->
   <url>
     <loc>https://www.d-umihotaru.com/plan.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.d-umihotaru.com/plan.html" />
