@@ -365,7 +365,6 @@
 </head>
 <body class="antialiased">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<div class="noise-overlay" aria-hidden="true"></div>
 
 	<div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none" role="dialog" aria-label="Menu">
 		<button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2" aria-label="Close menu">
@@ -389,7 +388,7 @@
 				<a href="area-guide.html" class="text-ink hover:text-accent transition-colors">JP</a>
 			</div>
 
-			<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+			<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-ocean text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
 				RESERVE
 			</a>
 		</nav>
@@ -401,16 +400,16 @@
 			<span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
 		</a>
 
-		<div class="hidden md:flex items-center gap-8">
-			<nav class="flex gap-6">
-				<a href="index.en.html#story" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">About</a>
-				<a href="index.en.html#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Room & Facilities</a>
-				<a href="index.en.html#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Things to Do</a>
-				<a href="index.en.html#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Reviews</a>
-				<a href="index.en.html#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
-				<a href="plan.en.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Rates & Booking</a>
-				<a href="access.en.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Access</a>
-				<a href="area-guide.en.html" class="text-xs font-sans tracking-[0.1em] text-accent transition-colors">Area Guide</a>
+		<div class="hidden xl:flex items-center gap-8">
+			<nav class="flex gap-5">
+				<a href="index.en.html#story" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">About</a>
+				<a href="index.en.html#Room" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Room & Facilities</a>
+				<a href="index.en.html#experience" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Things to Do</a>
+				<a href="index.en.html#reviews" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Reviews</a>
+				<a href="index.en.html#faq" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Q&A</a>
+				<a href="plan.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Rates & Booking</a>
+				<a href="access.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Access</a>
+				<a href="area-guide.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap text-accent transition-colors">Area Guide</a>
 			</nav>
 
 			<div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -421,12 +420,12 @@
 				<a href="area-guide.html" class="text-ink/50 hover:text-accent transition-colors">JP</a>
 			</div>
 
-			<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+			<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-ocean text-white px-6 py-2 text-xs font-serif tracking-[0.2em] whitespace-nowrap hover:bg-ink transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
 				RESERVE
 			</a>
 		</div>
 
-		<button id="mobile-menu-btn" class="md:hidden text-ink p-1" aria-label="Open menu">
+		<button id="mobile-menu-btn" class="xl:hidden text-ink p-1" aria-label="Open menu">
 			<i data-lucide="menu" class="w-6 h-6"></i>
 		</button>
 	</header>
@@ -438,18 +437,18 @@
 				<h1 class="font-mincho text-4xl md:text-5xl lg:text-6xl font-medium text-ink mb-6 leading-tight">
 					Area Guide
 				</h1>
-				<p class="font-serif text-lg md:text-xl text-ink/70 italic">
-					Explore the rich nature and cuisine of Daisen Town
+				<p class="font-serif text-lg md:text-xl text-ink/70">
+					Beaches, mountains, hot springs and places to eat within about 30 minutes of the house
 				</p>
 			</div>
 		</section>
 
 		<!-- Beaches & Marine Activities -->
 		<section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">Beaches & Marine Activities</h2>
+			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center">Beaches & Marine Activities</h2>
 
 			<div class="mb-12">
-				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Kiryo Beach (木料海岸) — A Pristine Sandy Shore</h3>
+				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Kiryo Beach (木料海岸)<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">A Pristine Sandy Shore</span></h3>
 				<p class="text-ink/80 font-sans leading-relaxed mb-4">
 					Kiryo Beach (木料海岸), located about a 5-minute drive from DAISEN UMIHOTARU, is a beloved local swimming spot in Daisen Town. Featuring an unspoiled sandy shore, this uncommercialized natural beach offers a private beach-like atmosphere. During summer, the beach comes alive with families and visitors. Basic shower facilities are available for swimmers. The sunsets here are particularly stunning, as the sun sinks into the Sea of Japan. It is the perfect spot for a family trip or a group outing with friends.
 				</p>
@@ -460,7 +459,7 @@
 			</div>
 
 			<div>
-				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Mikuriya Fishing Port (御来屋漁港) — Fresh Local Fish and Seafood</h3>
+				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Mikuriya Fishing Port (御来屋漁港)<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Fresh Local Fish and Seafood</span></h3>
 
 				<p class="text-ink/80 font-sans leading-relaxed mb-4">
 					Located right next to DAISEN UMIHOTARU, Mikuriya Fishing Port (御来屋漁港) is an active fishing port where boats come and go daily. Inside the port, there is a fish market where you can purchase seafood freshly caught that very day. The selection ranges from premium sashimi-grade fish to small fish perfect for simmering. DAISEN UMIHOTARU lends fishing rods and buckets free of charge. Consumables such as bait, sabiki rigs and bait cages are not provided, so please buy your own at Komeri Hard &amp; Green Nawa, about a 3-minute drive away. If you are interested, please contact us in advance so we can have the gear ready for you.
@@ -486,10 +485,10 @@
 		<!-- Nature & Outdoor Activities -->
 		<section class="py-16 md:py-32 px-6 md:px-12 bg-white/50">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">Mt. Daisen Nature & Outdoors</h2>
+				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center">Mt. Daisen Nature & Outdoors</h2>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Mountain Resort (Daisen Ski Area) — <span class="inline-block">Slopes Overlooking the Sea of Japan</span></h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Mountain Resort (Daisen Ski Area)<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Slopes Overlooking the Sea of Japan</span></h3>
 					<div class="mb-6 reveal-img-container aspect-video rounded-sm overflow-hidden">
 						<img src="assets/images/area/ski.webp" alt="View of the Sea of Japan and snowy slopes from the Daisen ski area" loading="lazy" width="1200" height="900" class="w-full h-full object-cover">
 					</div>
@@ -515,7 +514,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisenji Temple & Ogamiyama Shrine — History and Autumn Foliage</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisenji Temple & Ogamiyama Shrine<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">History and Autumn Foliage</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
 						About a 25-minute drive from DAISEN UMIHOTARU, Daisenji Temple is an ancient Buddhist temple designated as a National Important Cultural Property. As the center of Daisen worship, it has been cherished by many pilgrims and reveals different expressions with each season. Ancient trees line the approach, creating a deeply atmospheric forest setting. The autumn foliage season (mid-October to mid-November) is especially breathtaking, with the mountainside ablaze in vivid reds and golds. Combined with a visit to Ogamiyama Shrine, it makes for a quintessential historical and cultural experience in Daisen.
 					</p>
@@ -526,7 +525,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Makiba Milk no Sato — Farm Experiences and Gourmet Treats</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Makiba Milk no Sato<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Farm Experiences and Gourmet Treats</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
 						About a 25-minute drive from DAISEN UMIHOTARU, Daisen Makiba Milk no Sato is a ranch spread across highland terrain at 900 meters above sea level. You can see free-range cattle up close. The rich, creamy soft-serve ice cream sold at the facility is beloved by many visitors. Cheese, butter, yogurt, and other dairy products are also available for purchase, making them popular souvenirs from Daisen. The location also offers stunning panoramic views of the Sea of Japan below.
 					</p>
@@ -537,7 +536,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Beech Forest Walk — Nature Strolls and Hiking</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Daisen Beech Forest Walk<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Nature Strolls and Hiking</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
 						For those who want to experience Daisen's nature up close, we recommend the Daisen Beech Forest Walk. This trail winds through a forest of beech trees over 300 years old, with routes ranging from beginner-friendly to advanced. The fresh greenery season (May - June) and autumn (September - October) are the best times for nature observation.
 					</p>
@@ -547,7 +546,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Nawa Park (名和公園) — Cherry Blossoms Within Walking Distance</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Nawa Park (名和公園)<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Cherry Blossoms Within Walking Distance</span></h3>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 						<div class="reveal-img-container aspect-[4/3] rounded-sm overflow-hidden">
 							<img src="assets/images/area/nawa-park.webp" alt="Nawa Park with playground and cherry blossoms" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
@@ -566,7 +565,7 @@
 				</div>
 
 				<div>
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Nawa Shrine (名和神社) — A Historic Shrine and Cherry Blossoms</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Nawa Shrine (名和神社)<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">A Historic Shrine and Cherry Blossoms</span></h3>
 					<div class="mb-6 reveal-img-container aspect-video rounded-sm overflow-hidden">
 						<img src="assets/images/area/nawa-shrine.webp" alt="Stone torii gate and cherry blossoms at Nawa Shrine" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
 					</div>
@@ -583,7 +582,7 @@
 
 		<!-- Hot Springs & Relaxation -->
 		<section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">Hot Springs & Relaxation</h2>
+			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center">Hot Springs & Relaxation</h2>
 
 			<div>
 				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Day-Trip Hot Springs Around Daisen</h3>
@@ -596,7 +595,7 @@
 		<!-- Gourmet & Food -->
 		<section class="py-16 md:py-32 px-6 md:px-12 bg-white/50">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">Gourmet & Dining</h2>
+				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center">Gourmet & Dining</h2>
 
 				<div class="mb-12">
 					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Partner Restaurant: Mikuri (御厨 Mikuri)</h3>
@@ -627,7 +626,7 @@
 				</div>
 
 				<div>
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Michi-no-Eki Daisen Megumi no Sato — Local Ingredients and Souvenirs</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">Michi-no-Eki Daisen Megumi no Sato<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">Local Ingredients and Souvenirs</span></h3>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 						<div class="reveal-img-container aspect-[4/3] rounded-sm overflow-hidden">
 							<img src="assets/images/area/michi-no-eki-entrance.webp" alt="Wooden entrance of Michi-no-Eki Daisen Megumi no Sato" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
@@ -651,7 +650,7 @@
 		<!-- Related Pages -->
 		<section class="py-16 px-6 md:px-12 bg-charcoal">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-2xl md:text-3xl text-ink text-center italic mb-8">Related Pages</h2>
+				<h2 class="font-serif text-2xl md:text-3xl text-ink text-center mb-8">Related Pages</h2>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 					<a href="index.en.html" class="group p-6 bg-white rounded-sm border border-stone/20 hover:border-accent hover:shadow-md transition-all">
 						<p class="font-serif text-lg font-bold text-ink group-hover:text-accent transition-colors mb-2">DAISEN UMIHOTARU</p>
@@ -670,8 +669,8 @@
 		</section>
 	</main>
 
-	<div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="Booking bar">
-		<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+	<div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 xl:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="Booking bar">
+		<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ink transition-colors rounded-sm shadow-sm">
 			Book on Official Site
 		</a>
 		<p class="text-[10px] text-ink/60 font-sans tracking-wider text-center mt-1">
@@ -718,7 +717,7 @@
 					<p class="text-xs leading-relaxed opacity-70 font-sans mb-4">
 						Booking through our official site<br>offers the best available rate.
 					</p>
-					<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm">
+					<a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ink transition-colors rounded-sm">
 						Book on Official Site
 					</a>
 				</div>
@@ -810,9 +809,9 @@
 		});
 
 		// Initialize Lucide icons
-		if (typeof lucide !== 'undefined') {
-			lucide.createIcons();
-		}
+		document.addEventListener('DOMContentLoaded', function () {
+			if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+		});
 	</script>
 </body>
 </html>

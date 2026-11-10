@@ -282,7 +282,6 @@
 </head>
 <body class="antialiased">
     <a href="#main-content" class="skip-link">メインコンテンツへ</a>
-    <div class="noise-overlay" aria-hidden="true"></div>
 
     <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none" role="dialog" aria-label="メニュー">
         <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2" aria-label="メニューを閉じる">
@@ -306,8 +305,8 @@
                 <span class="text-ink opacity-50 border-b border-ink">JP</span>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
-                RESERVE
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-ocean text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+                予約する
             </a>
         </nav>
     </div>
@@ -318,16 +317,16 @@
             <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8">
-            <nav class="flex gap-6">
-                <a href="index.html#story" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">宿について</a>
-                <a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お部屋・設備</a>
-                <a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">過ごし方</a>
-                <a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お客様の声</a>
-                <a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
-                <a href="plan.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">予約・料金</a>
-                <a href="access.html" class="text-xs font-sans tracking-[0.1em] text-accent transition-colors">アクセス</a>
-                <a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">周辺ガイド</a>
+        <div class="hidden xl:flex items-center gap-8">
+            <nav class="flex gap-5">
+                <a href="index.html#story" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">宿について</a>
+                <a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お部屋・設備</a>
+                <a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">過ごし方</a>
+                <a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お客様の声</a>
+                <a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Q&A</a>
+                <a href="plan.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">予約・料金</a>
+                <a href="access.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap text-accent transition-colors">アクセス</a>
+                <a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">周辺ガイド</a>
             </nav>
 
             <div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -338,12 +337,12 @@
                 <span class="text-ink border-b border-ink">JP</span>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
-                RESERVE
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-ocean text-white px-6 py-2 text-xs font-serif tracking-[0.2em] whitespace-nowrap hover:bg-ink transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+                予約する
             </a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-ink p-1" aria-label="メニューを開く">
+        <button id="mobile-menu-btn" class="xl:hidden text-ink p-1" aria-label="メニューを開く">
             <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
     </header>
@@ -355,7 +354,7 @@
                 <h1 class="font-mincho text-4xl md:text-5xl lg:text-6xl font-medium text-ink mb-6 leading-tight">
                     アクセス
                 </h1>
-                <p class="font-serif text-lg md:text-xl text-ink/70 italic">
+                <p class="font-mincho text-base md:text-lg text-ink/80">
                     大阪から約4時間、関西エリアから約2.5〜4時間の海辺リゾート
                 </p>
             </div>
@@ -363,7 +362,7 @@
 
         <!-- Main Access Information -->
         <section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">交通アクセス</h2>
+            <h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">交通アクセス</h2>
 
             <p class="font-mincho text-base text-ink/80 leading-loose max-w-3xl mx-auto mb-12 text-justify">
                 DAISEN UMIHOTARUは、鳥取県大山町御来屋の海辺に建つ一棟貸し切りヴィラです。山陰道「名和IC」から約3分、JR山陰本線「名和駅」から徒歩約3分。大阪から約4時間、岡山から約2.5時間でお越しいただけます。米子駅まで車で約24分、皆生温泉まで約25分、米子鬼太郎空港まで約42分、大山寺（大山観光の中心）まで約25分と、米子観光・皆生温泉・大山のいずれの拠点としてもお使いいただけます。
@@ -458,7 +457,7 @@
         <!-- Google Maps -->
         <section class="py-16 md:py-24 px-6 md:px-12 bg-white/50">
             <div class="max-w-4xl mx-auto">
-                <h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">施設の場所</h2>
+                <h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">施設の場所</h2>
                 <div class="rounded-sm overflow-hidden shadow-lg">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.7944587382196!2d133.4915124!3d35.5090509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35566700149e2e15%3A0xe18b4055adf0c14a!2sDAISEN%20UMIHOTARU!5e0!3m2!1sja!2sjp!4v1712300000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="DAISEN UMIHOTARUの場所 - Google Maps"></iframe>
                 </div>
@@ -467,7 +466,7 @@
 
         <!-- Area Map -->
         <section class="py-16 md:py-24 px-6 md:px-12 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl text-ink mb-8 text-center italic">大山町周辺 観光マップ</h2>
+            <h2 class="font-mincho text-2xl md:text-3xl text-ink mb-8 text-center">大山町周辺 観光マップ</h2>
             <p class="text-center text-sm text-ink/60 font-sans mb-8">施設周辺の観光スポットや交通の全体像をご確認いただけます。</p>
             <div class="rounded-sm overflow-hidden shadow-lg">
                 <img src="assets/images/area/area-map.webp" alt="大山町周辺の観光マップ" loading="lazy" width="1200" height="800" class="w-full h-auto">
@@ -476,7 +475,7 @@
 
         <!-- Nearby Attractions -->
         <section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">周辺スポット</h2>
+            <h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">周辺スポット</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="nearby-card">
@@ -540,26 +539,23 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 md:py-24 px-6 md:px-12 bg-gradient-to-r from-accent to-ocean text-white text-center">
+        <section class="py-16 md:py-24 px-6 md:px-12 bg-ink text-white text-center">
             <div class="max-w-2xl mx-auto">
-                <h2 class="font-mincho text-3xl md:text-4xl font-bold mb-6">さあ、旅をはじめましょう</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl font-bold mb-6">ご予約</h2>
                 <p class="text-white/90 mb-10 font-sans leading-relaxed">
-                    アクセスしやすい大山の海辺で、家族やグループでの特別な時間をお過ごしください。
+                    空室状況と料金は、公式サイトの予約ページでご確認いただけます。公式サイトからのご予約が最安値です。
                 </p>
                 <div class="flex flex-col items-center gap-4">
-                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-white text-accent px-12 py-4 font-serif tracking-[0.2em] hover:bg-sand transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block font-bold">
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-white text-ink px-12 py-4 font-serif tracking-[0.2em] hover:bg-sand transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block font-bold">
                         公式サイトで予約
                     </a>
-                    <p class="text-xs text-white/80 font-serif tracking-[0.25em] uppercase">
-                        Best Rate Guaranteed
-                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Additional Info -->
         <section class="py-16 md:py-24 px-6 md:px-12 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">ご利用前に</h2>
+            <h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">ご利用前に</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
@@ -604,7 +600,7 @@
         <!-- Related Pages -->
         <section class="py-16 px-6 md:px-12 bg-charcoal">
             <div class="max-w-4xl mx-auto">
-                <h2 class="font-serif text-2xl md:text-3xl text-ink text-center italic mb-8">関連ページ</h2>
+                <h2 class="font-mincho text-xl md:text-2xl text-ink text-center mb-8">関連ページ</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a href="index.html" class="group p-6 bg-white rounded-sm border border-stone/20 hover:border-accent hover:shadow-md transition-all">
                         <p class="font-serif text-lg font-bold text-ink group-hover:text-accent transition-colors mb-2">DAISEN UMIHOTARU</p>
@@ -623,12 +619,12 @@
         </section>
     </main>
 
-    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
-        <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 xl:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
+        <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ink transition-colors rounded-sm shadow-sm">
             公式サイトで予約
         </a>
         <p class="text-[10px] text-ink/60 font-sans tracking-wider text-center mt-1">
-            Best Rate Guaranteed ／ 公式サイト最安値
+            公式サイトからのご予約が最安値です
         </p>
     </div>
 
@@ -663,15 +659,11 @@
                     </nav>
                 </div>
                 <div>
-                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Book</h4>
-                    <div class="flex items-center gap-2 text-[10px] font-serif tracking-[0.25em] text-stone uppercase mb-3">
-                        <span class="h-px w-4 bg-stone/40"></span>
-                        <span>Best Rate Guaranteed</span>
-                    </div>
+                    <h4 class="font-sans text-xs tracking-[0.1em] text-white/90 mb-4">ご予約</h4>
                     <p class="text-xs leading-relaxed opacity-70 font-sans mb-4">
                         公式サイトからのご予約が<br>最もお得な料金でご案内できます。
                     </p>
-                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm">
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ink transition-colors rounded-sm">
                         公式サイトで予約
                     </a>
                 </div>
@@ -763,9 +755,9 @@
         });
 
         // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+        });
     </script>
 </body>
 </html>

@@ -365,7 +365,6 @@
 </head>
 <body class="antialiased">
 	<a href="#main-content" class="skip-link">メインコンテンツへ</a>
-	<div class="noise-overlay" aria-hidden="true"></div>
 
 	<div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none" role="dialog" aria-label="メニュー">
 		<button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2" aria-label="メニューを閉じる">
@@ -389,8 +388,8 @@
 				<span class="text-ink opacity-50 border-b border-ink">JP</span>
 			</div>
 
-			<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
-				RESERVE
+			<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-ocean text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+				予約する
 			</a>
 		</nav>
 	</div>
@@ -401,16 +400,16 @@
 			<span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
 		</a>
 
-		<div class="hidden md:flex items-center gap-8">
-			<nav class="flex gap-6">
-				<a href="index.html#story" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">宿について</a>
-				<a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お部屋・設備</a>
-				<a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">過ごし方</a>
-				<a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お客様の声</a>
-				<a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
-				<a href="plan.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">予約・料金</a>
-				<a href="access.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">アクセス</a>
-				<a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] text-accent transition-colors">周辺ガイド</a>
+		<div class="hidden xl:flex items-center gap-8">
+			<nav class="flex gap-5">
+				<a href="index.html#story" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">宿について</a>
+				<a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お部屋・設備</a>
+				<a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">過ごし方</a>
+				<a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お客様の声</a>
+				<a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Q&A</a>
+				<a href="plan.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">予約・料金</a>
+				<a href="access.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">アクセス</a>
+				<a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap text-accent transition-colors">周辺ガイド</a>
 			</nav>
 
 			<div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -421,12 +420,12 @@
 				<span class="text-ink border-b border-ink">JP</span>
 			</div>
 
-			<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
-				RESERVE
+			<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-ocean text-white px-6 py-2 text-xs font-serif tracking-[0.2em] whitespace-nowrap hover:bg-ink transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+				予約する
 			</a>
 		</div>
 
-		<button id="mobile-menu-btn" class="md:hidden text-ink p-1" aria-label="メニューを開く">
+		<button id="mobile-menu-btn" class="xl:hidden text-ink p-1" aria-label="メニューを開く">
 			<i data-lucide="menu" class="w-6 h-6"></i>
 		</button>
 	</header>
@@ -438,8 +437,8 @@
 				<h1 class="font-mincho text-4xl md:text-5xl lg:text-6xl font-medium text-ink mb-6 leading-tight">
 					周辺観光ガイド
 				</h1>
-				<p class="font-serif text-lg md:text-xl text-ink/70 italic">
-					大山町の豊かな自然とグルメを思いきり楽しむ
+				<p class="font-mincho text-base md:text-lg text-ink/80">
+					宿から車で30分ほどの範囲の、海・山・温泉・食事処をまとめました
 				</p>
 			</div>
 		</section>
@@ -453,10 +452,10 @@
 
 		<!-- Beaches & Marine Activities -->
 		<section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">ビーチ・海のアクティビティ</h2>
+			<h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">ビーチ・海のアクティビティ</h2>
 
 			<div class="mb-12">
-				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">木料海岸 — 素朴で美しい砂浜</h3>
+				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">木料海岸<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">素朴で美しい砂浜</span></h3>
 				<p class="text-ink/80 font-sans leading-relaxed mb-4">
 					DAISEN UMIHOTARUから車で約5分に位置する木料海岸は、地元民に昔から愛されている大山町内の海水浴スポットです。素朴な砂浜が特徴で、商業化されていない自然のままのビーチで、プライベートビーチのような雰囲気を満喫できます。夏期には家族連れや観光客で賑わい、古い設備ですがシャワー設備もあるため、海水浴をお楽しみいただけます。特に夕方は美しい夕日が日本海に沈む光景を望むことができます。夏の家族旅行や友人とのグループ旅行にぴったりのスポットです。
 				</p>
@@ -467,7 +466,7 @@
 			</div>
 
 			<div>
-				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">御来屋漁港 — 新鮮な地魚と海の幸</h3>
+				<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">御来屋漁港<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">新鮮な地魚と海の幸</span></h3>
 
 				<p class="text-ink/80 font-sans leading-relaxed mb-4">
 					DAISEN UMIHOTARUのすぐそばに位置する御来屋漁港は、現役の漁港として毎日多くの漁船が出入りしています。漁港内には地魚の直売所があり、その日獲れたばかりの新鮮な海の幸を購入することができます。刺身用の高級魚から、煮込みに最適な小魚まで、様々な種類が並びます。DAISEN UMIHOTARUでは釣り竿とバケツを無料で貸し出しています。餌・仕掛け・餌用カゴなどの消耗品はお客様にてご用意ください（コメリ ハード＆グリーン 名和店まで車で約3分）。ご興味ある場合は事前に宿へ連絡をいただければご用意しておきます。
@@ -493,10 +492,10 @@
 		<!-- Nature & Outdoor Activities -->
 		<section class="py-16 md:py-32 px-6 md:px-12 bg-white/50">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">大山の自然・アウトドア</h2>
+				<h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">大山の自然・アウトドア</h2>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山マウンテンリゾート<span class="inline-block">（大山スキー場）</span><span class="inline-block">— 日本海を望むゲレンデ</span></h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山マウンテンリゾート<span class="inline-block">（大山スキー場）</span><span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">日本海を望むゲレンデ</span></h3>
 					<div class="mb-6 reveal-img-container aspect-video rounded-sm overflow-hidden">
 						<img src="assets/images/area/ski.webp" alt="大山スキー場のゲレンデから望む日本海と雪景色" loading="lazy" width="1200" height="900" class="w-full h-full object-cover">
 					</div>
@@ -522,9 +521,9 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山寺・大神山神社 — 歴史と紅葉の名所</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山寺・大神山神社<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">歴史と紅葉の名所</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
-						DAISEN UMIHOTARUから車で約25分の大山寺は、古い歴史を持つ古刹として知られ、国の重要文化財に指定されています。大山信仰の中心地として多くの参拝者に愛され、季節ごとに異なる表情を見せます。参道には古木が立ち並び、深い森の雰囲気を感じながら参拝できます。秋の紅葉シーズン（10月中旬〜11月中旬）は特に美しく、山が赤く染まった情景は息を呑む美しさです。この季節には多くの観光客が訪れ、紅葉狩りや散策を楽しみます。大神山神社と合わせて参拝するコースは、大山町を代表する歴史文化体験になります。
+						DAISEN UMIHOTARUから車で約25分の大山寺は、古い歴史を持つ古刹として知られ、国の重要文化財に指定されています。大山信仰の中心地として多くの参拝者に愛され、季節ごとに異なる表情を見せます。参道には古木が立ち並び、深い森の雰囲気を感じながら参拝できます。秋の紅葉シーズン（10月中旬〜11月中旬）は特に美しく、山が赤く色づきます。この季節には多くの観光客が訪れ、紅葉狩りや散策を楽しみます。大神山神社と合わせて参拝するコースは、大山町を代表する歴史文化体験になります。
 					</p>
 					<div class="season-box">
 						<div class="season-title">紅葉シーズン: 10月中旬〜11月中旬</div>
@@ -533,7 +532,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山まきばみるくの里 — 牧場体験とグルメ</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山まきばみるくの里<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">牧場体験とグルメ</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
 						DAISEN UMIHOTARUから車で約25分の大山まきばみるくの里は、標高900mの高地に広がる牧場です。放牧された牛を間近で見ることができます。施設内で買うことのできる濃厚でクリーミーなソフトクリームは多くの観光客に愛されています。チーズやバター、ヨーグルトなども購入でき、大山町のお土産として人気です。眼下には日本海を望むことができ、景観も素晴らしいスポットです。
 					</p>
@@ -544,7 +543,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山ブナの森ウォーク — 自然散策とハイキング</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">大山ブナの森ウォーク<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">自然散策とハイキング</span></h3>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
 						大山の自然を間近に感じたい方には、大山ブナの森ウォークをお勧めします。樹齢300年を超えるブナの巨木が立ち並ぶ森の中を歩くコースで、初心者向けから上級者向けまで様々なルートが設定されています。特に新緑の季節（5月〜6月）と秋（9月〜10月）は、自然観察のベストシーズンです。
 					</p>
@@ -554,7 +553,7 @@
 				</div>
 
 				<div class="mb-12">
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">名和公園 — 施設から歩いて行ける桜の名所</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">名和公園<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">施設から歩いて行ける桜の名所</span></h3>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 						<div class="reveal-img-container aspect-[4/3] rounded-sm overflow-hidden">
 							<img src="assets/images/area/nawa-park.webp" alt="遊具と桜が美しい名和公園" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
@@ -573,12 +572,12 @@
 				</div>
 
 				<div>
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">名和神社 — 歴史ある神社と桜</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">名和神社<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">歴史ある神社と桜</span></h3>
 					<div class="mb-6 reveal-img-container aspect-video rounded-sm overflow-hidden">
 						<img src="assets/images/area/nawa-shrine.webp" alt="名和神社の石鳥居と満開の桜" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
 					</div>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
-						DAISEN UMIHOTARUから歩いて行ける名和神社は、南北朝時代の武将・名和長年を祀る由緒ある神社です。石造りの鳥居と参道の桜が美しく、春には格別の風情を楽しめます。静かな境内は散策にも最適で、地元の歴史に触れることができます。
+						DAISEN UMIHOTARUから歩いて行ける名和神社は、南北朝時代の武将・名和長年を祀る由緒ある神社です。石造りの鳥居と参道の桜が美しく、春は桜の時期の参拝がおすすめです。静かな境内は散策にも最適で、地元の歴史に触れることができます。
 					</p>
 					<div class="mb-6 reveal-img-container aspect-video rounded-sm overflow-hidden">
 						<img src="assets/images/area/mikuriya-scenery.webp" alt="名和神社周辺の桜が咲く坂道の風景" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
@@ -590,7 +589,7 @@
 
 		<!-- Hot Springs & Relaxation -->
 		<section class="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
-			<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">温泉・リラクゼーション</h2>
+			<h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">温泉・リラクゼーション</h2>
 
 
 			<div>
@@ -604,7 +603,7 @@
 		<!-- Gourmet & Food -->
 		<section class="py-16 md:py-32 px-6 md:px-12 bg-white/50">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-3xl md:text-4xl text-ink mb-12 text-center italic">グルメ・食事</h2>
+				<h2 class="font-mincho text-2xl md:text-3xl text-ink mb-12 text-center">グルメ・食事</h2>
 
 				<div class="mb-12">
 					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">提携レストラン「御厨 Mikuri」</h3>
@@ -612,7 +611,7 @@
 						<img src="assets/images/mikuri-dinner.webp" alt="御厨 Mikuriのシェフが料理を仕上げる様子" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
 					</div>
 					<p class="text-ink/80 font-sans leading-relaxed mb-4">
-						DAISEN UMIHOTARUと提携している御厨 Mikuriは、大山町の新鮮な食材を使った本格的な料理を提供するレストランです。地元産の野菜、新鮮な地魚、高質の肉を用いた創作料理は、訪れる客の舌を満足させます。事前予約で、グループ向けの特別コース料理も対応可能です。
+						DAISEN UMIHOTARUと提携している御厨 Mikuriは、大山町の新鮮な食材を使った本格的な料理を提供するレストランです。地元産の野菜、新鮮な地魚、高質の肉を用いた創作料理は、評判です。事前予約で、グループ向けの特別コース料理も対応可能です。
 					</p>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 						<div class="reveal-img-container aspect-[4/3] rounded-sm overflow-hidden">
@@ -635,7 +634,7 @@
 				</div>
 
 				<div>
-					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">道の駅 大山恵みの里 — 地元の食材とお土産</h3>
+					<h3 class="font-mincho text-2xl md:text-3xl text-ink font-bold mb-6">道の駅 大山恵みの里<span class="block mt-2 font-sans text-sm md:text-base font-normal text-ink/60">地元の食材とお土産</span></h3>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 						<div class="reveal-img-container aspect-[4/3] rounded-sm overflow-hidden">
 							<img src="assets/images/area/michi-no-eki-entrance.webp" alt="道の駅 大山恵みの里の木造入口" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
@@ -659,7 +658,7 @@
 		<!-- Related Pages -->
 		<section class="py-16 px-6 md:px-12 bg-charcoal">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-serif text-2xl md:text-3xl text-ink text-center italic mb-8">関連ページ</h2>
+				<h2 class="font-mincho text-xl md:text-2xl text-ink text-center mb-8">関連ページ</h2>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 					<a href="index.html" class="group p-6 bg-white rounded-sm border border-stone/20 hover:border-accent hover:shadow-md transition-all">
 						<p class="font-serif text-lg font-bold text-ink group-hover:text-accent transition-colors mb-2">DAISEN UMIHOTARU</p>
@@ -678,12 +677,12 @@
 		</section>
 	</main>
 
-	<div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
-		<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+	<div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 xl:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
+		<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ink transition-colors rounded-sm shadow-sm">
 			公式サイトで予約
 		</a>
 		<p class="text-[10px] text-ink/60 font-sans tracking-wider text-center mt-1">
-			Best Rate Guaranteed ／ 公式サイト最安値
+			公式サイトからのご予約が最安値です
 		</p>
 	</div>
 
@@ -705,7 +704,7 @@
 					</a>
 				</div>
 				<div>
-					<h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Navigate</h4>
+					<h4 class="font-sans text-xs tracking-[0.1em] text-white/90 mb-4">ページ案内</h4>
 					<nav class="flex flex-col gap-2 text-xs font-sans">
 						<a href="index.html#story" class="hover:text-white transition-colors">宿について</a>
 						<a href="index.html#Room" class="hover:text-white transition-colors">お部屋・設備</a>
@@ -714,15 +713,11 @@
 					</nav>
 				</div>
 				<div>
-					<h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Book</h4>
-					<div class="flex items-center gap-2 text-[10px] font-serif tracking-[0.25em] text-stone uppercase mb-3">
-						<span class="h-px w-4 bg-stone/40"></span>
-						<span>Best Rate Guaranteed</span>
-					</div>
+					<h4 class="font-sans text-xs tracking-[0.1em] text-white/90 mb-4">ご予約</h4>
 					<p class="text-xs leading-relaxed opacity-70 font-sans mb-4">
 						公式サイトからのご予約が<br>最もお得な料金でご案内できます。
 					</p>
-					<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm">
+					<a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ink transition-colors rounded-sm">
 						公式サイトで予約
 					</a>
 				</div>
@@ -814,9 +809,9 @@
 		});
 
 		// Initialize Lucide icons
-		if (typeof lucide !== 'undefined') {
-			lucide.createIcons();
-		}
+		document.addEventListener('DOMContentLoaded', function () {
+			if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+		});
 	</script>
 </body>
 </html>

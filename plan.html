@@ -354,7 +354,6 @@
 </head>
 <body class="antialiased">
     <a href="#main-content" class="skip-link">メインコンテンツへ</a>
-    <div class="noise-overlay" aria-hidden="true"></div>
 
     <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none" role="dialog" aria-label="メニュー">
         <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2" aria-label="メニューを閉じる">
@@ -378,8 +377,8 @@
                 <span class="text-ink opacity-50 border-b border-ink">JP</span>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
-                RESERVE
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-ocean text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+                予約する
             </a>
         </nav>
     </div>
@@ -390,16 +389,16 @@
             <span class="text-[10px] font-sans tracking-widest mt-1 block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8">
-            <nav class="flex gap-6">
-                <a href="index.html#story" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">宿について</a>
-                <a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お部屋・設備</a>
-                <a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">過ごし方</a>
-                <a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">お客様の声</a>
-                <a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
-                <a href="plan.html" class="text-xs font-sans tracking-[0.1em] text-accent transition-colors">予約・料金</a>
-                <a href="access.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">アクセス</a>
-                <a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">周辺ガイド</a>
+        <div class="hidden xl:flex items-center gap-8">
+            <nav class="flex gap-5">
+                <a href="index.html#story" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">宿について</a>
+                <a href="index.html#Room" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お部屋・設備</a>
+                <a href="index.html#experience" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">過ごし方</a>
+                <a href="index.html#reviews" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">お客様の声</a>
+                <a href="index.html#faq" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Q&A</a>
+                <a href="plan.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap text-accent transition-colors">予約・料金</a>
+                <a href="access.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">アクセス</a>
+                <a href="area-guide.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">周辺ガイド</a>
             </nav>
 
             <div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -410,12 +409,12 @@
                 <span class="text-ink border-b border-ink">JP</span>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
-                RESERVE
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-ocean text-white px-6 py-2 text-xs font-serif tracking-[0.2em] whitespace-nowrap hover:bg-ink transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+                予約する
             </a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-ink p-1" aria-label="メニューを開く">
+        <button id="mobile-menu-btn" class="xl:hidden text-ink p-1" aria-label="メニューを開く">
             <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
     </header>
@@ -657,7 +656,7 @@
                 <p class="font-mincho text-base text-ink/80 leading-loose mb-10">
                     各予約サイトへの手数料を抑え、その分を割引として還元しています。公式サイトからのご予約が最もお得です。24時間、最新の空室状況と料金をご確認いただけます。
                 </p>
-                <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-12 py-4 font-mincho tracking-[0.15em] hover:bg-ocean transition-colors rounded-sm">
+                <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-12 py-4 font-mincho tracking-[0.15em] hover:bg-ink transition-colors rounded-sm">
                     公式サイトで予約する
                 </a>
                 <p class="font-mincho text-sm text-ink/60 mt-8">
@@ -669,7 +668,7 @@
         <!-- Related Pages -->
         <section class="py-16 px-6 md:px-12 bg-charcoal">
             <div class="max-w-4xl mx-auto">
-                <h2 class="font-serif text-2xl md:text-3xl text-ink text-center italic mb-8">関連ページ</h2>
+                <h2 class="font-mincho text-xl md:text-2xl text-ink text-center mb-8">関連ページ</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a href="index.html" class="group p-6 bg-white rounded-sm border border-stone/20 hover:border-accent hover:shadow-md transition-all">
                         <p class="font-serif text-lg font-bold text-ink group-hover:text-accent transition-colors mb-2">DAISEN UMIHOTARU</p>
@@ -688,12 +687,12 @@
         </section>
     </main>
 
-    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
-        <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 xl:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="予約バー">
+        <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ink transition-colors rounded-sm shadow-sm">
             公式サイトで予約
         </a>
         <p class="text-[10px] text-ink/60 font-sans tracking-wider text-center mt-1">
-            Best Rate Guaranteed ／ 公式サイト最安値
+            公式サイトからのご予約が最安値です
         </p>
     </div>
 
@@ -728,15 +727,11 @@
                     </nav>
                 </div>
                 <div>
-                    <h4 class="font-serif text-xs tracking-[0.2em] text-white/90 uppercase mb-4">Book</h4>
-                    <div class="flex items-center gap-2 text-[10px] font-serif tracking-[0.25em] text-stone uppercase mb-3">
-                        <span class="h-px w-4 bg-stone/40"></span>
-                        <span>Best Rate Guaranteed</span>
-                    </div>
+                    <h4 class="font-sans text-xs tracking-[0.1em] text-white/90 mb-4">ご予約</h4>
                     <p class="text-xs leading-relaxed opacity-70 font-sans mb-4">
                         公式サイトからのご予約が<br>最もお得な料金でご案内できます。
                     </p>
-                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm">
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'ja'});" href="https://airhost124545.airhost.co/ja/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ink transition-colors rounded-sm">
                         公式サイトで予約
                     </a>
                 </div>
@@ -828,9 +823,9 @@
         });
 
         // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+        });
     </script>
 </body>
 </html>

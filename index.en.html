@@ -411,7 +411,6 @@
         .season-card { position: relative; overflow: hidden; border-radius: 4px; min-height: 280px; display: flex; align-items: flex-end; }
         .season-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%); z-index: 1; }
         .season-card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
-        .season-card:hover .season-card-bg { transform: scale(1.08); }
         .season-card-content { position: relative; z-index: 2; padding: 24px; color: #fff; }
         /* --- Review Carousel --- */
         .review-carousel { position: relative; overflow: hidden; }
@@ -430,7 +429,6 @@
 </head>
 <body class="antialiased">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="noise-overlay" aria-hidden="true"></div>
 
     <div id="mobile-menu" class="fixed inset-0 bg-sand z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none" role="dialog" aria-label="Menu">
         <button id="mobile-menu-close" class="absolute top-6 right-6 md:right-12 text-ink p-2" aria-label="Close menu">
@@ -454,7 +452,7 @@
                 <a href="index.html" class="text-ink hover:text-accent transition-colors">JP</a>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-accent text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="mobile-link mt-4 bg-ocean text-white px-8 py-3 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm inline-block">
                 RESERVE
             </a>
         </nav>
@@ -466,16 +464,16 @@
             <span class="text-[10px] font-sans tracking-widest mt-1 hidden md:block opacity-70 group-hover:opacity-100 transition-opacity">MIKURIYA, TOTTORI</span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8">
-            <nav class="flex gap-6">
-                <a href="#story" class="text-xs font-sans tracking-[0.1em] text-accent hover:text-accent transition-colors">About</a>
-                <a href="#Room" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Room & Facilities</a>
-                <a href="#experience" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Things to Do</a>
-                <a href="#reviews" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Reviews</a>
-                <a href="#faq" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Q&A</a>
-                <a href="plan.en.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Rates & Booking</a>
-                <a href="access.en.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Access</a>
-                <a href="area-guide.en.html" class="text-xs font-sans tracking-[0.1em] hover:text-accent transition-colors">Area Guide</a>
+        <div class="hidden xl:flex items-center gap-8">
+            <nav class="flex gap-5">
+                <a href="#story" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap text-accent hover:text-accent transition-colors">About</a>
+                <a href="#Room" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Room & Facilities</a>
+                <a href="#experience" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Things to Do</a>
+                <a href="#reviews" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Reviews</a>
+                <a href="#faq" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Q&A</a>
+                <a href="plan.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Rates & Booking</a>
+                <a href="access.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Access</a>
+                <a href="area-guide.en.html" class="text-xs font-sans tracking-[0.1em] whitespace-nowrap hover:text-accent transition-colors">Area Guide</a>
             </nav>
 
             <div class="flex gap-2 text-xs font-serif tracking-widest">
@@ -486,12 +484,12 @@
                 <a href="index.html" class="text-ink/50 hover:text-accent transition-colors">JP</a>
             </div>
 
-            <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-accent text-white px-6 py-2 text-xs font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
+            <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="bg-ocean text-white px-6 py-2 text-xs font-serif tracking-[0.2em] whitespace-nowrap hover:bg-ink transition-all duration-300 shadow-sm hover:shadow-md rounded-sm">
                 RESERVE
             </a>
         </div>
 
-        <button id="mobile-menu-btn" class="md:hidden text-ink p-1" aria-label="Open menu">
+        <button id="mobile-menu-btn" class="xl:hidden text-ink p-1" aria-label="Open menu">
             <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
     </header>
@@ -515,27 +513,18 @@
                         <span class="hidden md:inline">A Private Villa in Tottori Daisen &mdash; Stay Listening to the Waves</span>
                     </span>
                 </h1>
-                <div class="hidden md:flex mt-10 flex-wrap justify-center items-center gap-2.5">
-                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">One Group Per Day</span>
-                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">Up to 14 Guests</span>
-                    <span class="text-[11px] md:text-xs font-sans tracking-[0.12em] bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 drop-shadow-sm">Ocean-View Bedroom & Bath</span>
-                </div>
+                <p class="hidden md:block mt-8 font-sans text-sm tracking-[0.12em] drop-shadow-md">One Group Per Day<span class="mx-3 opacity-60">/</span>Up to 14 Guests<span class="mx-3 opacity-60">/</span>Ocean-View Bedroom & Bath</p>
                 <div class="hidden md:flex mt-8 flex-col sm:flex-row justify-center items-center gap-3">
-                    <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-accent text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-ocean transition-all duration-300 shadow-md hover:shadow-lg rounded-sm">Check Availability</a>
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-ocean text-white px-8 py-3.5 text-sm font-serif tracking-[0.2em] hover:bg-ink transition-all duration-300 shadow-md hover:shadow-lg rounded-sm">Check Availability</a>
                 </div>
-            </div>
-
-            <div class="absolute bottom-12 left-6 md:left-12 text-white/80 font-sans text-[10px] tracking-widest writing-vertical border-l border-white/50 pl-4 drop-shadow-sm hidden md:block">
-                SCROLL TO EXPLORE
             </div>
         </section>
 
         <section id="story" class="py-32 md:py-48 px-6 md:px-24 max-w-screen-2xl mx-auto relative">
-            <div class="absolute top-20 left-10 text-[10rem] font-serif text-stone/20 select-none -z-10 opacity-40">01</div>
 
             <div class="flex flex-col md:flex-row justify-between items-start gap-20">
                 <div class="md:w-1/3 md:sticky md:top-32">
-                    <h2 class="font-serif text-4xl md:text-5xl text-ink mb-8 italic">Concept</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink mb-8">Concept</h2>
                     <div class="w-16 h-[1px] bg-stone mb-8"></div>
                     <p class="font-mincho text-lg leading-loose text-ink text-anim">
                         An unreserved time,<br>
@@ -553,7 +542,7 @@
                         </p>
                     </div>
                     
-                    <div class="reveal-img-container aspect-[3/2] shadow-xl shadow-stone/20">
+                    <div class="reveal-img-container aspect-[3/2]">
                         <img src="assets/images/view.webp" alt="Ocean view from the living room" loading="lazy" class="reveal-img" width="1200" height="800">
                     </div>
 
@@ -572,7 +561,7 @@
         <section id="Room" class="bg-gradient-to-b from-sand to-charcoal text-ink py-32 px-6 md:px-12 overflow-hidden">
             <div class="max-w-screen-2xl mx-auto mb-20 flex items-end justify-between">
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl italic text-ink">Rooms</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl text-ink">Rooms</h2>
                     <p class="font-mincho text-lg leading-loose text-ink mt-4">Spacious area for up to 14 guests</p>
                 </div>
             </div>
@@ -580,11 +569,11 @@
             <div class="grid grid-cols-12 gap-y-24 md:gap-x-8 max-w-screen-2xl mx-auto">
                 
                 <div class="col-span-12 md:col-span-7 relative">
-                    <div class="reveal-img-container aspect-[16/10] shadow-lg shadow-stone/30">
+                    <div class="reveal-img-container aspect-[16/10]">
                         <img src="assets/images/living.webp" alt="Living room and play room" loading="lazy" class="reveal-img" width="1200" height="750">
                     </div>
-                    <div class="md:absolute -bottom-12 -right-12 bg-white/90 p-6 md:p-8 max-w-sm border-l-4 border-stone backdrop-blur-md shadow-sm">
-                        <h4 class="font-serif text-2xl mb-2 text-ocean">Living & Play</h4>
+                    <div class="mt-6 pl-4 border-l-2 border-stone max-w-xl">
+                        <h4 class="font-serif text-2xl mb-2 text-ink">Living & Play</h4>
                         <p class="font-mincho text-base text-ink/80 leading-loose">
                             The open living room overlooking the sea is the center where everyone gathers.
                             In the playroom on the 2nd floor, enjoy heated table tennis matches or play instruments.
@@ -597,11 +586,11 @@
 
                 <div class="hidden md:block col-span-4"></div>
                 <div class="col-span-12 md:col-span-8 relative mt-12 md:mt-0">
-                    <div class="reveal-img-container aspect-[16/9] shadow-lg shadow-stone/30">
+                    <div class="reveal-img-container aspect-[16/9]">
                         <img src="assets/images/kitchen.webp" alt="Full kitchen and dining" loading="lazy" class="reveal-img" width="1200" height="675">
                     </div>
-                    <div class="md:absolute -top-12 -left-12 bg-white/90 p-6 md:p-8 max-w-sm border-r-4 border-stone z-10 backdrop-blur-md shadow-sm">
-                        <h4 class="font-serif text-2xl mb-2 text-ocean">Kitchen & Patio</h4>
+                    <div class="mt-6 pl-4 border-l-2 border-stone max-w-xl">
+                        <h4 class="font-serif text-2xl mb-2 text-ink">Kitchen & Patio</h4>
                         <p class="font-mincho text-base text-ink/80 leading-loose">
                             A full kitchen where you can freely cook fresh ingredients from Daisen.
                             The patio is also equipped with a BBQ grill.
@@ -615,16 +604,16 @@
                         <img src="assets/images/bath.webp" alt="Ocean view bath" loading="lazy" class="reveal-img" width="800" height="800">
                     </div>
                     <div class="mt-6 pl-4 border-l-2 border-stone">
-                        <h4 class="font-serif text-xl mb-2 text-ocean">Ocean Bath</h4>
+                        <h4 class="font-serif text-2xl mb-2 text-ink">Ocean Bath</h4>
                         <p class="font-mincho text-base text-ink/70">Bath time bathed in the sunset. Spacious enough to enter with children.</p>
                     </div>
                 </div>
                 <div class="col-span-12 md:col-span-6 mt-12 md:mt-24">
-                    <div class="reveal-img-container aspect-[4/5] shadow-md">
+                    <div class="reveal-img-container aspect-[4/5]">
                         <img src="assets/images/bedroom.webp" alt="Bedroom" loading="lazy" class="reveal-img" width="800" height="1000">
                     </div>
                     <div class="mt-6 pl-4 border-l-2 border-stone">
-                        <h4 class="font-serif text-xl mb-2 text-ocean">Bedrooms</h4>
+                        <h4 class="font-serif text-2xl mb-2 text-ink">Bedrooms</h4>
                         <p class="font-mincho text-base text-ink/70">Multiple bedrooms to ensure privacy. Safe layout for large groups.</p>
                     </div>
                 </div>
@@ -635,7 +624,7 @@
             <div class="max-w-4xl mx-auto px-6 text-center">
                  <h2 class="font-mincho text-3xl text-ink mb-4">Floor Plan</h2>
                  <p class="font-sans text-sm text-ink/60 tracking-widest mb-12">Max 14 Guests</p>
-                 <div class="reveal-img-container shadow-lg bg-white p-4 md:p-8">
+                 <div class="border border-ink/10 bg-white p-4 md:p-8">
                      <img src="assets/images/floor-plan.webp" alt="Floor plan" loading="lazy" class="w-full h-auto" width="1200" height="800">
                  </div>
             </div>
@@ -643,39 +632,29 @@
 
         <section id="facilities" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Amenities & Services</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Amenities</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">Amenities</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
-                        <i data-lucide="utensils" class="w-8 h-8"></i>
-                    </div>
+                <div class="border-t border-ink/15 pt-6">
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Kitchen</h4>
-                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                    <p class="text-sm leading-loose text-ink/80 font-sans">
                         Rice cooker, IH stove, Refrigerator, Microwave, Coffee machine, Cooking utensils, Tableware (for large groups), IH tabletop stove, Earthen pot.<br>
                         <span class="text-xs text-ink/60">*Seasonings provided are only salt, pepper, and salad oil.<br>*Please wash the cookware and tableware and put them back after use.</span>
                     </p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
-                        <i data-lucide="bath" class="w-8 h-8"></i>
-                    </div>
+                <div class="border-t border-ink/15 pt-6">
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">Bath & Toiletries</h4>
-                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                    <p class="text-sm leading-loose text-ink/80 font-sans">
                         Bath towels, Face towels, Toothbrushes, Shampoo, Conditioner, Body soap, Hair dryer.<br>
                         <span class="text-xs text-ink/60">*Please bring your own pajamas and razors for environmental reasons.</span>
                     </p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="w-16 h-16 mx-auto bg-accent rounded-full flex items-center justify-center mb-6 shadow-md text-white group-hover:scale-110 transition-transform">
-                        <i data-lucide="flame" class="w-8 h-8"></i>
-                    </div>
+                <div class="border-t border-ink/15 pt-6">
                     <h4 class="font-mincho text-xl font-bold mb-4 text-ink">BBQ</h4>
-                    <p class="text-sm leading-loose text-ink/80 font-sans text-left mx-auto max-w-xs">
+                    <p class="text-sm leading-loose text-ink/80 font-sans">
                         Three charcoal BBQ grills are free to use, with no advance reservation needed. Grills, grates, tongs, work gloves and a charcoal extinguisher are kept in the storage shed &mdash; bring one out to the courtyard whenever you like.<br>
                         <span class="text-xs text-ink/60">*Please bring your own charcoal, fire starters, food, seasonings, paper plates and cups.<br>*After your BBQ, please wash the grate and put it back, just as you would the cookware and tableware (dish soap and a scrubbing brush are at the courtyard tap). Letting it burn a few extra minutes before the fire goes out loosens the residue, so it comes off easily.</span>
                     </p>
@@ -683,32 +662,32 @@
             </div>
 
             <div class="mt-20">
-                <h3 class="font-serif text-xl text-ink/70 italic text-center mb-3">Days at This House, Captured by Our Guests</h3>
+                <h3 class="font-serif text-xl text-ink/80 text-center mb-3">Days at This House, Captured by Our Guests</h3>
                 <p class="font-sans text-sm text-ink/60 text-center mb-10 max-w-xl mx-auto leading-loose">Photos taken by a family who actually stayed here. The sunset filling the windows, unhurried time together — a glimpse of everyday life at this house.</p>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-01.webp" alt="Sunset filling the bathroom window" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-01.webp" alt="Sunset filling the bathroom window" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-03.webp" alt="The Mikuriya sea seen through the large window" loading="lazy" width="1200" height="900" class="w-full h-full object-cover object-right hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-03.webp" alt="The Mikuriya sea seen through the large window" loading="lazy" width="1200" height="900" class="w-full h-full object-cover object-right">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-05.webp" alt="Bedroom with an ocean view" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-05.webp" alt="Bedroom with an ocean view" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-06.webp" alt="Japanese-Western room bathed in sunset light" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-06.webp" alt="Japanese-Western room bathed in sunset light" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-08.webp" alt="Spacious living and dining area" loading="lazy" width="1200" height="900" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-08.webp" alt="Spacious living and dining area" loading="lazy" width="1200" height="900" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-09.webp" alt="Enjoying table tennis indoors" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-09.webp" alt="Enjoying table tennis indoors" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-10.webp" alt="Playing the retro electone organ" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-10.webp" alt="Playing the retro electone organ" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-sm overflow-hidden">
-                        <img src="assets/images/guest/guest-11.webp" alt="A relaxing moment in the tatami room" loading="lazy" width="900" height="1200" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <img src="assets/images/guest/guest-11.webp" alt="A relaxing moment in the tatami room" loading="lazy" width="900" height="1200" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -716,35 +695,32 @@
 
         <section id="experience" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-charcoal/10">
             <div class="text-center mb-24">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Curated Experiences</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Experience in Mikuriya</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">Experience in Mikuriya</h2>
             </div>
 
             <div class="space-y-12">
-                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                <div class="border-b border-ink/10 pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                     <div class="md:w-1/2">
-                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">01</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">Fishing Gear Rental (Free)</h4>
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
                             We lend <strong>fishing rods and buckets</strong> (one for seawater, one for your catch) <strong>free of charge</strong>, set up for sabiki fishing. They are kept in the same storage shed as the BBQ grills, so help yourself whenever you like during your stay. The Mikuriya Fishing Port is just a 5-minute walk away — grill your fresh catch on the BBQ for dinner.<br>
-                            <span class="text-accent text-sm font-sans">※Consumables such as bait, sabiki rigs and bait cages are not provided — please buy your own at Komeri Hard &amp; Green Nawa (about a 3-minute drive). We recommend bringing scissors, a fish gripper, a cool box and ice as well｜No advance notice is needed</span>
+                            <span class="text-ink/70 text-sm font-sans">※Consumables such as bait, sabiki rigs and bait cages are not provided — please buy your own at Komeri Hard &amp; Green Nawa (about a 3-minute drive). We recommend bringing scissors, a fish gripper, a cool box and ice as well｜No advance notice is needed</span>
                         </p>
                     </div>
-                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/fishing-rental.webp" alt="Fishing rods and buckets lent free of charge at DAISEN UMIHOTARU" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" width="600" height="400">
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 rounded-sm">
+                        <img src="assets/images/fishing-rental.webp" alt="Fishing rods and buckets lent free of charge at DAISEN UMIHOTARU" loading="lazy" class="w-full h-full object-cover" width="600" height="400">
                     </div>
                 </div>
 
-                <div class="group border-b border-white pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 cursor-pointer hover:bg-white/50 transition-colors p-4 rounded-lg">
+                <div class="border-b border-ink/10 pb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                     <div class="md:w-1/2">
-                        <span class="font-serif text-4xl text-stone group-hover:text-accent transition-colors block mb-2">02</span>
                         <h4 class="font-mincho text-2xl font-medium mb-2 text-ink">Indoor Activities</h4>
                         <p class="font-mincho text-base text-ink/80 leading-loose max-w-md">
                             Ping-pong, board games, Electone. We have prepared activities so you won't get bored even on rainy days. Children can spend time without getting tired of it.
                         </p>
                     </div>
-                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 opacity-80 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 rounded-sm">
-                        <img src="assets/images/ping-pong.webp" alt="Ping pong" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" width="600" height="400">
+                    <div class="md:w-1/3 overflow-hidden h-48 w-full md:h-32 rounded-sm">
+                        <img src="assets/images/ping-pong.webp" alt="Ping pong" loading="lazy" class="w-full h-full object-cover" width="600" height="400">
                     </div>
                 </div>
             </div>
@@ -770,31 +746,30 @@
 
         <section id="dining" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-20">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Dining</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Savor the Local Flavors</h2>
-                <p class="font-mincho text-base text-ink/70 mt-6 max-w-2xl mx-auto leading-loose">Enjoy the bounty of Daisen's sea and mountains, your way — cook it yourself, leave it to an artisan, or dine out at a local favorite.</p>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">Meals</h2>
+                <p class="font-mincho text-base text-ink/70 mt-6 max-w-2xl mx-auto leading-loose">For meals, you can cook or barbecue at the house, book a soba chef to come to you, or walk to a nearby restaurant.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                    <div class="reveal-img-container aspect-[4/3] mb-6">
                         <!-- 仮画像。BBQ写真を後日ここへ差し替え予定 -->
                         <img src="assets/images/kitchen.webp" alt="BBQ and self-catering in the courtyard" loading="lazy" width="800" height="600" class="reveal-img">
                     </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">BBQ &amp; Self-Catering</h3>
+                    <h3 class="font-mincho text-xl text-ink mb-3">BBQ &amp; Self-Catering</h3>
                     <p class="font-mincho text-sm text-ink/75 leading-loose">Gather around the courtyard BBQ grill over charcoal. Pick up the day's fish and vegetables at Mikuriya port or the roadside station, and the table becomes part of the trip. A full kitchen is ready for serious home cooking, too.</p>
                 </div>
                 <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                    <div class="reveal-img-container aspect-[4/3] mb-6">
                         <img src="assets/images/soba-experience.webp" alt="A soba artisan visiting the villa" loading="lazy" width="800" height="600" class="reveal-img">
                     </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">Visiting Soba Artisan</h3>
+                    <h3 class="font-mincho text-xl text-ink mb-3">Visiting Soba Artisan</h3>
                     <p class="font-mincho text-sm text-ink/75 leading-loose">An artisan comes to your villa and hand-makes soba before your eyes. Choose the meal plan to taste it fresh, and add a hands-on session if you like. <a href="plan.en.html#soba" class="text-accent hover:text-ocean underline underline-offset-2">See rates &amp; details →</a></p>
                 </div>
                 <div class="group">
-                    <div class="reveal-img-container aspect-[4/3] shadow-md mb-6">
+                    <div class="reveal-img-container aspect-[4/3] mb-6">
                         <img src="assets/images/mikuri-dinner.webp" alt="Dishes at MIKURI, a restaurant within walking distance" loading="lazy" width="800" height="600" class="reveal-img">
                     </div>
-                    <h3 class="font-mincho text-xl text-ocean mb-3">MIKURI — a Restaurant Nearby</h3>
+                    <h3 class="font-mincho text-xl text-ink mb-3">MIKURI — a Restaurant Nearby</h3>
                     <p class="font-mincho text-sm text-ink/75 leading-loose">A short walk away, MIKURI builds its dishes on carefully chosen local ingredients. Perfect for a night on a longer stay, or when you'd rather not cook — a calm space to savor Daisen's harvest.</p>
                 </div>
             </div>
@@ -802,11 +777,10 @@
 
         <section class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
             <div class="text-center mb-16">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Four Seasons</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">Each Season, a New Story</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">Through the Seasons</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="season-card shadow-lg">
+                <div class="season-card">
                     <img src="assets/images/view.webp" alt="Summer swimming and BBQ" loading="lazy" class="season-card-bg">
                     <div class="season-card-content">
                         <span class="text-xs tracking-[0.2em] uppercase opacity-70">Summer</span>
@@ -814,7 +788,7 @@
                         <p class="text-sm mt-2 opacity-85 leading-relaxed">The beach is just 10m away. Enjoy swimming, kayaking and BBQ on the terrace under the sunset.</p>
                     </div>
                 </div>
-                <div class="season-card shadow-lg">
+                <div class="season-card">
                     <img src="assets/images/bath.webp" alt="Winter skiing and snow scenery" loading="lazy" class="season-card-bg">
                     <div class="season-card-content">
                         <span class="text-xs tracking-[0.2em] uppercase opacity-70">Winter</span>
@@ -822,7 +796,7 @@
                         <p class="text-sm mt-2 opacity-85 leading-relaxed">Just 20 min to Daisen Mountain Resort. Enjoy skiing by day and ocean snow views from the bath at night.</p>
                     </div>
                 </div>
-                <div class="season-card shadow-lg">
+                <div class="season-card">
                     <img src="assets/images/local-food.webp" alt="Spring and autumn nature" loading="lazy" class="season-card-bg">
                     <div class="season-card-content">
                         <span class="text-xs tracking-[0.2em] uppercase opacity-70">Spring &amp; Autumn</span>
@@ -835,8 +809,7 @@
 
         <section id="reviews" class="py-32 px-6 md:px-24 max-w-screen-xl mx-auto bg-white/40">
             <div class="text-center mb-20">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Guest Reviews</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">What Our Guests Say</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">What Our Guests Say</h2>
                 <div class="flex items-center justify-center gap-2 mt-4">
                     <div class="flex text-yellow-400">
                         <i data-lucide="star" class="w-5 h-5 fill-current"></i>
@@ -860,10 +833,7 @@
                 <button class="review-nav next" aria-label="Next review"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
                 <div class="review-track">
                     <div class="review-slide">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
-                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                            </div>
+                        <div class="bg-white p-8 border border-ink/10 rounded-sm relative flex flex-col h-full mx-2">
                             <div class="mb-4 mt-2">
                                 <h4 class="font-mincho text-lg font-bold text-ink">"The ocean view from the bath was stunning!"</h4>
                             </div>
@@ -872,15 +842,12 @@
                             </div>
                             <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
                                 <span>Aug 2025 / Family with children</span>
-                                <span class="text-accent font-bold">via Airbnb</span>
+                                <span>via Airbnb</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-slide">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
-                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                            </div>
+                        <div class="bg-white p-8 border border-ink/10 rounded-sm relative flex flex-col h-full mx-2">
                             <div class="mb-4 mt-2">
                                 <h4 class="font-mincho text-lg font-bold text-ink">"We had fun even indoors"</h4>
                             </div>
@@ -889,15 +856,12 @@
                             </div>
                             <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
                                 <span>Aug 2025 / 3 families, 10 guests</span>
-                                <span class="text-accent font-bold">via Airbnb</span>
+                                <span>via Airbnb</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-slide">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
-                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                            </div>
+                        <div class="bg-white p-8 border border-ink/10 rounded-sm relative flex flex-col h-full mx-2">
                             <div class="mb-4 mt-2">
                                 <h4 class="font-mincho text-lg font-bold text-ink">"Just 10m from the beach"</h4>
                             </div>
@@ -906,15 +870,12 @@
                             </div>
                             <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
                                 <span>Sep 2025 / Group of 3 families</span>
-                                <span class="text-accent font-bold">via Airbnb</span>
+                                <span>via Airbnb</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-slide">
-                        <div class="bg-white p-8 shadow-lg border-t-4 border-accent rounded-sm relative flex flex-col h-full mx-2">
-                            <div class="absolute -top-5 left-6 bg-accent text-white w-10 h-10 flex items-center justify-center rounded-full shadow-md">
-                                <i data-lucide="quote" class="w-5 h-5 fill-current"></i>
-                            </div>
+                        <div class="bg-white p-8 border border-ink/10 rounded-sm relative flex flex-col h-full mx-2">
                             <div class="mb-4 mt-2">
                                 <h4 class="font-mincho text-lg font-bold text-ink">"So huge we almost got lost!"</h4>
                             </div>
@@ -923,7 +884,7 @@
                             </div>
                             <div class="mt-6 pt-4 border-t border-dashed border-stone flex justify-between items-center text-xs font-sans text-ink/60 tracking-wider">
                                 <span>Aug 2025 / Family with children</span>
-                                <span class="text-accent font-bold">via Airbnb</span>
+                                <span>via Airbnb</span>
                             </div>
                         </div>
                     </div>
@@ -934,8 +895,7 @@
 
         <section id="faq" class="py-24 px-6 md:px-24 max-w-screen-xl mx-auto">
              <div class="text-center mb-16">
-                <span class="font-sans text-ocean text-xs tracking-[0.3em] uppercase">Q&A</span>
-                <h2 class="font-mincho text-3xl md:text-4xl mt-4 text-ink">FAQ</h2>
+                <h2 class="font-mincho text-3xl md:text-4xl text-ink">FAQ</h2>
             </div>
             
             <div class="faq-section max-w-3xl mx-auto">
@@ -1080,17 +1040,17 @@
                                 style="border:0;" 
                                 allowfullscreen="" 
                                 loading="lazy" 
-                                class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+                                class="absolute inset-0 w-full h-full"
                                 title="DAISEN UMIHOTARU Google Maps"
                             ></iframe>
                         </div>
                         <div class="mt-12">
                             <p class="font-mincho text-lg mb-6 text-ink/80">
-                                Spend an irreplaceable holiday<br>
-                                with everyone.
+                                Check availability and rates<br>
+                                on the booking page.
                             </p>
                             <div class="space-y-4">
-                                <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-4 font-serif tracking-widest hover:bg-ocean transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
+                                <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-4 font-serif tracking-widest hover:bg-ink transition-colors duration-300 shadow-md hover:shadow-lg rounded-sm">
                                     Book on Official Site
                                 </a>
                                 <div class="flex items-center justify-center gap-2 text-[11px] font-serif tracking-[0.25em] text-accent uppercase">
@@ -1110,8 +1070,8 @@
         </section>
     </main>
 
-    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="Booking bar">
-        <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm shadow-sm">
+    <div id="mobile-cta" class="fixed bottom-0 left-0 w-full z-50 xl:hidden bg-white/95 backdrop-blur-md border-t border-stone/30 px-4 py-3 opacity-0 translate-y-full transition-all duration-300" role="complementary" aria-label="Booking bar">
+        <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="block w-full bg-ocean text-white text-center py-3 text-sm font-serif tracking-widest hover:bg-ink transition-colors rounded-sm shadow-sm">
             Book on Official Site
         </a>
         <p class="text-[10px] text-ink/60 font-sans tracking-wider text-center mt-1">
@@ -1152,7 +1112,7 @@
                     <p class="text-xs leading-relaxed opacity-70 font-sans mb-4">
                         Booking through our official site<br>offers the best available rate.
                     </p>
-                    <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ocean transition-colors rounded-sm">
+                    <a onclick="gtag('event', 'reserve_button_click', {language: 'en'});" href="https://airhost124545.airhost.co/en/houses/807014" target="_blank" rel="noopener noreferrer" class="inline-block bg-ocean text-white px-5 py-2 text-xs font-serif tracking-widest hover:bg-ink transition-colors rounded-sm">
                         Book on Official Site
                     </a>
                 </div>
